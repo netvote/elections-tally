@@ -92,7 +92,7 @@ const tally = async (params) => {
                         let choice = choices[c];
 
                         if(choice.writeIn) {
-                            let cleanWriteIn = choice.writeIn.toLowerCase();
+                            let cleanWriteIn = choice.writeIn.toLowerCase().trim();
                             if(!result[ballotAddr][group][c]["writeIn"]){
                                 result[ballotAddr][group][c]["writeIn"] = {};
                             }
