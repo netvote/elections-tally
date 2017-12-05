@@ -61,14 +61,24 @@ const tally = async (params) => {
     let root = await protobuf.load("protocol/vote.proto");
     let Vote = root.lookupType("netvote.Vote");
     let privateKey = await getElectionPrivateKey(electionAddr);
+
+    console.log("privateKey"+privateKey);
+
     let ballotLength = await getElectionBallotCount(electionAddr);
+
+    let result = {};
 
     for(let b=0; b<ballotLength; b++){
         let ballotAddr = await getElectionBallotAt(electionAddr, b);
+
+        result[ballotAddr] = {};
+
         console.log("ballot="+ballotAddr);
         let ballotInfo = await collectBallotInfo(ballotAddr);
 
         for(let group of ballotInfo.groups){
+            result[ballotAddr][group] = [];
+
             let pools = ballotInfo.groupPools[group].pools;
             for (let pool of pools) {
                 for(let voterIndex=0; voterIndex<pool.voterCount; voterIndex++){
@@ -76,16 +86,33 @@ const tally = async (params) => {
                     let encodedVote = await decrypt(encryptedVote, privateKey);
                     let buff = Buffer.from(encodedVote, 'utf8');
                     let vote = Vote.decode(buff);
-                    console.log("index="+pool.index);
 
                     let choices = vote.ballotVotes[pool.index].choices;
+
+                    for(let c=0; c<choices.length; c++){
+                        if(!result[ballotAddr][group][c]){
+                            result[ballotAddr][group][c] = {};
+                        }
+
+                        let choice = choices[c].choice;
+
+                        //TODO: handle write-in (value_str)
+                        if(choice.valueStr) {
+                            //writein
+                        }else{
+                            if(!result[ballotAddr][group][c][""+choice.value]){
+                                result[ballotAddr][group][c][""+choice.value] = 0;
+                            }
+                            result[ballotAddr][group][c][""+choice.value]++;
+                        }
+                    }
 
                     voteCallback(vote);
                 }
             }
         }
     }
-    return {};
+    return result;
 };
 
 const decrypt = async (vote, privateKey) => {

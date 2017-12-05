@@ -14,7 +14,7 @@ let addr = program.args[0];
 tally.tally({
     electionAddress: addr
 }).then((res) => {
-    console.log(JSON.stringify(res));
+    console.log(JSON.stringify(res,null,"\t"));
 }).catch((err) => {
     console.error(err);
 });
