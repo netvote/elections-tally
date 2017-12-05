@@ -12,7 +12,7 @@ program
 let addr = program.args[0];
 
 tally.tally({
-    ballotAddress: addr
+    electionAddress: addr
 }).then((res) => {
     console.log(JSON.stringify(res));
 }).catch((err) => {

@@ -119,18 +119,18 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x60606040526002805460ff1916905560008054600160a060020a033316600160a060020a03199091161790556103fa8061003a6000396000f300606060405236156100805763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631785f53c811461008557806370480275146100a65780638da5cb5b146100c5578063a4e2d634146100f4578063a69df4b51461011b578063f2fde38b1461012e578063f83d08ba1461014d575b600080fd5b341561009057600080fd5b6100a4600160a060020a0360043516610160565b005b34156100b157600080fd5b6100a4600160a060020a03600435166101c1565b34156100d057600080fd5b6100d8610228565b604051600160a060020a03909116815260200160405180910390f35b34156100ff57600080fd5b610107610237565b604051901515815260200160405180910390f35b341561012657600080fd5b6100a4610240565b341561013957600080fd5b6100a4600160a060020a03600435166102b8565b341561015857600080fd5b6100a4610353565b60005433600160a060020a03908116911614806101955750600160a060020a03331660009081526001602052604090205460ff165b15156101a057600080fd5b600160a060020a03166000908152600160205260409020805460ff19169055565b60005433600160a060020a03908116911614806101f65750600160a060020a03331660009081526001602052604090205460ff165b151561020157600080fd5b600160a060020a03166000908152600160208190526040909120805460ff19169091179055565b600054600160a060020a031681565b60025460ff1690565b60005433600160a060020a03908116911614806102755750600160a060020a03331660009081526001602052604090205460ff165b151561028057600080fd5b6002805460ff191690557f19aad37188a1d3921e29eb3c66acf43d81975e107cb650d58cca878627955fd660405160405180910390a1565b60005433600160a060020a039081169116146102d357600080fd5b600160a060020a03811615156102e857600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b60005433600160a060020a03908116911614806103885750600160a060020a03331660009081526001602052604090205460ff165b151561039357600080fd5b6002805460ff191660011790557f0f2e5b6c72c6a4491efd919a9f9a409f324ef0708c11ee57d410c2cb06c0992b60405160405180910390a15600a165627a7a72305820395aa3032b2ebbc2acab2a380a12edb340df7ea4355410c5cc3f4b22160906670029",
-  "deployedBytecode": "0x606060405236156100805763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631785f53c811461008557806370480275146100a65780638da5cb5b146100c5578063a4e2d634146100f4578063a69df4b51461011b578063f2fde38b1461012e578063f83d08ba1461014d575b600080fd5b341561009057600080fd5b6100a4600160a060020a0360043516610160565b005b34156100b157600080fd5b6100a4600160a060020a03600435166101c1565b34156100d057600080fd5b6100d8610228565b604051600160a060020a03909116815260200160405180910390f35b34156100ff57600080fd5b610107610237565b604051901515815260200160405180910390f35b341561012657600080fd5b6100a4610240565b341561013957600080fd5b6100a4600160a060020a03600435166102b8565b341561015857600080fd5b6100a4610353565b60005433600160a060020a03908116911614806101955750600160a060020a03331660009081526001602052604090205460ff165b15156101a057600080fd5b600160a060020a03166000908152600160205260409020805460ff19169055565b60005433600160a060020a03908116911614806101f65750600160a060020a03331660009081526001602052604090205460ff165b151561020157600080fd5b600160a060020a03166000908152600160208190526040909120805460ff19169091179055565b600054600160a060020a031681565b60025460ff1690565b60005433600160a060020a03908116911614806102755750600160a060020a03331660009081526001602052604090205460ff165b151561028057600080fd5b6002805460ff191690557f19aad37188a1d3921e29eb3c66acf43d81975e107cb650d58cca878627955fd660405160405180910390a1565b60005433600160a060020a039081169116146102d357600080fd5b600160a060020a03811615156102e857600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b60005433600160a060020a03908116911614806103885750600160a060020a03331660009081526001602052604090205460ff165b151561039357600080fd5b6002805460ff191660011790557f0f2e5b6c72c6a4491efd919a9f9a409f324ef0708c11ee57d410c2cb06c0992b60405160405180910390a15600a165627a7a72305820395aa3032b2ebbc2acab2a380a12edb340df7ea4355410c5cc3f4b22160906670029",
-  "sourceMap": "1023:515:2:-;;;1103:22;;;-1:-1:-1;;1103:22:2;;;1120:5;494:18:9;;-1:-1:-1;;;;;502:10:9;494:18;-1:-1:-1;;;;;;494:18:9;;;;;;1023:515:2;;;;;;",
-  "deployedSourceMap": "1023:515:2:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1294:91:0;;;;;;;;;;-1:-1:-1;;;;;1294:91:0;;;;;;;1201:87;;;;;;;;;;-1:-1:-1;;;;;1201:87:0;;;;;238:20:9;;;;;;;;;;;;;;;-1:-1:-1;;;;;238:20:9;;;;;;;;;;;;;;1275:84:2;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1451:85;;;;;;;;;;;;827:169:9;;;;;;;;;;-1:-1:-1;;;;;827:169:9;;;;;1365:80:2;;;;;;;;;;;;1294:91:0;1143:5;;1129:10;-1:-1:-1;;;;;1129:19:0;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:0;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;-1:-1:-1;;;;;1352:18:0;1373:5;1352:18;;;:12;:18;;;;;:26;;-1:-1:-1;;1352:26:0;;;1294:91::o;1201:87::-;1143:5;;1129:10;-1:-1:-1;;;;;1129:19:0;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:0;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;-1:-1:-1;;;;;1256:18:0;;;;;1277:4;1256:18;;;;;;;;:25;;-1:-1:-1;;1256:25:0;;;;;;1201:87::o;238:20:9:-;;;-1:-1:-1;;;;;238:20:9;;:::o;1275:84:2:-;1343:9;;;;1275:84;:::o;1451:85::-;1143:5:0;;1129:10;-1:-1:-1;;;;;1129:19:0;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:0;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;1492:9:2;:17;;-1:-1:-1;;1492:17:2;;;1519:10;;;;;;;;;;1451:85::o;827:169:9:-;647:5;;633:10;-1:-1:-1;;;;;633:19:9;;;647:5;;633:19;625:28;;;;;;-1:-1:-1;;;;;903:22:9;;;;895:31;;;;;;953:5;;-1:-1:-1;;;;;932:37:9;;;;953:5;932:37;;;;;;;;;;975:5;:16;;-1:-1:-1;;975:16:9;-1:-1:-1;;;;;975:16:9;;;;;;;;;;827:169::o;1365:80:2:-;1143:5:0;;1129:10;-1:-1:-1;;;;;1129:19:0;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:0;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;1404:9:2;:16;;-1:-1:-1;;1404:16:2;1416:4;1404:16;;;1430:8;;;;;;;;;;1365:80::o",
-  "source": "// ------------------------------------------------------------------------------\n// This file is part of netvote.\n//\n// netvote is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// netvote is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with solidity.  If not, see <http://www.gnu.org/licenses/>\n//\n// (c) 2017 netvote contributors.\n//------------------------------------------------------------------------------\n\npragma solidity ^0.4.17;\n\nimport \"./Adminable.sol\";\n\n\n// Lockable\n// a global failsafe that allows an owner of a contract to temporarily lock the contract\ncontract Lockable is Adminable {\n    event Locked();\n    event Unlocked();\n\n    bool lockState = false;\n\n    modifier locked() {\n        require(lockState);\n        _;\n    }\n\n    modifier unlocked() {\n        require(!lockState);\n        _;\n    }\n\n    function isLocked() public constant returns (bool) {\n        return lockState;\n    }\n\n    function lock() public admin {\n        lockState = true;\n        Locked();\n    }\n\n    function unlock() public admin {\n        lockState = false;\n        Unlocked();\n    }\n}",
-  "sourcePath": "/Users/slanders/netvote/elections/contracts/Lockable.sol",
+  "bytecode": "0x60606040526002805460ff1916905560008054600160a060020a033316600160a060020a03199091161790556103fa8061003a6000396000f300606060405236156100805763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631785f53c811461008557806370480275146100a65780638da5cb5b146100c5578063a4e2d634146100f4578063a69df4b51461011b578063f2fde38b1461012e578063f83d08ba1461014d575b600080fd5b341561009057600080fd5b6100a4600160a060020a0360043516610160565b005b34156100b157600080fd5b6100a4600160a060020a03600435166101c1565b34156100d057600080fd5b6100d8610228565b604051600160a060020a03909116815260200160405180910390f35b34156100ff57600080fd5b610107610237565b604051901515815260200160405180910390f35b341561012657600080fd5b6100a4610240565b341561013957600080fd5b6100a4600160a060020a03600435166102b8565b341561015857600080fd5b6100a4610353565b60005433600160a060020a03908116911614806101955750600160a060020a03331660009081526001602052604090205460ff165b15156101a057600080fd5b600160a060020a03166000908152600160205260409020805460ff19169055565b60005433600160a060020a03908116911614806101f65750600160a060020a03331660009081526001602052604090205460ff165b151561020157600080fd5b600160a060020a03166000908152600160208190526040909120805460ff19169091179055565b600054600160a060020a031681565b60025460ff1690565b60005433600160a060020a03908116911614806102755750600160a060020a03331660009081526001602052604090205460ff165b151561028057600080fd5b6002805460ff191690557f19aad37188a1d3921e29eb3c66acf43d81975e107cb650d58cca878627955fd660405160405180910390a1565b60005433600160a060020a039081169116146102d357600080fd5b600160a060020a03811615156102e857600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b60005433600160a060020a03908116911614806103885750600160a060020a03331660009081526001602052604090205460ff165b151561039357600080fd5b6002805460ff191660011790557f0f2e5b6c72c6a4491efd919a9f9a409f324ef0708c11ee57d410c2cb06c0992b60405160405180910390a15600a165627a7a723058207e4c51a3f8725786b53bfc91772fda3e23ad8d4bb62a51f5afcf06a34f2bd84f0029",
+  "deployedBytecode": "0x606060405236156100805763ffffffff7c01000000000000000000000000000000000000000000000000000000006000350416631785f53c811461008557806370480275146100a65780638da5cb5b146100c5578063a4e2d634146100f4578063a69df4b51461011b578063f2fde38b1461012e578063f83d08ba1461014d575b600080fd5b341561009057600080fd5b6100a4600160a060020a0360043516610160565b005b34156100b157600080fd5b6100a4600160a060020a03600435166101c1565b34156100d057600080fd5b6100d8610228565b604051600160a060020a03909116815260200160405180910390f35b34156100ff57600080fd5b610107610237565b604051901515815260200160405180910390f35b341561012657600080fd5b6100a4610240565b341561013957600080fd5b6100a4600160a060020a03600435166102b8565b341561015857600080fd5b6100a4610353565b60005433600160a060020a03908116911614806101955750600160a060020a03331660009081526001602052604090205460ff165b15156101a057600080fd5b600160a060020a03166000908152600160205260409020805460ff19169055565b60005433600160a060020a03908116911614806101f65750600160a060020a03331660009081526001602052604090205460ff165b151561020157600080fd5b600160a060020a03166000908152600160208190526040909120805460ff19169091179055565b600054600160a060020a031681565b60025460ff1690565b60005433600160a060020a03908116911614806102755750600160a060020a03331660009081526001602052604090205460ff165b151561028057600080fd5b6002805460ff191690557f19aad37188a1d3921e29eb3c66acf43d81975e107cb650d58cca878627955fd660405160405180910390a1565b60005433600160a060020a039081169116146102d357600080fd5b600160a060020a03811615156102e857600080fd5b600054600160a060020a0380831691167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a36000805473ffffffffffffffffffffffffffffffffffffffff1916600160a060020a0392909216919091179055565b60005433600160a060020a03908116911614806103885750600160a060020a03331660009081526001602052604090205460ff165b151561039357600080fd5b6002805460ff191660011790557f0f2e5b6c72c6a4491efd919a9f9a409f324ef0708c11ee57d410c2cb06c0992b60405160405180910390a15600a165627a7a723058207e4c51a3f8725786b53bfc91772fda3e23ad8d4bb62a51f5afcf06a34f2bd84f0029",
+  "sourceMap": "1029:515:11:-;;;1109:22;;;-1:-1:-1;;1109:22:11;;;1126:5;494:18:13;;-1:-1:-1;;;;;502:10:13;494:18;-1:-1:-1;;;;;;494:18:13;;;;;;1029:515:11;;;;;;",
+  "deployedSourceMap": "1029:515:11:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1294:91:1;;;;;;;;;;-1:-1:-1;;;;;1294:91:1;;;;;;;1201:87;;;;;;;;;;-1:-1:-1;;;;;1201:87:1;;;;;238:20:13;;;;;;;;;;;;;;;-1:-1:-1;;;;;238:20:13;;;;;;;;;;;;;;1281:84:11;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1457:85;;;;;;;;;;;;827:169:13;;;;;;;;;;-1:-1:-1;;;;;827:169:13;;;;;1371:80:11;;;;;;;;;;;;1294:91:1;1143:5;;1129:10;-1:-1:-1;;;;;1129:19:1;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:1;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;-1:-1:-1;;;;;1352:18:1;1373:5;1352:18;;;:12;:18;;;;;:26;;-1:-1:-1;;1352:26:1;;;1294:91::o;1201:87::-;1143:5;;1129:10;-1:-1:-1;;;;;1129:19:1;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:1;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;-1:-1:-1;;;;;1256:18:1;;;;;1277:4;1256:18;;;;;;;;:25;;-1:-1:-1;;1256:25:1;;;;;;1201:87::o;238:20:13:-;;;-1:-1:-1;;;;;238:20:13;;:::o;1281:84:11:-;1349:9;;;;1281:84;:::o;1457:85::-;1143:5:1;;1129:10;-1:-1:-1;;;;;1129:19:1;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:1;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;1498:9:11;:17;;-1:-1:-1;;1498:17:11;;;1525:10;;;;;;;;;;1457:85::o;827:169:13:-;647:5;;633:10;-1:-1:-1;;;;;633:19:13;;;647:5;;633:19;625:28;;;;;;-1:-1:-1;;;;;903:22:13;;;;895:31;;;;;;953:5;;-1:-1:-1;;;;;932:37:13;;;;953:5;932:37;;;;;;;;;;975:5;:16;;-1:-1:-1;;975:16:13;-1:-1:-1;;;;;975:16:13;;;;;;;;;;827:169::o;1371:80:11:-;1143:5:1;;1129:10;-1:-1:-1;;;;;1129:19:1;;;1143:5;;1129:19;;:47;;-1:-1:-1;;;;;;1165:10:1;1152:24;;;;;:12;:24;;;;;;;;1129:47;1121:56;;;;;;;;1410:9:11;:16;;-1:-1:-1;;1410:16:11;1422:4;1410:16;;;1436:8;;;;;;;;;;1371:80::o",
+  "source": "// ------------------------------------------------------------------------------\n// This file is part of netvote.\n//\n// netvote is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// netvote is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with solidity.  If not, see <http://www.gnu.org/licenses/>\n//\n// (c) 2017 netvote contributors.\n//------------------------------------------------------------------------------\n\npragma solidity ^0.4.17;\n\nimport \"../auth/Adminable.sol\";\n\n\n// Lockable\n// a global failsafe that allows an owner of a contract to temporarily lock the contract\ncontract Lockable is Adminable {\n    event Locked();\n    event Unlocked();\n\n    bool lockState = false;\n\n    modifier locked() {\n        require(lockState);\n        _;\n    }\n\n    modifier unlocked() {\n        require(!lockState);\n        _;\n    }\n\n    function isLocked() public constant returns (bool) {\n        return lockState;\n    }\n\n    function lock() public admin {\n        lockState = true;\n        Locked();\n    }\n\n    function unlock() public admin {\n        lockState = false;\n        Unlocked();\n    }\n}",
+  "sourcePath": "/Users/slanders/netvote/elections/contracts/state/Lockable.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/slanders/netvote/elections/contracts/Lockable.sol",
+      "absolutePath": "/Users/slanders/netvote/elections/contracts/state/Lockable.sol",
       "exportedSymbols": {
         "Lockable": [
-          251
+          1894
         ]
       }
     },
@@ -144,41 +144,41 @@
             ".17"
           ]
         },
-        "id": 189,
+        "id": 1832,
         "name": "PragmaDirective",
-        "src": "868:24:2"
+        "src": "868:24:11"
       },
       {
         "attributes": {
-          "SourceUnit": 54,
-          "absolutePath": "/Users/slanders/netvote/elections/contracts/Adminable.sol",
-          "file": "./Adminable.sol",
-          "scope": 252,
+          "SourceUnit": 111,
+          "absolutePath": "/Users/slanders/netvote/elections/contracts/auth/Adminable.sol",
+          "file": "../auth/Adminable.sol",
+          "scope": 1895,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 190,
+        "id": 1833,
         "name": "ImportDirective",
-        "src": "894:25:2"
+        "src": "894:31:11"
       },
       {
         "attributes": {
           "contractDependencies": [
-            53,
-            1683
+            110,
+            1973
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            251,
-            53,
-            1683
+            1894,
+            110,
+            1973
           ],
           "name": "Lockable",
-          "scope": 252
+          "scope": 1895
         },
         "children": [
           {
@@ -192,17 +192,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Adminable",
-                  "referencedDeclaration": 53,
+                  "referencedDeclaration": 110,
                   "type": "contract Adminable"
                 },
-                "id": 191,
+                "id": 1834,
                 "name": "UserDefinedTypeName",
-                "src": "1044:9:2"
+                "src": "1050:9:11"
               }
             ],
-            "id": 192,
+            "id": 1835,
             "name": "InheritanceSpecifier",
-            "src": "1044:9:2"
+            "src": "1050:9:11"
           },
           {
             "attributes": {
@@ -217,14 +217,14 @@
                   ]
                 },
                 "children": [],
-                "id": 193,
+                "id": 1836,
                 "name": "ParameterList",
-                "src": "1072:2:2"
+                "src": "1078:2:11"
               }
             ],
-            "id": 194,
+            "id": 1837,
             "name": "EventDefinition",
-            "src": "1060:15:2"
+            "src": "1066:15:11"
           },
           {
             "attributes": {
@@ -239,20 +239,20 @@
                   ]
                 },
                 "children": [],
-                "id": 195,
+                "id": 1838,
                 "name": "ParameterList",
-                "src": "1094:2:2"
+                "src": "1100:2:11"
               }
             ],
-            "id": 196,
+            "id": 1839,
             "name": "EventDefinition",
-            "src": "1080:17:2"
+            "src": "1086:17:11"
           },
           {
             "attributes": {
               "constant": false,
               "name": "lockState",
-              "scope": 251,
+              "scope": 1894,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bool",
@@ -264,9 +264,9 @@
                   "name": "bool",
                   "type": "bool"
                 },
-                "id": 197,
+                "id": 1840,
                 "name": "ElementaryTypeName",
-                "src": "1103:4:2"
+                "src": "1109:4:11"
               },
               {
                 "attributes": {
@@ -281,14 +281,14 @@
                   "type": "bool",
                   "value": "false"
                 },
-                "id": 198,
+                "id": 1841,
                 "name": "Literal",
-                "src": "1120:5:2"
+                "src": "1126:5:11"
               }
             ],
-            "id": 199,
+            "id": 1842,
             "name": "VariableDeclaration",
-            "src": "1103:22:2"
+            "src": "1109:22:11"
           },
           {
             "attributes": {
@@ -303,9 +303,9 @@
                   ]
                 },
                 "children": [],
-                "id": 200,
+                "id": 1843,
                 "name": "ParameterList",
-                "src": "1147:2:2"
+                "src": "1153:2:11"
               },
               {
                 "children": [
@@ -337,13 +337,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1704,
+                              "referencedDeclaration": 1994,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 201,
+                            "id": 1844,
                             "name": "Identifier",
-                            "src": "1160:7:2"
+                            "src": "1166:7:11"
                           },
                           {
                             "attributes": {
@@ -351,38 +351,38 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 199,
+                              "referencedDeclaration": 1842,
                               "type": "bool",
                               "value": "lockState"
                             },
-                            "id": 202,
+                            "id": 1845,
                             "name": "Identifier",
-                            "src": "1168:9:2"
+                            "src": "1174:9:11"
                           }
                         ],
-                        "id": 203,
+                        "id": 1846,
                         "name": "FunctionCall",
-                        "src": "1160:18:2"
+                        "src": "1166:18:11"
                       }
                     ],
-                    "id": 204,
+                    "id": 1847,
                     "name": "ExpressionStatement",
-                    "src": "1160:18:2"
+                    "src": "1166:18:11"
                   },
                   {
-                    "id": 205,
+                    "id": 1848,
                     "name": "PlaceholderStatement",
-                    "src": "1188:1:2"
+                    "src": "1194:1:11"
                   }
                 ],
-                "id": 206,
+                "id": 1849,
                 "name": "Block",
-                "src": "1150:46:2"
+                "src": "1156:46:11"
               }
             ],
-            "id": 207,
+            "id": 1850,
             "name": "ModifierDefinition",
-            "src": "1132:64:2"
+            "src": "1138:64:11"
           },
           {
             "attributes": {
@@ -397,9 +397,9 @@
                   ]
                 },
                 "children": [],
-                "id": 208,
+                "id": 1851,
                 "name": "ParameterList",
-                "src": "1219:2:2"
+                "src": "1225:2:11"
               },
               {
                 "children": [
@@ -431,13 +431,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1704,
+                              "referencedDeclaration": 1994,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 209,
+                            "id": 1852,
                             "name": "Identifier",
-                            "src": "1232:7:2"
+                            "src": "1238:7:11"
                           },
                           {
                             "attributes": {
@@ -457,43 +457,43 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 199,
+                                  "referencedDeclaration": 1842,
                                   "type": "bool",
                                   "value": "lockState"
                                 },
-                                "id": 210,
+                                "id": 1853,
                                 "name": "Identifier",
-                                "src": "1241:9:2"
+                                "src": "1247:9:11"
                               }
                             ],
-                            "id": 211,
+                            "id": 1854,
                             "name": "UnaryOperation",
-                            "src": "1240:10:2"
+                            "src": "1246:10:11"
                           }
                         ],
-                        "id": 212,
+                        "id": 1855,
                         "name": "FunctionCall",
-                        "src": "1232:19:2"
+                        "src": "1238:19:11"
                       }
                     ],
-                    "id": 213,
+                    "id": 1856,
                     "name": "ExpressionStatement",
-                    "src": "1232:19:2"
+                    "src": "1238:19:11"
                   },
                   {
-                    "id": 214,
+                    "id": 1857,
                     "name": "PlaceholderStatement",
-                    "src": "1261:1:2"
+                    "src": "1267:1:11"
                   }
                 ],
-                "id": 215,
+                "id": 1858,
                 "name": "Block",
-                "src": "1222:47:2"
+                "src": "1228:47:11"
               }
             ],
-            "id": 216,
+            "id": 1859,
             "name": "ModifierDefinition",
-            "src": "1202:67:2"
+            "src": "1208:67:11"
           },
           {
             "attributes": {
@@ -505,7 +505,7 @@
               ],
               "name": "isLocked",
               "payable": false,
-              "scope": 251,
+              "scope": 1894,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -518,9 +518,9 @@
                   ]
                 },
                 "children": [],
-                "id": 217,
+                "id": 1860,
                 "name": "ParameterList",
-                "src": "1292:2:2"
+                "src": "1298:2:11"
               },
               {
                 "children": [
@@ -528,7 +528,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 224,
+                      "scope": 1867,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -541,25 +541,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 218,
+                        "id": 1861,
                         "name": "ElementaryTypeName",
-                        "src": "1320:4:2"
+                        "src": "1326:4:11"
                       }
                     ],
-                    "id": 219,
+                    "id": 1862,
                     "name": "VariableDeclaration",
-                    "src": "1320:4:2"
+                    "src": "1326:4:11"
                   }
                 ],
-                "id": 220,
+                "id": 1863,
                 "name": "ParameterList",
-                "src": "1319:6:2"
+                "src": "1325:6:11"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 220
+                      "functionReturnParameters": 1863
                     },
                     "children": [
                       {
@@ -568,28 +568,28 @@
                           "overloadedDeclarations": [
                             null
                           ],
-                          "referencedDeclaration": 199,
+                          "referencedDeclaration": 1842,
                           "type": "bool",
                           "value": "lockState"
                         },
-                        "id": 221,
+                        "id": 1864,
                         "name": "Identifier",
-                        "src": "1343:9:2"
+                        "src": "1349:9:11"
                       }
                     ],
-                    "id": 222,
+                    "id": 1865,
                     "name": "Return",
-                    "src": "1336:16:2"
+                    "src": "1342:16:11"
                   }
                 ],
-                "id": 223,
+                "id": 1866,
                 "name": "Block",
-                "src": "1326:33:2"
+                "src": "1332:33:11"
               }
             ],
-            "id": 224,
+            "id": 1867,
             "name": "FunctionDefinition",
-            "src": "1275:84:2"
+            "src": "1281:84:11"
           },
           {
             "attributes": {
@@ -598,7 +598,7 @@
               "isConstructor": false,
               "name": "lock",
               "payable": false,
-              "scope": 251,
+              "scope": 1894,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -611,9 +611,9 @@
                   ]
                 },
                 "children": [],
-                "id": 225,
+                "id": 1868,
                 "name": "ParameterList",
-                "src": "1378:2:2"
+                "src": "1384:2:11"
               },
               {
                 "attributes": {
@@ -622,9 +622,9 @@
                   ]
                 },
                 "children": [],
-                "id": 228,
+                "id": 1871,
                 "name": "ParameterList",
-                "src": "1394:0:2"
+                "src": "1400:0:11"
               },
               {
                 "attributes": {
@@ -639,18 +639,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 24,
+                      "referencedDeclaration": 81,
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 226,
+                    "id": 1869,
                     "name": "Identifier",
-                    "src": "1388:5:2"
+                    "src": "1394:5:11"
                   }
                 ],
-                "id": 227,
+                "id": 1870,
                 "name": "ModifierInvocation",
-                "src": "1388:5:2"
+                "src": "1394:5:11"
               },
               {
                 "children": [
@@ -673,13 +673,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 199,
+                              "referencedDeclaration": 1842,
                               "type": "bool",
                               "value": "lockState"
                             },
-                            "id": 229,
+                            "id": 1872,
                             "name": "Identifier",
-                            "src": "1404:9:2"
+                            "src": "1410:9:11"
                           },
                           {
                             "attributes": {
@@ -694,19 +694,19 @@
                               "type": "bool",
                               "value": "true"
                             },
-                            "id": 230,
+                            "id": 1873,
                             "name": "Literal",
-                            "src": "1416:4:2"
+                            "src": "1422:4:11"
                           }
                         ],
-                        "id": 231,
+                        "id": 1874,
                         "name": "Assignment",
-                        "src": "1404:16:2"
+                        "src": "1410:16:11"
                       }
                     ],
-                    "id": 232,
+                    "id": 1875,
                     "name": "ExpressionStatement",
-                    "src": "1404:16:2"
+                    "src": "1410:16:11"
                   },
                   {
                     "children": [
@@ -736,33 +736,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 194,
+                              "referencedDeclaration": 1837,
                               "type": "function ()",
                               "value": "Locked"
                             },
-                            "id": 233,
+                            "id": 1876,
                             "name": "Identifier",
-                            "src": "1430:6:2"
+                            "src": "1436:6:11"
                           }
                         ],
-                        "id": 234,
+                        "id": 1877,
                         "name": "FunctionCall",
-                        "src": "1430:8:2"
+                        "src": "1436:8:11"
                       }
                     ],
-                    "id": 235,
+                    "id": 1878,
                     "name": "ExpressionStatement",
-                    "src": "1430:8:2"
+                    "src": "1436:8:11"
                   }
                 ],
-                "id": 236,
+                "id": 1879,
                 "name": "Block",
-                "src": "1394:51:2"
+                "src": "1400:51:11"
               }
             ],
-            "id": 237,
+            "id": 1880,
             "name": "FunctionDefinition",
-            "src": "1365:80:2"
+            "src": "1371:80:11"
           },
           {
             "attributes": {
@@ -771,7 +771,7 @@
               "isConstructor": false,
               "name": "unlock",
               "payable": false,
-              "scope": 251,
+              "scope": 1894,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -784,9 +784,9 @@
                   ]
                 },
                 "children": [],
-                "id": 238,
+                "id": 1881,
                 "name": "ParameterList",
-                "src": "1466:2:2"
+                "src": "1472:2:11"
               },
               {
                 "attributes": {
@@ -795,9 +795,9 @@
                   ]
                 },
                 "children": [],
-                "id": 241,
+                "id": 1884,
                 "name": "ParameterList",
-                "src": "1482:0:2"
+                "src": "1488:0:11"
               },
               {
                 "attributes": {
@@ -812,18 +812,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 24,
+                      "referencedDeclaration": 81,
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 239,
+                    "id": 1882,
                     "name": "Identifier",
-                    "src": "1476:5:2"
+                    "src": "1482:5:11"
                   }
                 ],
-                "id": 240,
+                "id": 1883,
                 "name": "ModifierInvocation",
-                "src": "1476:5:2"
+                "src": "1482:5:11"
               },
               {
                 "children": [
@@ -846,13 +846,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 199,
+                              "referencedDeclaration": 1842,
                               "type": "bool",
                               "value": "lockState"
                             },
-                            "id": 242,
+                            "id": 1885,
                             "name": "Identifier",
-                            "src": "1492:9:2"
+                            "src": "1498:9:11"
                           },
                           {
                             "attributes": {
@@ -867,19 +867,19 @@
                               "type": "bool",
                               "value": "false"
                             },
-                            "id": 243,
+                            "id": 1886,
                             "name": "Literal",
-                            "src": "1504:5:2"
+                            "src": "1510:5:11"
                           }
                         ],
-                        "id": 244,
+                        "id": 1887,
                         "name": "Assignment",
-                        "src": "1492:17:2"
+                        "src": "1498:17:11"
                       }
                     ],
-                    "id": 245,
+                    "id": 1888,
                     "name": "ExpressionStatement",
-                    "src": "1492:17:2"
+                    "src": "1498:17:11"
                   },
                   {
                     "children": [
@@ -909,45 +909,45 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 196,
+                              "referencedDeclaration": 1839,
                               "type": "function ()",
                               "value": "Unlocked"
                             },
-                            "id": 246,
+                            "id": 1889,
                             "name": "Identifier",
-                            "src": "1519:8:2"
+                            "src": "1525:8:11"
                           }
                         ],
-                        "id": 247,
+                        "id": 1890,
                         "name": "FunctionCall",
-                        "src": "1519:10:2"
+                        "src": "1525:10:11"
                       }
                     ],
-                    "id": 248,
+                    "id": 1891,
                     "name": "ExpressionStatement",
-                    "src": "1519:10:2"
+                    "src": "1525:10:11"
                   }
                 ],
-                "id": 249,
+                "id": 1892,
                 "name": "Block",
-                "src": "1482:54:2"
+                "src": "1488:54:11"
               }
             ],
-            "id": 250,
+            "id": 1893,
             "name": "FunctionDefinition",
-            "src": "1451:85:2"
+            "src": "1457:85:11"
           }
         ],
-        "id": 251,
+        "id": 1894,
         "name": "ContractDefinition",
-        "src": "1023:515:2"
+        "src": "1029:515:11"
       }
     ],
-    "id": 252,
+    "id": 1895,
     "name": "SourceUnit",
-    "src": "868:670:2"
+    "src": "868:676:11"
   },
   "networks": {},
   "schemaVersion": "1.0.0",
-  "updatedAt": "2017-11-27T21:41:59.008Z"
+  "updatedAt": "2017-12-04T16:50:26.001Z"
 }

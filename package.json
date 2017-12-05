@@ -19,7 +19,9 @@
   "homepage": "https://github.com/netvote/elections-tally#readme",
   "dependencies": {
     "commander": "^2.12.1",
+    "crypto2": "^0.3.2",
     "ethereumjs-remote": "^2.2.0",
+    "protobufjs": "^6.8.3",
     "web3-utils": "^1.0.0-beta.26"
   }
 }
