@@ -19,21 +19,6 @@ let voteCallback = (vote)=>{
     log("vote="+JSON.stringify(vote));
 };
 
-const electionAt = (addr) =>{
-    return contract(electionAbi, addr);
-};
-
-const ballotAt = (addr) =>{
-    return contract(ballotAbi, addr);
-};
-
-const poolAt = (addr) =>{
-  return contract(poolAbi, addr);
-};
-
-const contract = (abi, addr) =>{
-    return eth.contract(abi).at(addr);
-};
 
 /**
  * Wrapper function that tallies results for a ballot
@@ -81,36 +66,41 @@ const tally = async (params) => {
                     let encodedVote = await decrypt(encryptedVote, privateKey);
                     let buff = Buffer.from(encodedVote, 'utf8');
                     let vote = Vote.decode(buff);
-
                     let choices = vote.ballotVotes[pool.index].choices;
 
-                    for(let c=0; c<choices.length; c++){
-                        if(!result[ballotAddr][group][c]){
-                            result[ballotAddr][group][c] = {};
-                        }
+                    result = addVoteToResult(choices, ballotAddr, group, result);
 
-                        let choice = choices[c];
-
-                        if(choice.writeIn) {
-                            let cleanWriteIn = choice.writeIn.toLowerCase().trim();
-                            if(!result[ballotAddr][group][c]["writeIn"]){
-                                result[ballotAddr][group][c]["writeIn"] = {};
-                            }
-                            if(!result[ballotAddr][group][c]["writeIn"][cleanWriteIn]){
-                                result[ballotAddr][group][c]["writeIn"][cleanWriteIn] = 0;
-                            }
-                            result[ballotAddr][group][c]["writeIn"][cleanWriteIn]++;
-                        }else{
-                            if(!result[ballotAddr][group][c][""+choice.selection]){
-                                result[ballotAddr][group][c][""+choice.selection] = 0;
-                            }
-                            result[ballotAddr][group][c][""+choice.selection]++;
-                        }
-                    }
-
-                    voteCallback(vote);
+                    voteCallback(result);
                 }
             }
+        }
+    }
+    return result;
+};
+
+const addVoteToResult = (choices, ballotAddr, group, result) => {
+
+    for(let c=0; c<choices.length; c++){
+        if(!result[ballotAddr][group][c]){
+            result[ballotAddr][group][c] = {};
+        }
+
+        let choice = choices[c];
+
+        if(choice.writeIn) {
+            let cleanWriteIn = choice.writeIn.toLowerCase().trim();
+            if(!result[ballotAddr][group][c]["writeIn"]){
+                result[ballotAddr][group][c]["writeIn"] = {};
+            }
+            if(!result[ballotAddr][group][c]["writeIn"][cleanWriteIn]){
+                result[ballotAddr][group][c]["writeIn"][cleanWriteIn] = 0;
+            }
+            result[ballotAddr][group][c]["writeIn"][cleanWriteIn]++;
+        }else{
+            if(!result[ballotAddr][group][c][""+choice.selection]){
+                result[ballotAddr][group][c][""+choice.selection] = 0;
+            }
+            result[ballotAddr][group][c][""+choice.selection]++;
         }
     }
     return result;
@@ -157,6 +147,22 @@ const collectBallotInfo = async (ballotAddr) => {
         }
     }
     return res;
+};
+
+const electionAt = (addr) =>{
+    return contract(electionAbi, addr);
+};
+
+const ballotAt = (addr) =>{
+    return contract(ballotAbi, addr);
+};
+
+const poolAt = (addr) =>{
+    return contract(poolAbi, addr);
+};
+
+const contract = (abi, addr) =>{
+    return eth.contract(abi).at(addr);
 };
 
 const getElectionPrivateKey = async (electionAddr) => {
