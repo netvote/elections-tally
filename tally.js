@@ -56,13 +56,9 @@ const tally = async (params) => {
     eth = new Eth(new Eth.HttpProvider(tallyProvider));
     let electionAddr = params.electionAddress;
 
-    console.log("electionAddr = "+electionAddr);
-
     let root = await protobuf.load("protocol/vote.proto");
     let Vote = root.lookupType("netvote.Vote");
     let privateKey = await getElectionPrivateKey(electionAddr);
-
-    console.log("privateKey"+privateKey);
 
     let ballotLength = await getElectionBallotCount(electionAddr);
 
@@ -73,7 +69,6 @@ const tally = async (params) => {
 
         result[ballotAddr] = {};
 
-        console.log("ballot="+ballotAddr);
         let ballotInfo = await collectBallotInfo(ballotAddr);
 
         for(let group of ballotInfo.groups){
@@ -94,16 +89,22 @@ const tally = async (params) => {
                             result[ballotAddr][group][c] = {};
                         }
 
-                        let choice = choices[c].choice;
+                        let choice = choices[c];
 
-                        //TODO: handle write-in (value_str)
-                        if(choice.valueStr) {
-                            //writein
-                        }else{
-                            if(!result[ballotAddr][group][c][""+choice.value]){
-                                result[ballotAddr][group][c][""+choice.value] = 0;
+                        if(choice.writeIn) {
+                            let cleanWriteIn = choice.writeIn.toLowerCase();
+                            if(!result[ballotAddr][group][c]["writeIn"]){
+                                result[ballotAddr][group][c]["writeIn"] = {};
                             }
-                            result[ballotAddr][group][c][""+choice.value]++;
+                            if(!result[ballotAddr][group][c]["writeIn"][cleanWriteIn]){
+                                result[ballotAddr][group][c]["writeIn"][cleanWriteIn] = 0;
+                            }
+                            result[ballotAddr][group][c]["writeIn"][cleanWriteIn]++;
+                        }else{
+                            if(!result[ballotAddr][group][c][""+choice.selection]){
+                                result[ballotAddr][group][c][""+choice.selection] = 0;
+                            }
+                            result[ballotAddr][group][c][""+choice.selection]++;
                         }
                     }
 
