@@ -507,7 +507,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1994,
+                              "referencedDeclaration": 1988,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -728,7 +728,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1994,
+                              "referencedDeclaration": 1988,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -949,7 +949,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1994,
+                              "referencedDeclaration": 1988,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1170,7 +1170,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1994,
+                              "referencedDeclaration": 1988,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1598,7 +1598,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1994,
+                              "referencedDeclaration": 1988,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -2189,7 +2189,11 @@
     "name": "SourceUnit",
     "src": "868:1411:10"
   },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
   "networks": {},
-  "schemaVersion": "1.0.0",
-  "updatedAt": "2017-12-04T16:50:26.001Z"
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-05T18:15:07.285Z"
 }

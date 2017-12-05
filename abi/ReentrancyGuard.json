@@ -1,9 +1,9 @@
 {
   "contractName": "ReentrancyGuard",
   "abi": [],
-  "bytecode": "0x60606040526000805460ff191690553415601857600080fd5b60358060256000396000f3006060604052600080fd00a165627a7a723058204cf8bc0fbab376a0e4579a37f6562a4040b559fe120d7824290892da69a7d81c0029",
-  "deployedBytecode": "0x6060604052600080fd00a165627a7a723058204cf8bc0fbab376a0e4579a37f6562a4040b559fe120d7824290892da69a7d81c0029",
-  "sourceMap": "222:643:12:-;;;349:5;319:35;;-1:-1:-1;;319:35:12;;;222:643;;;;;;;;;;;;;;",
+  "bytecode": "0x606060405260008060006101000a81548160ff0219169083151502179055503415602857600080fd5b60358060356000396000f3006060604052600080fd00a165627a7a72305820535699b0fcc904b92d478dbac24443e8d54a03889f7fdd37fee3cd21931ec83c0029",
+  "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820535699b0fcc904b92d478dbac24443e8d54a03889f7fdd37fee3cd21931ec83c0029",
+  "sourceMap": "222:643:12:-;;;349:5;319:35;;;;;;;;;;;;;;;;;;;;222:643;;;;;;;;;;;;;;",
   "deployedSourceMap": "222:643:12:-;;;;;",
   "source": "pragma solidity ^0.4.11;\n\n/**\n * @title Helps contracts guard agains rentrancy attacks.\n * @author Remco Bloemen <remco@2π.com>\n * @notice If you mark a function `nonReentrant`, you should also\n * mark it `external`.\n */\ncontract ReentrancyGuard {\n\n  /**\n   * @dev We use a single lock for the whole contract.\n   */\n  bool private rentrancy_lock = false;\n\n  /**\n   * @dev Prevents a contract from calling itself, directly or indirectly.\n   * @notice If you mark a function `nonReentrant`, you should also\n   * mark it `external`. Calling one nonReentrant function from\n   * another is not supported. Instead, you can implement a\n   * `private` function doing the actual work, and a `external`\n   * wrapper marked as `nonReentrant`.\n   */\n  modifier nonReentrant() {\n    require(!rentrancy_lock);\n    rentrancy_lock = true;\n    _;\n    rentrancy_lock = false;\n  }\n\n}\n",
   "sourcePath": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
@@ -137,7 +137,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1994,
+                              "referencedDeclaration": 1988,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -319,7 +319,11 @@
     "name": "SourceUnit",
     "src": "0:866:12"
   },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
+  },
   "networks": {},
-  "schemaVersion": "1.0.0",
-  "updatedAt": "2017-12-04T16:50:26.002Z"
+  "schemaVersion": "1.0.1",
+  "updatedAt": "2017-12-05T18:15:07.285Z"
 }

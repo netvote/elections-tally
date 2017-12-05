@@ -1,16 +1,15 @@
 'use strict';
 
-const ethereumRemote = require('ethereumjs-remote');
 const ballotAbi = require('./abi/Ballot.json').abi;
 const electionAbi = require('./abi/Election.json').abi;
 const poolAbi = require('./abi/RegistrationPool.json').abi;
 const protobuf = require("protobufjs");
 const crypto2 = require('crypto2');
 
-
-let Web3Utils = require('web3-utils');
-
+const Eth = require('ethjs');
 let tallyProvider = "http://localhost:9545/";
+
+let eth;
 
 let log = (msg) => {
     console.log(msg);
@@ -18,6 +17,22 @@ let log = (msg) => {
 
 let voteCallback = (vote)=>{
     log("vote="+JSON.stringify(vote));
+};
+
+const electionAt = (addr) =>{
+    return contract(electionAbi, addr);
+};
+
+const ballotAt = (addr) =>{
+    return contract(ballotAbi, addr);
+};
+
+const poolAt = (addr) =>{
+  return contract(poolAbi, addr);
+};
+
+const contract = (abi, addr) =>{
+    return eth.contract(abi).at(addr);
 };
 
 /**
@@ -38,19 +53,19 @@ const tally = async (params) => {
         voteCallback = params.voteCallback;
     }
 
+    eth = new Eth(new Eth.HttpProvider(tallyProvider));
     let electionAddr = params.electionAddress;
 
     console.log("electionAddr = "+electionAddr);
 
     let root = await protobuf.load("protocol/vote.proto");
     let Vote = root.lookupType("netvote.Vote");
-
     let privateKey = await getElectionPrivateKey(electionAddr);
-
     let ballotLength = await getElectionBallotCount(electionAddr);
 
     for(let b=0; b<ballotLength; b++){
         let ballotAddr = await getElectionBallotAt(electionAddr, b);
+        console.log("ballot="+ballotAddr);
         let ballotInfo = await collectBallotInfo(ballotAddr);
 
         for(let group of ballotInfo.groups){
@@ -61,6 +76,10 @@ const tally = async (params) => {
                     let encodedVote = await decrypt(encryptedVote, privateKey);
                     let buff = Buffer.from(encodedVote, 'utf8');
                     let vote = Vote.decode(buff);
+                    console.log("index="+pool.index);
+
+                    let choices = vote.ballotVotes[pool.index].choices;
+
                     voteCallback(vote);
                 }
             }
@@ -89,7 +108,7 @@ const collectBallotInfo = async (ballotAddr) => {
         groupPools: {}
     };
 
-    res.groups = await getGroups(ballotAddr);
+    res.groups = (await getGroups(ballotAddr));
 
     for (let group of res.groups) {
         res.groupPools[group] = {
@@ -101,9 +120,11 @@ const collectBallotInfo = async (ballotAddr) => {
         for(let i=0; i<poolCount; i++){
             let poolAddress = await getGroupPool(ballotAddr, group, i);
             let voterCount = await getPoolVoterCount(ballotAddr, poolAddress);
+            let ballotIndex = await getPoolBallotIndex(poolAddress, ballotAddr);
             res.groupPools[group].pools.push({
                address: poolAddress,
-               voterCount: voterCount
+               voterCount: voterCount,
+               index: ballotIndex
             });
         }
     }
@@ -111,37 +132,30 @@ const collectBallotInfo = async (ballotAddr) => {
 };
 
 const getElectionPrivateKey = async (electionAddr) => {
-    let pk = await remoteElectionCall(electionAddr, "privateKey", []);
-    let pkStr = Web3Utils.toAscii(pk);
-    return pkStr.substring(pkStr.indexOf("-"), pkStr.lastIndexOf("-")+1);
+    return (await electionAt(electionAddr).privateKey())[0];
 };
 
 const getElectionPoolCount = async (electionAddr) => {
-    let pc = await remoteElectionCall(electionAddr, "getPoolCount", []);
-    return toNumber(pc);
+    return (await electionAt(electionAddr).getPoolCount())[0];
 };
 
 const getElectionPoolAt = async (electionAddr, index) => {
-    let p = await remoteElectionCall(electionAddr, "getPool", [index]);
-    return toAddress(p);
+    return (await electionAt(electionAddr).getPool(index))[0];
 };
 
 const getElectionBallotCount = async (electionAddr) => {
-    let pc = await remoteElectionCall(electionAddr, "getBallotCount", []);
-    return toNumber(pc);
+    return (await electionAt(electionAddr).getBallotCount())[0];
 };
 
 const getElectionBallotAt = async (electionAddr, index) => {
-    let p = await remoteElectionCall(electionAddr, "getBallot", [index]);
-    return toAddress(p);
+    return (await electionAt(electionAddr).getBallot(index))[0];
 };
-
 
 const getGroups = async (ballotAddr) => {
     let res = [];
-    let c = await remoteBallotCall(ballotAddr, "getGroupCount", []);
+    let c = (await ballotAt(ballotAddr).getGroupCount())[0];
     for(let i=0; i<c; i++){
-        let g = await remoteBallotCall(ballotAddr, "getGroup", [i]);
+        let g = (await ballotAt(ballotAddr).getGroup(i))[0];
         g = toString(g);
         res.push(g);
     }
@@ -150,68 +164,36 @@ const getGroups = async (ballotAddr) => {
 };
 
 const toString = (hex) => {
-   return Web3Utils.toAscii(hex).replace(/[\u0000-\u0010]/g, '').trim();
-};
-
-const toAddress = (padded) => {
-    return padded.replace("0x000000000000000000000000","0x");
-};
-
-const toNumber = (num) =>{
-    return Web3Utils.hexToNumber(num);
+   return Eth.toAscii(hex).replace(/[\u0000-\u0010]/g, '').trim();
 };
 
 const getGroupPoolCount = async (ballotAddr, group) => {
-    let c = await remoteBallotCall(ballotAddr, "groupPoolCount", [group]);
-    return toNumber(c);
+    return (await ballotAt(ballotAddr).groupPoolCount(Eth.fromAscii(group)))[0];
 };
 
 const getGroupPool = async (ballotAddr, group, index) => {
-    let pool = await remoteBallotCall(ballotAddr, "getGroupPool", [group, index]);
-    return toAddress(pool);
+    return (await ballotAt(ballotAddr).getGroupPool(Eth.fromAscii(group), index))[0];
+};
+
+const getPoolBallotIndex = async (poolAddr, ballotAddr) => {
+    return (await poolAt(poolAddr).getBallotIndex(ballotAddr))[0];
 };
 
 const getPoolVoterCount = async (ballotAddr, poolAddr) => {
-    let c = await remoteBallotCall(ballotAddr, "getPoolVoterCount", [poolAddr]);
-    return toNumber(c);
+    return (await ballotAt(ballotAddr).getPoolVoterCount(poolAddr))[0];
 };
 
 const getPoolVote = async (ballotAddr, poolAddr, index) => {
     let vtr = await getPoolVoter(ballotAddr, poolAddr, index);
-    let vote = await getEncryptedVote(poolAddr, vtr);
-    let vt = Web3Utils.hexToAscii(vote);
-    return vt.substring(vt.indexOf("X")+1)
+    return await getEncryptedVote(poolAddr, vtr);
 };
 
 const getPoolVoter = async (ballotAddr, poolAddr, index) => {
-    let pv = await remoteBallotCall(ballotAddr, "getPoolVoter", [poolAddr, index]);
-    return toAddress(pv);
+    return (await ballotAt(ballotAddr).getPoolVoter(poolAddr, index))[0];
 };
 
-const getEncryptedVote = (poolAddr, voterAddr) => {
-    return remotePoolCall(poolAddr, "getVote", [voterAddr]);
-};
-
-const remoteElectionCall = (addr, func, params) => {
-    return remoteCall(addr, electionAbi, func, params);
-};
-
-const remoteBallotCall = (addr, func, params) => {
-    return remoteCall(addr, ballotAbi, func, params);
-};
-
-const remotePoolCall = (addr, func, params) => {
-    return remoteCall(addr, poolAbi, func, params);
-};
-
-const remoteCall = (addr, abi, func, params) => {
-    return ethereumRemote.call({
-        contractAddress: addr,
-        abi: abi,
-        functionName: func,
-        functionArguments: params,
-        provider: tallyProvider
-    })
+const getEncryptedVote = async (poolAddr, voterAddr) => {
+    return (await poolAt(poolAddr).getVote(voterAddr))[0];
 };
 
 module.exports = {
