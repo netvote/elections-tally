@@ -316,7 +316,7 @@
       "absolutePath": "/Users/slanders/netvote/elections/contracts/links/BallotRegistry.sol",
       "exportedSymbols": {
         "BallotRegistry": [
-          1591
+          1668
         ]
       }
     },
@@ -330,60 +330,60 @@
             ".17"
           ]
         },
-        "id": 1498,
+        "id": 1575,
         "name": "PragmaDirective",
-        "src": "868:24:8"
+        "src": "868:24:7"
       },
       {
         "attributes": {
-          "SourceUnit": 1831,
+          "SourceUnit": 1908,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/state/ElectionPhaseable.sol",
           "file": "../state/ElectionPhaseable.sol",
-          "scope": 1592,
+          "scope": 1669,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1499,
+        "id": 1576,
         "name": "ImportDirective",
-        "src": "894:40:8"
+        "src": "894:40:7"
       },
       {
         "attributes": {
-          "SourceUnit": 1306,
+          "SourceUnit": 1383,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/lib/AddressSet.sol",
           "file": "../lib/AddressSet.sol",
-          "scope": 1592,
+          "scope": 1669,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1500,
+        "id": 1577,
         "name": "ImportDirective",
-        "src": "935:31:8"
+        "src": "935:31:7"
       },
       {
         "attributes": {
           "contractDependencies": [
-            110,
-            1830,
-            1894,
-            1973
+            53,
+            1907,
+            1971,
+            2050
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            1591,
-            1830,
-            1894,
-            110,
-            1973
+            1668,
+            1907,
+            1971,
+            53,
+            2050
           ],
           "name": "BallotRegistry",
-          "scope": 1592
+          "scope": 1669
         },
         "children": [
           {
@@ -397,17 +397,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Adminable",
-                  "referencedDeclaration": 110,
+                  "referencedDeclaration": 53,
                   "type": "contract Adminable"
                 },
-                "id": 1501,
+                "id": 1578,
                 "name": "UserDefinedTypeName",
-                "src": "996:9:8"
+                "src": "996:9:7"
               }
             ],
-            "id": 1502,
+            "id": 1579,
             "name": "InheritanceSpecifier",
-            "src": "996:9:8"
+            "src": "996:9:7"
           },
           {
             "attributes": {
@@ -420,17 +420,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ElectionPhaseable",
-                  "referencedDeclaration": 1830,
+                  "referencedDeclaration": 1907,
                   "type": "contract ElectionPhaseable"
                 },
-                "id": 1503,
+                "id": 1580,
                 "name": "UserDefinedTypeName",
-                "src": "1007:17:8"
+                "src": "1007:17:7"
               }
             ],
-            "id": 1504,
+            "id": 1581,
             "name": "InheritanceSpecifier",
-            "src": "1007:17:8"
+            "src": "1007:17:7"
           },
           {
             "children": [
@@ -438,34 +438,34 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet",
-                  "referencedDeclaration": 1305,
+                  "referencedDeclaration": 1382,
                   "type": "library AddressSet"
                 },
-                "id": 1505,
+                "id": 1582,
                 "name": "UserDefinedTypeName",
-                "src": "1037:10:8"
+                "src": "1037:10:7"
               },
               {
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet.SetData",
-                  "referencedDeclaration": 1128,
+                  "referencedDeclaration": 1205,
                   "type": "struct AddressSet.SetData storage pointer"
                 },
-                "id": 1506,
+                "id": 1583,
                 "name": "UserDefinedTypeName",
-                "src": "1052:18:8"
+                "src": "1052:18:7"
               }
             ],
-            "id": 1507,
+            "id": 1584,
             "name": "UsingForDirective",
-            "src": "1031:40:8"
+            "src": "1031:40:7"
           },
           {
             "attributes": {
               "constant": false,
               "name": "ballotSet",
-              "scope": 1591,
+              "scope": 1668,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "struct AddressSet.SetData storage ref",
@@ -477,17 +477,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet.SetData",
-                  "referencedDeclaration": 1128,
+                  "referencedDeclaration": 1205,
                   "type": "struct AddressSet.SetData storage pointer"
                 },
-                "id": 1508,
+                "id": 1585,
                 "name": "UserDefinedTypeName",
-                "src": "1077:18:8"
+                "src": "1077:18:7"
               }
             ],
-            "id": 1509,
+            "id": 1586,
             "name": "VariableDeclaration",
-            "src": "1077:28:8"
+            "src": "1077:28:7"
           },
           {
             "attributes": {
@@ -499,7 +499,7 @@
               ],
               "name": "getBallotIndex",
               "payable": false,
-              "scope": 1591,
+              "scope": 1668,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -511,7 +511,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1522,
+                      "scope": 1599,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -524,19 +524,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1510,
+                        "id": 1587,
                         "name": "ElementaryTypeName",
-                        "src": "1136:7:8"
+                        "src": "1136:7:7"
                       }
                     ],
-                    "id": 1511,
+                    "id": 1588,
                     "name": "VariableDeclaration",
-                    "src": "1136:9:8"
+                    "src": "1136:9:7"
                   }
                 ],
-                "id": 1512,
+                "id": 1589,
                 "name": "ParameterList",
-                "src": "1135:11:8"
+                "src": "1135:11:7"
               },
               {
                 "children": [
@@ -544,7 +544,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1522,
+                      "scope": 1599,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -557,25 +557,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1513,
+                        "id": 1590,
                         "name": "ElementaryTypeName",
-                        "src": "1172:7:8"
+                        "src": "1172:7:7"
                       }
                     ],
-                    "id": 1514,
+                    "id": 1591,
                     "name": "VariableDeclaration",
-                    "src": "1172:7:8"
+                    "src": "1172:7:7"
                   }
                 ],
-                "id": 1515,
+                "id": 1592,
                 "name": "ParameterList",
-                "src": "1171:9:8"
+                "src": "1171:9:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1515
+                      "functionReturnParameters": 1592
                     },
                     "children": [
                       {
@@ -606,7 +606,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "indexOf",
-                              "referencedDeclaration": 1143,
+                              "referencedDeclaration": 1220,
                               "type": "function (struct AddressSet.SetData storage pointer,address) view returns (uint256)"
                             },
                             "children": [
@@ -616,18 +616,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1509,
+                                  "referencedDeclaration": 1586,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1516,
+                                "id": 1593,
                                 "name": "Identifier",
-                                "src": "1198:9:8"
+                                "src": "1198:9:7"
                               }
                             ],
-                            "id": 1517,
+                            "id": 1594,
                             "name": "MemberAccess",
-                            "src": "1198:17:8"
+                            "src": "1198:17:7"
                           },
                           {
                             "attributes": {
@@ -635,33 +635,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1511,
+                              "referencedDeclaration": 1588,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1518,
+                            "id": 1595,
                             "name": "Identifier",
-                            "src": "1216:1:8"
+                            "src": "1216:1:7"
                           }
                         ],
-                        "id": 1519,
+                        "id": 1596,
                         "name": "FunctionCall",
-                        "src": "1198:20:8"
+                        "src": "1198:20:7"
                       }
                     ],
-                    "id": 1520,
+                    "id": 1597,
                     "name": "Return",
-                    "src": "1191:27:8"
+                    "src": "1191:27:7"
                   }
                 ],
-                "id": 1521,
+                "id": 1598,
                 "name": "Block",
-                "src": "1181:44:8"
+                "src": "1181:44:7"
               }
             ],
-            "id": 1522,
+            "id": 1599,
             "name": "FunctionDefinition",
-            "src": "1112:113:8"
+            "src": "1112:113:7"
           },
           {
             "attributes": {
@@ -673,7 +673,7 @@
               ],
               "name": "getBallot",
               "payable": false,
-              "scope": 1591,
+              "scope": 1668,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -685,7 +685,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "index",
-                      "scope": 1535,
+                      "scope": 1612,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -698,19 +698,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1523,
+                        "id": 1600,
                         "name": "ElementaryTypeName",
-                        "src": "1250:7:8"
+                        "src": "1250:7:7"
                       }
                     ],
-                    "id": 1524,
+                    "id": 1601,
                     "name": "VariableDeclaration",
-                    "src": "1250:13:8"
+                    "src": "1250:13:7"
                   }
                 ],
-                "id": 1525,
+                "id": 1602,
                 "name": "ParameterList",
-                "src": "1249:15:8"
+                "src": "1249:15:7"
               },
               {
                 "children": [
@@ -718,7 +718,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1535,
+                      "scope": 1612,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -731,25 +731,25 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1526,
+                        "id": 1603,
                         "name": "ElementaryTypeName",
-                        "src": "1289:7:8"
+                        "src": "1289:7:7"
                       }
                     ],
-                    "id": 1527,
+                    "id": 1604,
                     "name": "VariableDeclaration",
-                    "src": "1289:7:8"
+                    "src": "1289:7:7"
                   }
                 ],
-                "id": 1528,
+                "id": 1605,
                 "name": "ParameterList",
-                "src": "1288:9:8"
+                "src": "1288:9:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1528
+                      "functionReturnParameters": 1605
                     },
                     "children": [
                       {
@@ -780,7 +780,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "getAt",
-                              "referencedDeclaration": 1158,
+                              "referencedDeclaration": 1235,
                               "type": "function (struct AddressSet.SetData storage pointer,uint256) view returns (address)"
                             },
                             "children": [
@@ -790,18 +790,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1509,
+                                  "referencedDeclaration": 1586,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1529,
+                                "id": 1606,
                                 "name": "Identifier",
-                                "src": "1315:9:8"
+                                "src": "1315:9:7"
                               }
                             ],
-                            "id": 1530,
+                            "id": 1607,
                             "name": "MemberAccess",
-                            "src": "1315:15:8"
+                            "src": "1315:15:7"
                           },
                           {
                             "attributes": {
@@ -809,33 +809,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1524,
+                              "referencedDeclaration": 1601,
                               "type": "uint256",
                               "value": "index"
                             },
-                            "id": 1531,
+                            "id": 1608,
                             "name": "Identifier",
-                            "src": "1331:5:8"
+                            "src": "1331:5:7"
                           }
                         ],
-                        "id": 1532,
+                        "id": 1609,
                         "name": "FunctionCall",
-                        "src": "1315:22:8"
+                        "src": "1315:22:7"
                       }
                     ],
-                    "id": 1533,
+                    "id": 1610,
                     "name": "Return",
-                    "src": "1308:29:8"
+                    "src": "1308:29:7"
                   }
                 ],
-                "id": 1534,
+                "id": 1611,
                 "name": "Block",
-                "src": "1298:46:8"
+                "src": "1298:46:7"
               }
             ],
-            "id": 1535,
+            "id": 1612,
             "name": "FunctionDefinition",
-            "src": "1231:113:8"
+            "src": "1231:113:7"
           },
           {
             "attributes": {
@@ -847,7 +847,7 @@
               ],
               "name": "getBallotCount",
               "payable": false,
-              "scope": 1591,
+              "scope": 1668,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -860,9 +860,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1536,
+                "id": 1613,
                 "name": "ParameterList",
-                "src": "1373:2:8"
+                "src": "1373:2:7"
               },
               {
                 "children": [
@@ -870,7 +870,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1545,
+                      "scope": 1622,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -883,25 +883,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1537,
+                        "id": 1614,
                         "name": "ElementaryTypeName",
-                        "src": "1401:7:8"
+                        "src": "1401:7:7"
                       }
                     ],
-                    "id": 1538,
+                    "id": 1615,
                     "name": "VariableDeclaration",
-                    "src": "1401:7:8"
+                    "src": "1401:7:7"
                   }
                 ],
-                "id": 1539,
+                "id": 1616,
                 "name": "ParameterList",
-                "src": "1400:9:8"
+                "src": "1400:9:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1539
+                      "functionReturnParameters": 1616
                     },
                     "children": [
                       {
@@ -932,7 +932,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "size",
-                              "referencedDeclaration": 1185,
+                              "referencedDeclaration": 1262,
                               "type": "function (struct AddressSet.SetData storage pointer) view returns (uint256)"
                             },
                             "children": [
@@ -942,38 +942,38 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1509,
+                                  "referencedDeclaration": 1586,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1540,
+                                "id": 1617,
                                 "name": "Identifier",
-                                "src": "1427:9:8"
+                                "src": "1427:9:7"
                               }
                             ],
-                            "id": 1541,
+                            "id": 1618,
                             "name": "MemberAccess",
-                            "src": "1427:14:8"
+                            "src": "1427:14:7"
                           }
                         ],
-                        "id": 1542,
+                        "id": 1619,
                         "name": "FunctionCall",
-                        "src": "1427:16:8"
+                        "src": "1427:16:7"
                       }
                     ],
-                    "id": 1543,
+                    "id": 1620,
                     "name": "Return",
-                    "src": "1420:23:8"
+                    "src": "1420:23:7"
                   }
                 ],
-                "id": 1544,
+                "id": 1621,
                 "name": "Block",
-                "src": "1410:40:8"
+                "src": "1410:40:7"
               }
             ],
-            "id": 1545,
+            "id": 1622,
             "name": "FunctionDefinition",
-            "src": "1350:100:8"
+            "src": "1350:100:7"
           },
           {
             "attributes": {
@@ -982,7 +982,7 @@
               "isConstructor": false,
               "name": "addBallot",
               "payable": false,
-              "scope": 1591,
+              "scope": 1668,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -994,7 +994,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1561,
+                      "scope": 1638,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1007,19 +1007,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1546,
+                        "id": 1623,
                         "name": "ElementaryTypeName",
-                        "src": "1475:7:8"
+                        "src": "1475:7:7"
                       }
                     ],
-                    "id": 1547,
+                    "id": 1624,
                     "name": "VariableDeclaration",
-                    "src": "1475:9:8"
+                    "src": "1475:9:7"
                   }
                 ],
-                "id": 1548,
+                "id": 1625,
                 "name": "ParameterList",
-                "src": "1474:11:8"
+                "src": "1474:11:7"
               },
               {
                 "attributes": {
@@ -1028,9 +1028,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1553,
+                "id": 1630,
                 "name": "ParameterList",
-                "src": "1508:0:8"
+                "src": "1508:0:7"
               },
               {
                 "attributes": {
@@ -1045,18 +1045,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1721,
+                      "referencedDeclaration": 1798,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1549,
+                    "id": 1626,
                     "name": "Identifier",
-                    "src": "1493:8:8"
+                    "src": "1493:8:7"
                   }
                 ],
-                "id": 1550,
+                "id": 1627,
                 "name": "ModifierInvocation",
-                "src": "1493:8:8"
+                "src": "1493:8:7"
               },
               {
                 "attributes": {
@@ -1071,18 +1071,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 81,
+                      "referencedDeclaration": 24,
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1551,
+                    "id": 1628,
                     "name": "Identifier",
-                    "src": "1502:5:8"
+                    "src": "1502:5:7"
                   }
                 ],
-                "id": 1552,
+                "id": 1629,
                 "name": "ModifierInvocation",
-                "src": "1502:5:8"
+                "src": "1502:5:7"
               },
               {
                 "children": [
@@ -1116,7 +1116,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "put",
-                              "referencedDeclaration": 1228,
+                              "referencedDeclaration": 1305,
                               "type": "function (struct AddressSet.SetData storage pointer,address)"
                             },
                             "children": [
@@ -1126,18 +1126,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1509,
+                                  "referencedDeclaration": 1586,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1554,
+                                "id": 1631,
                                 "name": "Identifier",
-                                "src": "1518:9:8"
+                                "src": "1518:9:7"
                               }
                             ],
-                            "id": 1556,
+                            "id": 1633,
                             "name": "MemberAccess",
-                            "src": "1518:13:8"
+                            "src": "1518:13:7"
                           },
                           {
                             "attributes": {
@@ -1145,33 +1145,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1547,
+                              "referencedDeclaration": 1624,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1557,
+                            "id": 1634,
                             "name": "Identifier",
-                            "src": "1532:1:8"
+                            "src": "1532:1:7"
                           }
                         ],
-                        "id": 1558,
+                        "id": 1635,
                         "name": "FunctionCall",
-                        "src": "1518:16:8"
+                        "src": "1518:16:7"
                       }
                     ],
-                    "id": 1559,
+                    "id": 1636,
                     "name": "ExpressionStatement",
-                    "src": "1518:16:8"
+                    "src": "1518:16:7"
                   }
                 ],
-                "id": 1560,
+                "id": 1637,
                 "name": "Block",
-                "src": "1508:33:8"
+                "src": "1508:33:7"
               }
             ],
-            "id": 1561,
+            "id": 1638,
             "name": "FunctionDefinition",
-            "src": "1456:85:8"
+            "src": "1456:85:7"
           },
           {
             "attributes": {
@@ -1180,7 +1180,7 @@
               "isConstructor": false,
               "name": "removeBallot",
               "payable": false,
-              "scope": 1591,
+              "scope": 1668,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1192,7 +1192,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1577,
+                      "scope": 1654,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1205,19 +1205,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1562,
+                        "id": 1639,
                         "name": "ElementaryTypeName",
-                        "src": "1569:7:8"
+                        "src": "1569:7:7"
                       }
                     ],
-                    "id": 1563,
+                    "id": 1640,
                     "name": "VariableDeclaration",
-                    "src": "1569:9:8"
+                    "src": "1569:9:7"
                   }
                 ],
-                "id": 1564,
+                "id": 1641,
                 "name": "ParameterList",
-                "src": "1568:11:8"
+                "src": "1568:11:7"
               },
               {
                 "attributes": {
@@ -1226,9 +1226,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1569,
+                "id": 1646,
                 "name": "ParameterList",
-                "src": "1602:0:8"
+                "src": "1602:0:7"
               },
               {
                 "attributes": {
@@ -1243,18 +1243,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1721,
+                      "referencedDeclaration": 1798,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1565,
+                    "id": 1642,
                     "name": "Identifier",
-                    "src": "1587:8:8"
+                    "src": "1587:8:7"
                   }
                 ],
-                "id": 1566,
+                "id": 1643,
                 "name": "ModifierInvocation",
-                "src": "1587:8:8"
+                "src": "1587:8:7"
               },
               {
                 "attributes": {
@@ -1269,18 +1269,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 81,
+                      "referencedDeclaration": 24,
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1567,
+                    "id": 1644,
                     "name": "Identifier",
-                    "src": "1596:5:8"
+                    "src": "1596:5:7"
                   }
                 ],
-                "id": 1568,
+                "id": 1645,
                 "name": "ModifierInvocation",
-                "src": "1596:5:8"
+                "src": "1596:5:7"
               },
               {
                 "children": [
@@ -1314,7 +1314,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "remove",
-                              "referencedDeclaration": 1304,
+                              "referencedDeclaration": 1381,
                               "type": "function (struct AddressSet.SetData storage pointer,address)"
                             },
                             "children": [
@@ -1324,18 +1324,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1509,
+                                  "referencedDeclaration": 1586,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1570,
+                                "id": 1647,
                                 "name": "Identifier",
-                                "src": "1612:9:8"
+                                "src": "1612:9:7"
                               }
                             ],
-                            "id": 1572,
+                            "id": 1649,
                             "name": "MemberAccess",
-                            "src": "1612:16:8"
+                            "src": "1612:16:7"
                           },
                           {
                             "attributes": {
@@ -1343,33 +1343,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1563,
+                              "referencedDeclaration": 1640,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1573,
+                            "id": 1650,
                             "name": "Identifier",
-                            "src": "1629:1:8"
+                            "src": "1629:1:7"
                           }
                         ],
-                        "id": 1574,
+                        "id": 1651,
                         "name": "FunctionCall",
-                        "src": "1612:19:8"
+                        "src": "1612:19:7"
                       }
                     ],
-                    "id": 1575,
+                    "id": 1652,
                     "name": "ExpressionStatement",
-                    "src": "1612:19:8"
+                    "src": "1612:19:7"
                   }
                 ],
-                "id": 1576,
+                "id": 1653,
                 "name": "Block",
-                "src": "1602:36:8"
+                "src": "1602:36:7"
               }
             ],
-            "id": 1577,
+            "id": 1654,
             "name": "FunctionDefinition",
-            "src": "1547:91:8"
+            "src": "1547:91:7"
           },
           {
             "attributes": {
@@ -1381,7 +1381,7 @@
               ],
               "name": "ballotExists",
               "payable": false,
-              "scope": 1591,
+              "scope": 1668,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1393,7 +1393,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1590,
+                      "scope": 1667,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1406,19 +1406,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1578,
+                        "id": 1655,
                         "name": "ElementaryTypeName",
-                        "src": "1666:7:8"
+                        "src": "1666:7:7"
                       }
                     ],
-                    "id": 1579,
+                    "id": 1656,
                     "name": "VariableDeclaration",
-                    "src": "1666:9:8"
+                    "src": "1666:9:7"
                   }
                 ],
-                "id": 1580,
+                "id": 1657,
                 "name": "ParameterList",
-                "src": "1665:11:8"
+                "src": "1665:11:7"
               },
               {
                 "children": [
@@ -1426,7 +1426,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1590,
+                      "scope": 1667,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1439,25 +1439,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1581,
+                        "id": 1658,
                         "name": "ElementaryTypeName",
-                        "src": "1702:4:8"
+                        "src": "1702:4:7"
                       }
                     ],
-                    "id": 1582,
+                    "id": 1659,
                     "name": "VariableDeclaration",
-                    "src": "1702:4:8"
+                    "src": "1702:4:7"
                   }
                 ],
-                "id": 1583,
+                "id": 1660,
                 "name": "ParameterList",
-                "src": "1701:6:8"
+                "src": "1701:6:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1583
+                      "functionReturnParameters": 1660
                     },
                     "children": [
                       {
@@ -1488,7 +1488,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "contains",
-                              "referencedDeclaration": 1173,
+                              "referencedDeclaration": 1250,
                               "type": "function (struct AddressSet.SetData storage pointer,address) view returns (bool)"
                             },
                             "children": [
@@ -1498,18 +1498,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1509,
+                                  "referencedDeclaration": 1586,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1584,
+                                "id": 1661,
                                 "name": "Identifier",
-                                "src": "1725:9:8"
+                                "src": "1725:9:7"
                               }
                             ],
-                            "id": 1585,
+                            "id": 1662,
                             "name": "MemberAccess",
-                            "src": "1725:18:8"
+                            "src": "1725:18:7"
                           },
                           {
                             "attributes": {
@@ -1517,43 +1517,43 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1579,
+                              "referencedDeclaration": 1656,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1586,
+                            "id": 1663,
                             "name": "Identifier",
-                            "src": "1744:1:8"
+                            "src": "1744:1:7"
                           }
                         ],
-                        "id": 1587,
+                        "id": 1664,
                         "name": "FunctionCall",
-                        "src": "1725:21:8"
+                        "src": "1725:21:7"
                       }
                     ],
-                    "id": 1588,
+                    "id": 1665,
                     "name": "Return",
-                    "src": "1718:28:8"
+                    "src": "1718:28:7"
                   }
                 ],
-                "id": 1589,
+                "id": 1666,
                 "name": "Block",
-                "src": "1708:45:8"
+                "src": "1708:45:7"
               }
             ],
-            "id": 1590,
+            "id": 1667,
             "name": "FunctionDefinition",
-            "src": "1644:109:8"
+            "src": "1644:109:7"
           }
         ],
-        "id": 1591,
+        "id": 1668,
         "name": "ContractDefinition",
-        "src": "969:786:8"
+        "src": "969:786:7"
       }
     ],
-    "id": 1592,
+    "id": 1669,
     "name": "SourceUnit",
-    "src": "868:887:8"
+    "src": "868:887:7"
   },
   "compiler": {
     "name": "solc",
@@ -1561,5 +1561,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-05T18:15:10.023Z"
+  "updatedAt": "2017-12-06T16:13:54.566Z"
 }

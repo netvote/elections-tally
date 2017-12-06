@@ -3,8 +3,8 @@
   "abi": [],
   "bytecode": "0x606060405260008060006101000a81548160ff0219169083151502179055503415602857600080fd5b60358060356000396000f3006060604052600080fd00a165627a7a72305820535699b0fcc904b92d478dbac24443e8d54a03889f7fdd37fee3cd21931ec83c0029",
   "deployedBytecode": "0x6060604052600080fd00a165627a7a72305820535699b0fcc904b92d478dbac24443e8d54a03889f7fdd37fee3cd21931ec83c0029",
-  "sourceMap": "222:643:12:-;;;349:5;319:35;;;;;;;;;;;;;;;;;;;;222:643;;;;;;;;;;;;;;",
-  "deployedSourceMap": "222:643:12:-;;;;;",
+  "sourceMap": "222:643:11:-;;;349:5;319:35;;;;;;;;;;;;;;;;;;;;222:643;;;;;;;;;;;;;;",
+  "deployedSourceMap": "222:643:11:-;;;;;",
   "source": "pragma solidity ^0.4.11;\n\n/**\n * @title Helps contracts guard agains rentrancy attacks.\n * @author Remco Bloemen <remco@2π.com>\n * @notice If you mark a function `nonReentrant`, you should also\n * mark it `external`.\n */\ncontract ReentrancyGuard {\n\n  /**\n   * @dev We use a single lock for the whole contract.\n   */\n  bool private rentrancy_lock = false;\n\n  /**\n   * @dev Prevents a contract from calling itself, directly or indirectly.\n   * @notice If you mark a function `nonReentrant`, you should also\n   * mark it `external`. Calling one nonReentrant function from\n   * another is not supported. Instead, you can implement a\n   * `private` function doing the actual work, and a `external`\n   * wrapper marked as `nonReentrant`.\n   */\n  modifier nonReentrant() {\n    require(!rentrancy_lock);\n    rentrancy_lock = true;\n    _;\n    rentrancy_lock = false;\n  }\n\n}\n",
   "sourcePath": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
   "ast": {
@@ -12,7 +12,7 @@
       "absolutePath": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
       "exportedSymbols": {
         "ReentrancyGuard": [
-          1917
+          1994
         ]
       }
     },
@@ -26,9 +26,9 @@
             ".11"
           ]
         },
-        "id": 1896,
+        "id": 1973,
         "name": "PragmaDirective",
-        "src": "0:24:12"
+        "src": "0:24:11"
       },
       {
         "attributes": {
@@ -42,17 +42,17 @@
           "documentation": "@title Helps contracts guard agains rentrancy attacks.\n@author Remco Bloemen <remco@2π.com>\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`.",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1917
+            1994
           ],
           "name": "ReentrancyGuard",
-          "scope": 1918
+          "scope": 1995
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "rentrancy_lock",
-              "scope": 1917,
+              "scope": 1994,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bool",
@@ -64,9 +64,9 @@
                   "name": "bool",
                   "type": "bool"
                 },
-                "id": 1897,
+                "id": 1974,
                 "name": "ElementaryTypeName",
-                "src": "319:4:12"
+                "src": "319:4:11"
               },
               {
                 "attributes": {
@@ -81,14 +81,14 @@
                   "type": "bool",
                   "value": "false"
                 },
-                "id": 1898,
+                "id": 1975,
                 "name": "Literal",
-                "src": "349:5:12"
+                "src": "349:5:11"
               }
             ],
-            "id": 1899,
+            "id": 1976,
             "name": "VariableDeclaration",
-            "src": "319:35:12"
+            "src": "319:35:11"
           },
           {
             "attributes": {
@@ -103,9 +103,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1900,
+                "id": 1977,
                 "name": "ParameterList",
-                "src": "762:2:12"
+                "src": "762:2:11"
               },
               {
                 "children": [
@@ -137,13 +137,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1988,
+                              "referencedDeclaration": 2065,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1901,
+                            "id": 1978,
                             "name": "Identifier",
-                            "src": "771:7:12"
+                            "src": "771:7:11"
                           },
                           {
                             "attributes": {
@@ -163,28 +163,28 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1899,
+                                  "referencedDeclaration": 1976,
                                   "type": "bool",
                                   "value": "rentrancy_lock"
                                 },
-                                "id": 1902,
+                                "id": 1979,
                                 "name": "Identifier",
-                                "src": "780:14:12"
+                                "src": "780:14:11"
                               }
                             ],
-                            "id": 1903,
+                            "id": 1980,
                             "name": "UnaryOperation",
-                            "src": "779:15:12"
+                            "src": "779:15:11"
                           }
                         ],
-                        "id": 1904,
+                        "id": 1981,
                         "name": "FunctionCall",
-                        "src": "771:24:12"
+                        "src": "771:24:11"
                       }
                     ],
-                    "id": 1905,
+                    "id": 1982,
                     "name": "ExpressionStatement",
-                    "src": "771:24:12"
+                    "src": "771:24:11"
                   },
                   {
                     "children": [
@@ -205,13 +205,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1899,
+                              "referencedDeclaration": 1976,
                               "type": "bool",
                               "value": "rentrancy_lock"
                             },
-                            "id": 1906,
+                            "id": 1983,
                             "name": "Identifier",
-                            "src": "801:14:12"
+                            "src": "801:14:11"
                           },
                           {
                             "attributes": {
@@ -226,24 +226,24 @@
                               "type": "bool",
                               "value": "true"
                             },
-                            "id": 1907,
+                            "id": 1984,
                             "name": "Literal",
-                            "src": "818:4:12"
+                            "src": "818:4:11"
                           }
                         ],
-                        "id": 1908,
+                        "id": 1985,
                         "name": "Assignment",
-                        "src": "801:21:12"
+                        "src": "801:21:11"
                       }
                     ],
-                    "id": 1909,
+                    "id": 1986,
                     "name": "ExpressionStatement",
-                    "src": "801:21:12"
+                    "src": "801:21:11"
                   },
                   {
-                    "id": 1910,
+                    "id": 1987,
                     "name": "PlaceholderStatement",
-                    "src": "828:1:12"
+                    "src": "828:1:11"
                   },
                   {
                     "children": [
@@ -264,13 +264,13 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1899,
+                              "referencedDeclaration": 1976,
                               "type": "bool",
                               "value": "rentrancy_lock"
                             },
-                            "id": 1911,
+                            "id": 1988,
                             "name": "Identifier",
-                            "src": "835:14:12"
+                            "src": "835:14:11"
                           },
                           {
                             "attributes": {
@@ -285,39 +285,39 @@
                               "type": "bool",
                               "value": "false"
                             },
-                            "id": 1912,
+                            "id": 1989,
                             "name": "Literal",
-                            "src": "852:5:12"
+                            "src": "852:5:11"
                           }
                         ],
-                        "id": 1913,
+                        "id": 1990,
                         "name": "Assignment",
-                        "src": "835:22:12"
+                        "src": "835:22:11"
                       }
                     ],
-                    "id": 1914,
+                    "id": 1991,
                     "name": "ExpressionStatement",
-                    "src": "835:22:12"
+                    "src": "835:22:11"
                   }
                 ],
-                "id": 1915,
+                "id": 1992,
                 "name": "Block",
-                "src": "765:97:12"
+                "src": "765:97:11"
               }
             ],
-            "id": 1916,
+            "id": 1993,
             "name": "ModifierDefinition",
-            "src": "741:121:12"
+            "src": "741:121:11"
           }
         ],
-        "id": 1917,
+        "id": 1994,
         "name": "ContractDefinition",
-        "src": "222:643:12"
+        "src": "222:643:11"
       }
     ],
-    "id": 1918,
+    "id": 1995,
     "name": "SourceUnit",
-    "src": "0:866:12"
+    "src": "0:866:11"
   },
   "compiler": {
     "name": "solc",
@@ -325,5 +325,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-05T18:15:07.285Z"
+  "updatedAt": "2017-12-06T16:13:54.575Z"
 }
