@@ -10,7 +10,6 @@ const Eth = require('ethjs');
 let tallyProvider = "http://localhost:9545/";
 
 let eth;
-let voteCache = {};
 
 let log = (msg) => {
     console.log(msg);
@@ -18,6 +17,63 @@ let log = (msg) => {
 
 let resultsUpdate = (res)=>{
     log("current tally="+JSON.stringify(res));
+};
+
+/**
+ * Wrapper function that tallies results for a ballot
+ * @param {object} params - object containing all required parameters
+ * @param {string} params.electionAddress - the address of the ballot to tally
+ * @param {string} params.provider - the url of the provider of the remote node (default: localhost:9545)
+ * @param {string} params.resultsUpdateCallback - each vote will invoke this callback w/results (for ui)
+ * @param {string} params.groupCallback - each group tally will invoke this callback w/results (for ui)
+ * @returns {Promise}
+ */
+const tallyAllByPool = async (params) => {
+    if (params.provider) {
+        tallyProvider = params.provider;
+    }
+    if (params.resultsUpdateCallback) {
+        resultsUpdate = params.resultsUpdateCallback;
+    }
+
+    eth = new Eth(new Eth.HttpProvider(tallyProvider));
+    let electionAddr = params.electionAddress;
+    let root = await protobuf.load("protocol/vote.proto");
+    let Vote = root.lookupType("netvote.Vote");
+    let privateKey = await getElectionPrivateKey(electionAddr);
+    let poolLength = await getElectionPoolCount(electionAddr);
+    let result = {};
+
+    for(let p=0; p<poolLength; p++) {
+        let pool = await getElectionPoolAt(electionAddr, p);
+        let ballotLength = await getPoolBallotCount(pool);
+        for(let b=0;b<ballotLength;b++){
+            let ballot = await getPoolBallotAt(pool, b);
+
+            if(!result[ballot]){
+                result[ballot] = {};
+            }
+
+            let groups = await getGroupsForPool(ballot, pool);
+            let voterCount = await getPoolVoterCount(ballot, pool);
+            for(let v=0; v<voterCount; v++){
+                let encryptedVote = await getPoolVote(ballot, pool, v);
+                let encodedVote = await decrypt(encryptedVote, privateKey);
+                let buff = Buffer.from(encodedVote, 'utf8');
+                let vote = Vote.decode(buff);
+
+                let choices = vote.ballotVotes[b].choices;
+                for(let group of groups){
+                    if(!result[ballot][group]) {
+                        result[ballot][group] = [];
+                    }
+                    result = addVoteToResult(choices, ballot, group, result);
+                }
+                resultsUpdate(result);
+            }
+        }
+    }
+    return result;
 };
 
 
@@ -30,7 +86,7 @@ let resultsUpdate = (res)=>{
  * @param {string} params.groupCallback - each group tally will invoke this callback w/results (for ui)
  * @returns {Promise}
  */
-const tally = async (params) => {
+const tallyAllByBallot = async (params) => {
     log("TALLY START");
     if (params.provider) {
         tallyProvider = params.provider;
@@ -197,12 +253,31 @@ const toString = (hex) => {
    return Eth.toAscii(hex).replace(/[\u0000-\u0010]/g, '').trim();
 };
 
+const getGroupsForPool = async(ballotAddr, poolAddr) => {
+    let count = (await ballotAt(ballotAddr).getPoolGroupCount(poolAddr))[0];
+    let groups = [];
+    for(let i=0; i<count; i++){
+        let g = (await ballotAt(ballotAddr).getPoolGroupAt(poolAddr, i))[0];
+        g = toString(g);
+        groups.push(g);
+    }
+    return groups;
+};
+
 const getGroupPoolCount = async (ballotAddr, group) => {
     return (await ballotAt(ballotAddr).groupPoolCount(Eth.fromAscii(group)))[0];
 };
 
 const getGroupPool = async (ballotAddr, group, index) => {
     return (await ballotAt(ballotAddr).getGroupPool(Eth.fromAscii(group), index))[0];
+};
+
+const getPoolBallotCount = async (poolAddr) => {
+    return (await poolAt(poolAddr).getBallotCount())[0];
+};
+
+const getPoolBallotAt = async (poolAddr, index) => {
+    return (await poolAt(poolAddr).getBallot(index))[0];
 };
 
 const getPoolBallotIndex = async (poolAddr, ballotAddr) => {
@@ -214,12 +289,8 @@ const getPoolVoterCount = async (ballotAddr, poolAddr) => {
 };
 
 const getPoolVote = async (ballotAddr, poolAddr, index) => {
-    if (voteCache[ballotAddr+poolAddr+index]) {
-        return voteCache[ballotAddr+poolAddr+index];
-    }
     let vtr = await getPoolVoter(ballotAddr, poolAddr, index);
     let eVt = await getEncryptedVote(poolAddr, vtr);
-    voteCache[ballotAddr+poolAddr+index] = eVt;
     return eVt;
 };
 
@@ -232,5 +303,6 @@ const getEncryptedVote = async (poolAddr, voterAddr) => {
 };
 
 module.exports = {
-    tally
+    tallyAllByBallot,
+    tallyAllByPool
 };

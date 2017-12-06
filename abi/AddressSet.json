@@ -128,8 +128,8 @@
   ],
   "bytecode": "0x6060604052341561000f57600080fd5b6107708061001e6000396000f300606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318c402491461007d5780635c2125a7146100c8578063758241e014610129578063913aa6cd14610178578063e134066a146101a4578063f9802f85146101db575b600080fd5b6100b2600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610212565b6040518082815260200191505060405180910390f35b6100e7600480803590602001909190803590602001909190505061025e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61015e600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102a5565b604051808215151515815260200191505060405180910390f35b61018e60048080359060200190919050506102fe565b6040518082815260200191505060405180910390f35b6101d9600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061030f565b005b610210600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061055e565b005b60008260010160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000826002018281548110151561027157fe5b906000526020600020900160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905092915050565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600081600201805490509050919050565b6000808360000160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615610558578360010160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054915060016103b5856102fe565b038210156104a9578360020160016103cc866102fe565b038154811015156103d957fe5b906000526020600020900160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905080846002018381548110151561041957fe5b906000526020600020900160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550818460010160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b836002018054809190600190036104c091906106c7565b508360000160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81549060ff02191690558360010160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600090555b50505050565b8160000160008273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615156106c35760018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555081600201805480600101828161062391906106f3565b9160005260206000209001600083909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018260020180549050038260010160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b5050565b8154818355818115116106ee578183600052602060002091820191016106ed919061071f565b5b505050565b81548183558181151161071a57818360005260206000209182019101610719919061071f565b5b505050565b61074191905b8082111561073d576000816000905550600101610725565b5090565b905600a165627a7a723058202a2a12297409b8ae1727a5320d7feef9b821e7be193fdf2c9d1029b476672c0d0029",
   "deployedBytecode": "0x606060405260043610610078576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff16806318c402491461007d5780635c2125a7146100c8578063758241e014610129578063913aa6cd14610178578063e134066a146101a4578063f9802f85146101db575b600080fd5b6100b2600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610212565b6040518082815260200191505060405180910390f35b6100e7600480803590602001909190803590602001909190505061025e565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b61015e600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506102a5565b604051808215151515815260200191505060405180910390f35b61018e60048080359060200190919050506102fe565b6040518082815260200191505060405180910390f35b6101d9600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061030f565b005b610210600480803590602001909190803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061055e565b005b60008260010160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054905092915050565b6000826002018281548110151561027157fe5b906000526020600020900160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905092915050565b60008260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff16905092915050565b600081600201805490509050919050565b6000808360000160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615610558578360010160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002054915060016103b5856102fe565b038210156104a9578360020160016103cc866102fe565b038154811015156103d957fe5b906000526020600020900160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff16905080846002018381548110151561041957fe5b906000526020600020900160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550818460010160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b836002018054809190600190036104c091906106c7565b508360000160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81549060ff02191690558360010160008473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020600090555b50505050565b8160000160008273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff1615156106c35760018260000160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555081600201805480600101828161062391906106f3565b9160005260206000209001600083909190916101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505060018260020180549050038260010160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168152602001908152602001600020819055505b5050565b8154818355818115116106ee578183600052602060002091820191016106ed919061071f565b5b505050565b81548183558181151161071a57818360005260206000209182019101610719919061071f565b5b505050565b61074191905b8082111561073d576000816000905550600101610725565b5090565b905600a165627a7a723058202a2a12297409b8ae1727a5320d7feef9b821e7be193fdf2c9d1029b476672c0d0029",
-  "sourceMap": "895:1521:5:-;;;;;;;;;;;;;;;;;",
-  "deployedSourceMap": "895:1521:5:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1070:126;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1202:129;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1337:125;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1468:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1831:583;;;;;;;;;;;;;;;;;;;;;;;;;;;;1587:238;;;;;;;;;;;;;;;;;;;;;;;;;;;;1070:126;1145:7;1171:4;:15;;:18;1187:1;1171:18;;;;;;;;;;;;;;;;1164:25;;1070:126;;;;:::o;1202:129::-;1279:7;1305:4;:12;;1318:5;1305:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;1298:26;;1202:129;;;;:::o;1337:125::-;1413:4;1436;:16;;:19;1453:1;1436:19;;;;;;;;;;;;;;;;;;;;;;;;;1429:26;;1337:125;;;;:::o;1468:113::-;1529:7;1555:4;:12;;:19;;;;1548:26;;1468:113;;;:::o;1831:583::-;1936:13;2094:17;1901:4;:16;;:19;1918:1;1901:19;;;;;;;;;;;;;;;;;;;;;;;;;1897:511;;;1952:4;:15;;:18;1968:1;1952:18;;;;;;;;;;;;;;;;1936:34;;2073:1;2060:10;2065:4;2060;:10::i;:::-;:14;2052:5;:22;2048:208;;;2114:4;:12;;2138:1;2127:10;2132:4;2127;:10::i;:::-;:12;2114:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;2094:46;;2180:9;2158:4;:12;;2171:5;2158:19;;;;;;;;;;;;;;;;;;;:31;;;;;;;;;;;;;;;;;;2236:5;2207:4;:15;;:26;2223:9;2207:26;;;;;;;;;;;;;;;:34;;;;2048:208;2297:4;:12;;:21;;;;;;;;;;;;:::i;:::-;;2339:4;:16;;:19;2356:1;2339:19;;;;;;;;;;;;;;;;2332:26;;;;;;;;;;;2379:4;:15;;:18;2395:1;2379:18;;;;;;;;;;;;;;;2372:25;;;1897:511;1831:583;;;;:::o;1587:238::-;1655:4;:16;;:19;1672:1;1655:19;;;;;;;;;;;;;;;;;;;;;;;;;1654:20;1650:169;;;1712:4;1690;:16;;:19;1707:1;1690:19;;;;;;;;;;;;;;;;:26;;;;;;;;;;;;;;;;;;1730:4;:12;;:20;;;;;;;;;;;:::i;:::-;;;;;;;;;;1748:1;1730:20;;;;;;;;;;;;;;;;;;;;;;;1807:1;1785:4;:12;;:19;;;;:23;1764:4;:15;;:18;1780:1;1764:18;;;;;;;;;;;;;;;:44;;;;1650:169;1587:238;;:::o;895:1521::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
+  "sourceMap": "895:1521:6:-;;;;;;;;;;;;;;;;;",
+  "deployedSourceMap": "895:1521:6:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1070:126;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1202:129;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1337:125;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1468:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1831:583;;;;;;;;;;;;;;;;;;;;;;;;;;;;1587:238;;;;;;;;;;;;;;;;;;;;;;;;;;;;1070:126;1145:7;1171:4;:15;;:18;1187:1;1171:18;;;;;;;;;;;;;;;;1164:25;;1070:126;;;;:::o;1202:129::-;1279:7;1305:4;:12;;1318:5;1305:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;1298:26;;1202:129;;;;:::o;1337:125::-;1413:4;1436;:16;;:19;1453:1;1436:19;;;;;;;;;;;;;;;;;;;;;;;;;1429:26;;1337:125;;;;:::o;1468:113::-;1529:7;1555:4;:12;;:19;;;;1548:26;;1468:113;;;:::o;1831:583::-;1936:13;2094:17;1901:4;:16;;:19;1918:1;1901:19;;;;;;;;;;;;;;;;;;;;;;;;;1897:511;;;1952:4;:15;;:18;1968:1;1952:18;;;;;;;;;;;;;;;;1936:34;;2073:1;2060:10;2065:4;2060;:10::i;:::-;:14;2052:5;:22;2048:208;;;2114:4;:12;;2138:1;2127:10;2132:4;2127;:10::i;:::-;:12;2114:26;;;;;;;;;;;;;;;;;;;;;;;;;;;;2094:46;;2180:9;2158:4;:12;;2171:5;2158:19;;;;;;;;;;;;;;;;;;;:31;;;;;;;;;;;;;;;;;;2236:5;2207:4;:15;;:26;2223:9;2207:26;;;;;;;;;;;;;;;:34;;;;2048:208;2297:4;:12;;:21;;;;;;;;;;;;:::i;:::-;;2339:4;:16;;:19;2356:1;2339:19;;;;;;;;;;;;;;;;2332:26;;;;;;;;;;;2379:4;:15;;:18;2395:1;2379:18;;;;;;;;;;;;;;;2372:25;;;1897:511;1831:583;;;;:::o;1587:238::-;1655:4;:16;;:19;1672:1;1655:19;;;;;;;;;;;;;;;;;;;;;;;;;1654:20;1650:169;;;1712:4;1690;:16;;:19;1707:1;1690:19;;;;;;;;;;;;;;;;:26;;;;;;;;;;;;;;;;;;1730:4;:12;;:20;;;;;;;;;;;:::i;:::-;;;;;;;;;;1748:1;1730:20;;;;;;;;;;;;;;;;;;;;;;;1807:1;1785:4;:12;;:19;;;;:23;1764:4;:15;;:18;1780:1;1764:18;;;;;;;;;;;;;;;:44;;;;1650:169;1587:238;;:::o;895:1521::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;;;:::o;:::-;;;;;;;;;;;;;;;;;;;;;;;;;;;:::o",
   "source": "// ------------------------------------------------------------------------------\n// This file is part of netvote.\n//\n// netvote is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// netvote is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with solidity.  If not, see <http://www.gnu.org/licenses/>\n//\n// (c) 2017 netvote contributors.\n//------------------------------------------------------------------------------\n\npragma solidity ^0.4.17;\n\n\nlibrary AddressSet {\n\n    struct SetData {\n        mapping(address => bool) entryExists;\n        mapping(address => uint256) entryIndex;\n        address[] entries;\n    }\n\n    function indexOf(SetData storage self, address a) public constant returns (uint256) {\n        return self.entryIndex[a];\n    }\n\n    function getAt(SetData storage self, uint256 index) public constant returns (address) {\n        return self.entries[index];\n    }\n\n    function contains(SetData storage self, address a) public constant returns (bool) {\n        return self.entryExists[a];\n    }\n\n    function size(SetData storage self) public constant returns (uint256) {\n        return self.entries.length;\n    }\n\n    function put(SetData storage self, address a) public {\n        if (!self.entryExists[a]) {\n            self.entryExists[a] = true;\n            self.entries.push(a);\n            self.entryIndex[a] = self.entries.length - 1;\n        }\n    }\n\n    function remove(SetData storage self, address a) public {\n        if (self.entryExists[a]) {\n            uint256 index = self.entryIndex[a];\n            // if not last entry, copy last entry into a's slot\n            if (index < size(self) - 1) {\n                address lastEntry = self.entries[size(self)-1];\n                self.entries[index] = lastEntry;\n                self.entryIndex[lastEntry] = index;\n            }\n            // resize array\n            self.entries.length--;\n            delete self.entryExists[a];\n            delete self.entryIndex[a];\n        }\n    }\n}",
   "sourcePath": "/Users/slanders/netvote/elections/contracts/lib/AddressSet.sol",
   "ast": {
@@ -137,7 +137,7 @@
       "absolutePath": "/Users/slanders/netvote/elections/contracts/lib/AddressSet.sol",
       "exportedSymbols": {
         "AddressSet": [
-          1382
+          1509
         ]
       }
     },
@@ -151,9 +151,9 @@
             ".17"
           ]
         },
-        "id": 1193,
+        "id": 1320,
         "name": "PragmaDirective",
-        "src": "868:24:5"
+        "src": "868:24:6"
       },
       {
         "attributes": {
@@ -167,17 +167,17 @@
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1382
+            1509
           ],
           "name": "AddressSet",
-          "scope": 1383
+          "scope": 1510
         },
         "children": [
           {
             "attributes": {
               "canonicalName": "AddressSet.SetData",
               "name": "SetData",
-              "scope": 1382,
+              "scope": 1509,
               "visibility": "public"
             },
             "children": [
@@ -185,7 +185,7 @@
                 "attributes": {
                   "constant": false,
                   "name": "entryExists",
-                  "scope": 1205,
+                  "scope": 1332,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "mapping(address => bool)",
@@ -203,34 +203,34 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1194,
+                        "id": 1321,
                         "name": "ElementaryTypeName",
-                        "src": "954:7:5"
+                        "src": "954:7:6"
                       },
                       {
                         "attributes": {
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1195,
+                        "id": 1322,
                         "name": "ElementaryTypeName",
-                        "src": "965:4:5"
+                        "src": "965:4:6"
                       }
                     ],
-                    "id": 1196,
+                    "id": 1323,
                     "name": "Mapping",
-                    "src": "946:24:5"
+                    "src": "946:24:6"
                   }
                 ],
-                "id": 1197,
+                "id": 1324,
                 "name": "VariableDeclaration",
-                "src": "946:36:5"
+                "src": "946:36:6"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "entryIndex",
-                  "scope": 1205,
+                  "scope": 1332,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "mapping(address => uint256)",
@@ -248,34 +248,34 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1198,
+                        "id": 1325,
                         "name": "ElementaryTypeName",
-                        "src": "1000:7:5"
+                        "src": "1000:7:6"
                       },
                       {
                         "attributes": {
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1199,
+                        "id": 1326,
                         "name": "ElementaryTypeName",
-                        "src": "1011:7:5"
+                        "src": "1011:7:6"
                       }
                     ],
-                    "id": 1200,
+                    "id": 1327,
                     "name": "Mapping",
-                    "src": "992:27:5"
+                    "src": "992:27:6"
                   }
                 ],
-                "id": 1201,
+                "id": 1328,
                 "name": "VariableDeclaration",
-                "src": "992:38:5"
+                "src": "992:38:6"
               },
               {
                 "attributes": {
                   "constant": false,
                   "name": "entries",
-                  "scope": 1205,
+                  "scope": 1332,
                   "stateVariable": false,
                   "storageLocation": "default",
                   "type": "address[] storage pointer",
@@ -294,24 +294,24 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1202,
+                        "id": 1329,
                         "name": "ElementaryTypeName",
-                        "src": "1040:7:5"
+                        "src": "1040:7:6"
                       }
                     ],
-                    "id": 1203,
+                    "id": 1330,
                     "name": "ArrayTypeName",
-                    "src": "1040:9:5"
+                    "src": "1040:9:6"
                   }
                 ],
-                "id": 1204,
+                "id": 1331,
                 "name": "VariableDeclaration",
-                "src": "1040:17:5"
+                "src": "1040:17:6"
               }
             ],
-            "id": 1205,
+            "id": 1332,
             "name": "StructDefinition",
-            "src": "921:143:5"
+            "src": "921:143:6"
           },
           {
             "attributes": {
@@ -323,7 +323,7 @@
               ],
               "name": "indexOf",
               "payable": false,
-              "scope": 1382,
+              "scope": 1509,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -335,7 +335,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "self",
-                      "scope": 1220,
+                      "scope": 1347,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct AddressSet.SetData storage pointer",
@@ -347,23 +347,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "SetData",
-                          "referencedDeclaration": 1205,
+                          "referencedDeclaration": 1332,
                           "type": "struct AddressSet.SetData storage pointer"
                         },
-                        "id": 1206,
+                        "id": 1333,
                         "name": "UserDefinedTypeName",
-                        "src": "1087:7:5"
+                        "src": "1087:7:6"
                       }
                     ],
-                    "id": 1207,
+                    "id": 1334,
                     "name": "VariableDeclaration",
-                    "src": "1087:20:5"
+                    "src": "1087:20:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "a",
-                      "scope": 1220,
+                      "scope": 1347,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -376,19 +376,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1208,
+                        "id": 1335,
                         "name": "ElementaryTypeName",
-                        "src": "1109:7:5"
+                        "src": "1109:7:6"
                       }
                     ],
-                    "id": 1209,
+                    "id": 1336,
                     "name": "VariableDeclaration",
-                    "src": "1109:9:5"
+                    "src": "1109:9:6"
                   }
                 ],
-                "id": 1210,
+                "id": 1337,
                 "name": "ParameterList",
-                "src": "1086:33:5"
+                "src": "1086:33:6"
               },
               {
                 "children": [
@@ -396,7 +396,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1220,
+                      "scope": 1347,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -409,25 +409,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1211,
+                        "id": 1338,
                         "name": "ElementaryTypeName",
-                        "src": "1145:7:5"
+                        "src": "1145:7:6"
                       }
                     ],
-                    "id": 1212,
+                    "id": 1339,
                     "name": "VariableDeclaration",
-                    "src": "1145:7:5"
+                    "src": "1145:7:6"
                   }
                 ],
-                "id": 1213,
+                "id": 1340,
                 "name": "ParameterList",
-                "src": "1144:9:5"
+                "src": "1144:9:6"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1213
+                      "functionReturnParameters": 1340
                     },
                     "children": [
                       {
@@ -448,7 +448,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "entryIndex",
-                              "referencedDeclaration": 1201,
+                              "referencedDeclaration": 1328,
                               "type": "mapping(address => uint256)"
                             },
                             "children": [
@@ -458,18 +458,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1207,
+                                  "referencedDeclaration": 1334,
                                   "type": "struct AddressSet.SetData storage pointer",
                                   "value": "self"
                                 },
-                                "id": 1214,
+                                "id": 1341,
                                 "name": "Identifier",
-                                "src": "1171:4:5"
+                                "src": "1171:4:6"
                               }
                             ],
-                            "id": 1215,
+                            "id": 1342,
                             "name": "MemberAccess",
-                            "src": "1171:15:5"
+                            "src": "1171:15:6"
                           },
                           {
                             "attributes": {
@@ -477,33 +477,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1209,
+                              "referencedDeclaration": 1336,
                               "type": "address",
                               "value": "a"
                             },
-                            "id": 1216,
+                            "id": 1343,
                             "name": "Identifier",
-                            "src": "1187:1:5"
+                            "src": "1187:1:6"
                           }
                         ],
-                        "id": 1217,
+                        "id": 1344,
                         "name": "IndexAccess",
-                        "src": "1171:18:5"
+                        "src": "1171:18:6"
                       }
                     ],
-                    "id": 1218,
+                    "id": 1345,
                     "name": "Return",
-                    "src": "1164:25:5"
+                    "src": "1164:25:6"
                   }
                 ],
-                "id": 1219,
+                "id": 1346,
                 "name": "Block",
-                "src": "1154:42:5"
+                "src": "1154:42:6"
               }
             ],
-            "id": 1220,
+            "id": 1347,
             "name": "FunctionDefinition",
-            "src": "1070:126:5"
+            "src": "1070:126:6"
           },
           {
             "attributes": {
@@ -515,7 +515,7 @@
               ],
               "name": "getAt",
               "payable": false,
-              "scope": 1382,
+              "scope": 1509,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -527,7 +527,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "self",
-                      "scope": 1235,
+                      "scope": 1362,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct AddressSet.SetData storage pointer",
@@ -539,23 +539,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "SetData",
-                          "referencedDeclaration": 1205,
+                          "referencedDeclaration": 1332,
                           "type": "struct AddressSet.SetData storage pointer"
                         },
-                        "id": 1221,
+                        "id": 1348,
                         "name": "UserDefinedTypeName",
-                        "src": "1217:7:5"
+                        "src": "1217:7:6"
                       }
                     ],
-                    "id": 1222,
+                    "id": 1349,
                     "name": "VariableDeclaration",
-                    "src": "1217:20:5"
+                    "src": "1217:20:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "index",
-                      "scope": 1235,
+                      "scope": 1362,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -568,19 +568,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1223,
+                        "id": 1350,
                         "name": "ElementaryTypeName",
-                        "src": "1239:7:5"
+                        "src": "1239:7:6"
                       }
                     ],
-                    "id": 1224,
+                    "id": 1351,
                     "name": "VariableDeclaration",
-                    "src": "1239:13:5"
+                    "src": "1239:13:6"
                   }
                 ],
-                "id": 1225,
+                "id": 1352,
                 "name": "ParameterList",
-                "src": "1216:37:5"
+                "src": "1216:37:6"
               },
               {
                 "children": [
@@ -588,7 +588,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1235,
+                      "scope": 1362,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -601,25 +601,25 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1226,
+                        "id": 1353,
                         "name": "ElementaryTypeName",
-                        "src": "1279:7:5"
+                        "src": "1279:7:6"
                       }
                     ],
-                    "id": 1227,
+                    "id": 1354,
                     "name": "VariableDeclaration",
-                    "src": "1279:7:5"
+                    "src": "1279:7:6"
                   }
                 ],
-                "id": 1228,
+                "id": 1355,
                 "name": "ParameterList",
-                "src": "1278:9:5"
+                "src": "1278:9:6"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1228
+                      "functionReturnParameters": 1355
                     },
                     "children": [
                       {
@@ -640,7 +640,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "entries",
-                              "referencedDeclaration": 1204,
+                              "referencedDeclaration": 1331,
                               "type": "address[] storage ref"
                             },
                             "children": [
@@ -650,18 +650,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1222,
+                                  "referencedDeclaration": 1349,
                                   "type": "struct AddressSet.SetData storage pointer",
                                   "value": "self"
                                 },
-                                "id": 1229,
+                                "id": 1356,
                                 "name": "Identifier",
-                                "src": "1305:4:5"
+                                "src": "1305:4:6"
                               }
                             ],
-                            "id": 1230,
+                            "id": 1357,
                             "name": "MemberAccess",
-                            "src": "1305:12:5"
+                            "src": "1305:12:6"
                           },
                           {
                             "attributes": {
@@ -669,33 +669,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1224,
+                              "referencedDeclaration": 1351,
                               "type": "uint256",
                               "value": "index"
                             },
-                            "id": 1231,
+                            "id": 1358,
                             "name": "Identifier",
-                            "src": "1318:5:5"
+                            "src": "1318:5:6"
                           }
                         ],
-                        "id": 1232,
+                        "id": 1359,
                         "name": "IndexAccess",
-                        "src": "1305:19:5"
+                        "src": "1305:19:6"
                       }
                     ],
-                    "id": 1233,
+                    "id": 1360,
                     "name": "Return",
-                    "src": "1298:26:5"
+                    "src": "1298:26:6"
                   }
                 ],
-                "id": 1234,
+                "id": 1361,
                 "name": "Block",
-                "src": "1288:43:5"
+                "src": "1288:43:6"
               }
             ],
-            "id": 1235,
+            "id": 1362,
             "name": "FunctionDefinition",
-            "src": "1202:129:5"
+            "src": "1202:129:6"
           },
           {
             "attributes": {
@@ -707,7 +707,7 @@
               ],
               "name": "contains",
               "payable": false,
-              "scope": 1382,
+              "scope": 1509,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -719,7 +719,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "self",
-                      "scope": 1250,
+                      "scope": 1377,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct AddressSet.SetData storage pointer",
@@ -731,23 +731,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "SetData",
-                          "referencedDeclaration": 1205,
+                          "referencedDeclaration": 1332,
                           "type": "struct AddressSet.SetData storage pointer"
                         },
-                        "id": 1236,
+                        "id": 1363,
                         "name": "UserDefinedTypeName",
-                        "src": "1355:7:5"
+                        "src": "1355:7:6"
                       }
                     ],
-                    "id": 1237,
+                    "id": 1364,
                     "name": "VariableDeclaration",
-                    "src": "1355:20:5"
+                    "src": "1355:20:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "a",
-                      "scope": 1250,
+                      "scope": 1377,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -760,19 +760,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1238,
+                        "id": 1365,
                         "name": "ElementaryTypeName",
-                        "src": "1377:7:5"
+                        "src": "1377:7:6"
                       }
                     ],
-                    "id": 1239,
+                    "id": 1366,
                     "name": "VariableDeclaration",
-                    "src": "1377:9:5"
+                    "src": "1377:9:6"
                   }
                 ],
-                "id": 1240,
+                "id": 1367,
                 "name": "ParameterList",
-                "src": "1354:33:5"
+                "src": "1354:33:6"
               },
               {
                 "children": [
@@ -780,7 +780,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1250,
+                      "scope": 1377,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -793,25 +793,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1241,
+                        "id": 1368,
                         "name": "ElementaryTypeName",
-                        "src": "1413:4:5"
+                        "src": "1413:4:6"
                       }
                     ],
-                    "id": 1242,
+                    "id": 1369,
                     "name": "VariableDeclaration",
-                    "src": "1413:4:5"
+                    "src": "1413:4:6"
                   }
                 ],
-                "id": 1243,
+                "id": 1370,
                 "name": "ParameterList",
-                "src": "1412:6:5"
+                "src": "1412:6:6"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1243
+                      "functionReturnParameters": 1370
                     },
                     "children": [
                       {
@@ -832,7 +832,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "entryExists",
-                              "referencedDeclaration": 1197,
+                              "referencedDeclaration": 1324,
                               "type": "mapping(address => bool)"
                             },
                             "children": [
@@ -842,18 +842,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1237,
+                                  "referencedDeclaration": 1364,
                                   "type": "struct AddressSet.SetData storage pointer",
                                   "value": "self"
                                 },
-                                "id": 1244,
+                                "id": 1371,
                                 "name": "Identifier",
-                                "src": "1436:4:5"
+                                "src": "1436:4:6"
                               }
                             ],
-                            "id": 1245,
+                            "id": 1372,
                             "name": "MemberAccess",
-                            "src": "1436:16:5"
+                            "src": "1436:16:6"
                           },
                           {
                             "attributes": {
@@ -861,33 +861,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1239,
+                              "referencedDeclaration": 1366,
                               "type": "address",
                               "value": "a"
                             },
-                            "id": 1246,
+                            "id": 1373,
                             "name": "Identifier",
-                            "src": "1453:1:5"
+                            "src": "1453:1:6"
                           }
                         ],
-                        "id": 1247,
+                        "id": 1374,
                         "name": "IndexAccess",
-                        "src": "1436:19:5"
+                        "src": "1436:19:6"
                       }
                     ],
-                    "id": 1248,
+                    "id": 1375,
                     "name": "Return",
-                    "src": "1429:26:5"
+                    "src": "1429:26:6"
                   }
                 ],
-                "id": 1249,
+                "id": 1376,
                 "name": "Block",
-                "src": "1419:43:5"
+                "src": "1419:43:6"
               }
             ],
-            "id": 1250,
+            "id": 1377,
             "name": "FunctionDefinition",
-            "src": "1337:125:5"
+            "src": "1337:125:6"
           },
           {
             "attributes": {
@@ -899,7 +899,7 @@
               ],
               "name": "size",
               "payable": false,
-              "scope": 1382,
+              "scope": 1509,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -911,7 +911,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "self",
-                      "scope": 1262,
+                      "scope": 1389,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct AddressSet.SetData storage pointer",
@@ -923,22 +923,22 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "SetData",
-                          "referencedDeclaration": 1205,
+                          "referencedDeclaration": 1332,
                           "type": "struct AddressSet.SetData storage pointer"
                         },
-                        "id": 1251,
+                        "id": 1378,
                         "name": "UserDefinedTypeName",
-                        "src": "1482:7:5"
+                        "src": "1482:7:6"
                       }
                     ],
-                    "id": 1252,
+                    "id": 1379,
                     "name": "VariableDeclaration",
-                    "src": "1482:20:5"
+                    "src": "1482:20:6"
                   }
                 ],
-                "id": 1253,
+                "id": 1380,
                 "name": "ParameterList",
-                "src": "1481:22:5"
+                "src": "1481:22:6"
               },
               {
                 "children": [
@@ -946,7 +946,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1262,
+                      "scope": 1389,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -959,25 +959,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1254,
+                        "id": 1381,
                         "name": "ElementaryTypeName",
-                        "src": "1529:7:5"
+                        "src": "1529:7:6"
                       }
                     ],
-                    "id": 1255,
+                    "id": 1382,
                     "name": "VariableDeclaration",
-                    "src": "1529:7:5"
+                    "src": "1529:7:6"
                   }
                 ],
-                "id": 1256,
+                "id": 1383,
                 "name": "ParameterList",
-                "src": "1528:9:5"
+                "src": "1528:9:6"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1256
+                      "functionReturnParameters": 1383
                     },
                     "children": [
                       {
@@ -1000,7 +1000,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "entries",
-                              "referencedDeclaration": 1204,
+                              "referencedDeclaration": 1331,
                               "type": "address[] storage ref"
                             },
                             "children": [
@@ -1010,38 +1010,38 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1252,
+                                  "referencedDeclaration": 1379,
                                   "type": "struct AddressSet.SetData storage pointer",
                                   "value": "self"
                                 },
-                                "id": 1257,
+                                "id": 1384,
                                 "name": "Identifier",
-                                "src": "1555:4:5"
+                                "src": "1555:4:6"
                               }
                             ],
-                            "id": 1258,
+                            "id": 1385,
                             "name": "MemberAccess",
-                            "src": "1555:12:5"
+                            "src": "1555:12:6"
                           }
                         ],
-                        "id": 1259,
+                        "id": 1386,
                         "name": "MemberAccess",
-                        "src": "1555:19:5"
+                        "src": "1555:19:6"
                       }
                     ],
-                    "id": 1260,
+                    "id": 1387,
                     "name": "Return",
-                    "src": "1548:26:5"
+                    "src": "1548:26:6"
                   }
                 ],
-                "id": 1261,
+                "id": 1388,
                 "name": "Block",
-                "src": "1538:43:5"
+                "src": "1538:43:6"
               }
             ],
-            "id": 1262,
+            "id": 1389,
             "name": "FunctionDefinition",
-            "src": "1468:113:5"
+            "src": "1468:113:6"
           },
           {
             "attributes": {
@@ -1053,7 +1053,7 @@
               ],
               "name": "put",
               "payable": false,
-              "scope": 1382,
+              "scope": 1509,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1065,7 +1065,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "self",
-                      "scope": 1305,
+                      "scope": 1432,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct AddressSet.SetData storage pointer",
@@ -1077,23 +1077,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "SetData",
-                          "referencedDeclaration": 1205,
+                          "referencedDeclaration": 1332,
                           "type": "struct AddressSet.SetData storage pointer"
                         },
-                        "id": 1263,
+                        "id": 1390,
                         "name": "UserDefinedTypeName",
-                        "src": "1600:7:5"
+                        "src": "1600:7:6"
                       }
                     ],
-                    "id": 1264,
+                    "id": 1391,
                     "name": "VariableDeclaration",
-                    "src": "1600:20:5"
+                    "src": "1600:20:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "a",
-                      "scope": 1305,
+                      "scope": 1432,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1106,19 +1106,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1265,
+                        "id": 1392,
                         "name": "ElementaryTypeName",
-                        "src": "1622:7:5"
+                        "src": "1622:7:6"
                       }
                     ],
-                    "id": 1266,
+                    "id": 1393,
                     "name": "VariableDeclaration",
-                    "src": "1622:9:5"
+                    "src": "1622:9:6"
                   }
                 ],
-                "id": 1267,
+                "id": 1394,
                 "name": "ParameterList",
-                "src": "1599:33:5"
+                "src": "1599:33:6"
               },
               {
                 "attributes": {
@@ -1127,9 +1127,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1268,
+                "id": 1395,
                 "name": "ParameterList",
-                "src": "1640:0:5"
+                "src": "1640:0:6"
               },
               {
                 "children": [
@@ -1168,7 +1168,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "entryExists",
-                                  "referencedDeclaration": 1197,
+                                  "referencedDeclaration": 1324,
                                   "type": "mapping(address => bool)"
                                 },
                                 "children": [
@@ -1178,18 +1178,18 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1264,
+                                      "referencedDeclaration": 1391,
                                       "type": "struct AddressSet.SetData storage pointer",
                                       "value": "self"
                                     },
-                                    "id": 1269,
+                                    "id": 1396,
                                     "name": "Identifier",
-                                    "src": "1655:4:5"
+                                    "src": "1655:4:6"
                                   }
                                 ],
-                                "id": 1270,
+                                "id": 1397,
                                 "name": "MemberAccess",
-                                "src": "1655:16:5"
+                                "src": "1655:16:6"
                               },
                               {
                                 "attributes": {
@@ -1197,23 +1197,23 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1266,
+                                  "referencedDeclaration": 1393,
                                   "type": "address",
                                   "value": "a"
                                 },
-                                "id": 1271,
+                                "id": 1398,
                                 "name": "Identifier",
-                                "src": "1672:1:5"
+                                "src": "1672:1:6"
                               }
                             ],
-                            "id": 1272,
+                            "id": 1399,
                             "name": "IndexAccess",
-                            "src": "1655:19:5"
+                            "src": "1655:19:6"
                           }
                         ],
-                        "id": 1273,
+                        "id": 1400,
                         "name": "UnaryOperation",
-                        "src": "1654:20:5"
+                        "src": "1654:20:6"
                       },
                       {
                         "children": [
@@ -1248,7 +1248,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "entryExists",
-                                          "referencedDeclaration": 1197,
+                                          "referencedDeclaration": 1324,
                                           "type": "mapping(address => bool)"
                                         },
                                         "children": [
@@ -1258,18 +1258,18 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1264,
+                                              "referencedDeclaration": 1391,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1274,
+                                            "id": 1401,
                                             "name": "Identifier",
-                                            "src": "1690:4:5"
+                                            "src": "1690:4:6"
                                           }
                                         ],
-                                        "id": 1277,
+                                        "id": 1404,
                                         "name": "MemberAccess",
-                                        "src": "1690:16:5"
+                                        "src": "1690:16:6"
                                       },
                                       {
                                         "attributes": {
@@ -1277,18 +1277,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1266,
+                                          "referencedDeclaration": 1393,
                                           "type": "address",
                                           "value": "a"
                                         },
-                                        "id": 1276,
+                                        "id": 1403,
                                         "name": "Identifier",
-                                        "src": "1707:1:5"
+                                        "src": "1707:1:6"
                                       }
                                     ],
-                                    "id": 1278,
+                                    "id": 1405,
                                     "name": "IndexAccess",
-                                    "src": "1690:19:5"
+                                    "src": "1690:19:6"
                                   },
                                   {
                                     "attributes": {
@@ -1303,19 +1303,19 @@
                                       "type": "bool",
                                       "value": "true"
                                     },
-                                    "id": 1279,
+                                    "id": 1406,
                                     "name": "Literal",
-                                    "src": "1712:4:5"
+                                    "src": "1712:4:6"
                                   }
                                 ],
-                                "id": 1280,
+                                "id": 1407,
                                 "name": "Assignment",
-                                "src": "1690:26:5"
+                                "src": "1690:26:6"
                               }
                             ],
-                            "id": 1281,
+                            "id": 1408,
                             "name": "ExpressionStatement",
-                            "src": "1690:26:5"
+                            "src": "1690:26:6"
                           },
                           {
                             "children": [
@@ -1359,7 +1359,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "entries",
-                                          "referencedDeclaration": 1204,
+                                          "referencedDeclaration": 1331,
                                           "type": "address[] storage ref"
                                         },
                                         "children": [
@@ -1369,23 +1369,23 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1264,
+                                              "referencedDeclaration": 1391,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1282,
+                                            "id": 1409,
                                             "name": "Identifier",
-                                            "src": "1730:4:5"
+                                            "src": "1730:4:6"
                                           }
                                         ],
-                                        "id": 1285,
+                                        "id": 1412,
                                         "name": "MemberAccess",
-                                        "src": "1730:12:5"
+                                        "src": "1730:12:6"
                                       }
                                     ],
-                                    "id": 1286,
+                                    "id": 1413,
                                     "name": "MemberAccess",
-                                    "src": "1730:17:5"
+                                    "src": "1730:17:6"
                                   },
                                   {
                                     "attributes": {
@@ -1393,23 +1393,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1266,
+                                      "referencedDeclaration": 1393,
                                       "type": "address",
                                       "value": "a"
                                     },
-                                    "id": 1287,
+                                    "id": 1414,
                                     "name": "Identifier",
-                                    "src": "1748:1:5"
+                                    "src": "1748:1:6"
                                   }
                                 ],
-                                "id": 1288,
+                                "id": 1415,
                                 "name": "FunctionCall",
-                                "src": "1730:20:5"
+                                "src": "1730:20:6"
                               }
                             ],
-                            "id": 1289,
+                            "id": 1416,
                             "name": "ExpressionStatement",
-                            "src": "1730:20:5"
+                            "src": "1730:20:6"
                           },
                           {
                             "children": [
@@ -1442,7 +1442,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "entryIndex",
-                                          "referencedDeclaration": 1201,
+                                          "referencedDeclaration": 1328,
                                           "type": "mapping(address => uint256)"
                                         },
                                         "children": [
@@ -1452,18 +1452,18 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1264,
+                                              "referencedDeclaration": 1391,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1290,
+                                            "id": 1417,
                                             "name": "Identifier",
-                                            "src": "1764:4:5"
+                                            "src": "1764:4:6"
                                           }
                                         ],
-                                        "id": 1293,
+                                        "id": 1420,
                                         "name": "MemberAccess",
-                                        "src": "1764:15:5"
+                                        "src": "1764:15:6"
                                       },
                                       {
                                         "attributes": {
@@ -1471,18 +1471,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1266,
+                                          "referencedDeclaration": 1393,
                                           "type": "address",
                                           "value": "a"
                                         },
-                                        "id": 1292,
+                                        "id": 1419,
                                         "name": "Identifier",
-                                        "src": "1780:1:5"
+                                        "src": "1780:1:6"
                                       }
                                     ],
-                                    "id": 1294,
+                                    "id": 1421,
                                     "name": "IndexAccess",
-                                    "src": "1764:18:5"
+                                    "src": "1764:18:6"
                                   },
                                   {
                                     "attributes": {
@@ -1519,7 +1519,7 @@
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "member_name": "entries",
-                                              "referencedDeclaration": 1204,
+                                              "referencedDeclaration": 1331,
                                               "type": "address[] storage ref"
                                             },
                                             "children": [
@@ -1529,23 +1529,23 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 1264,
+                                                  "referencedDeclaration": 1391,
                                                   "type": "struct AddressSet.SetData storage pointer",
                                                   "value": "self"
                                                 },
-                                                "id": 1295,
+                                                "id": 1422,
                                                 "name": "Identifier",
-                                                "src": "1785:4:5"
+                                                "src": "1785:4:6"
                                               }
                                             ],
-                                            "id": 1296,
+                                            "id": 1423,
                                             "name": "MemberAccess",
-                                            "src": "1785:12:5"
+                                            "src": "1785:12:6"
                                           }
                                         ],
-                                        "id": 1297,
+                                        "id": 1424,
                                         "name": "MemberAccess",
-                                        "src": "1785:19:5"
+                                        "src": "1785:19:6"
                                       },
                                       {
                                         "attributes": {
@@ -1560,44 +1560,44 @@
                                           "type": "int_const 1",
                                           "value": "1"
                                         },
-                                        "id": 1298,
+                                        "id": 1425,
                                         "name": "Literal",
-                                        "src": "1807:1:5"
+                                        "src": "1807:1:6"
                                       }
                                     ],
-                                    "id": 1299,
+                                    "id": 1426,
                                     "name": "BinaryOperation",
-                                    "src": "1785:23:5"
+                                    "src": "1785:23:6"
                                   }
                                 ],
-                                "id": 1300,
+                                "id": 1427,
                                 "name": "Assignment",
-                                "src": "1764:44:5"
+                                "src": "1764:44:6"
                               }
                             ],
-                            "id": 1301,
+                            "id": 1428,
                             "name": "ExpressionStatement",
-                            "src": "1764:44:5"
+                            "src": "1764:44:6"
                           }
                         ],
-                        "id": 1302,
+                        "id": 1429,
                         "name": "Block",
-                        "src": "1676:143:5"
+                        "src": "1676:143:6"
                       }
                     ],
-                    "id": 1303,
+                    "id": 1430,
                     "name": "IfStatement",
-                    "src": "1650:169:5"
+                    "src": "1650:169:6"
                   }
                 ],
-                "id": 1304,
+                "id": 1431,
                 "name": "Block",
-                "src": "1640:185:5"
+                "src": "1640:185:6"
               }
             ],
-            "id": 1305,
+            "id": 1432,
             "name": "FunctionDefinition",
-            "src": "1587:238:5"
+            "src": "1587:238:6"
           },
           {
             "attributes": {
@@ -1609,7 +1609,7 @@
               ],
               "name": "remove",
               "payable": false,
-              "scope": 1382,
+              "scope": 1509,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1621,7 +1621,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "self",
-                      "scope": 1381,
+                      "scope": 1508,
                       "stateVariable": false,
                       "storageLocation": "storage",
                       "type": "struct AddressSet.SetData storage pointer",
@@ -1633,23 +1633,23 @@
                         "attributes": {
                           "contractScope": null,
                           "name": "SetData",
-                          "referencedDeclaration": 1205,
+                          "referencedDeclaration": 1332,
                           "type": "struct AddressSet.SetData storage pointer"
                         },
-                        "id": 1306,
+                        "id": 1433,
                         "name": "UserDefinedTypeName",
-                        "src": "1847:7:5"
+                        "src": "1847:7:6"
                       }
                     ],
-                    "id": 1307,
+                    "id": 1434,
                     "name": "VariableDeclaration",
-                    "src": "1847:20:5"
+                    "src": "1847:20:6"
                   },
                   {
                     "attributes": {
                       "constant": false,
                       "name": "a",
-                      "scope": 1381,
+                      "scope": 1508,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1662,19 +1662,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1308,
+                        "id": 1435,
                         "name": "ElementaryTypeName",
-                        "src": "1869:7:5"
+                        "src": "1869:7:6"
                       }
                     ],
-                    "id": 1309,
+                    "id": 1436,
                     "name": "VariableDeclaration",
-                    "src": "1869:9:5"
+                    "src": "1869:9:6"
                   }
                 ],
-                "id": 1310,
+                "id": 1437,
                 "name": "ParameterList",
-                "src": "1846:33:5"
+                "src": "1846:33:6"
               },
               {
                 "attributes": {
@@ -1683,9 +1683,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1311,
+                "id": 1438,
                 "name": "ParameterList",
-                "src": "1887:0:5"
+                "src": "1887:0:6"
               },
               {
                 "children": [
@@ -1712,7 +1712,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "entryExists",
-                              "referencedDeclaration": 1197,
+                              "referencedDeclaration": 1324,
                               "type": "mapping(address => bool)"
                             },
                             "children": [
@@ -1722,18 +1722,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1307,
+                                  "referencedDeclaration": 1434,
                                   "type": "struct AddressSet.SetData storage pointer",
                                   "value": "self"
                                 },
-                                "id": 1312,
+                                "id": 1439,
                                 "name": "Identifier",
-                                "src": "1901:4:5"
+                                "src": "1901:4:6"
                               }
                             ],
-                            "id": 1313,
+                            "id": 1440,
                             "name": "MemberAccess",
-                            "src": "1901:16:5"
+                            "src": "1901:16:6"
                           },
                           {
                             "attributes": {
@@ -1741,25 +1741,25 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1309,
+                              "referencedDeclaration": 1436,
                               "type": "address",
                               "value": "a"
                             },
-                            "id": 1314,
+                            "id": 1441,
                             "name": "Identifier",
-                            "src": "1918:1:5"
+                            "src": "1918:1:6"
                           }
                         ],
-                        "id": 1315,
+                        "id": 1442,
                         "name": "IndexAccess",
-                        "src": "1901:19:5"
+                        "src": "1901:19:6"
                       },
                       {
                         "children": [
                           {
                             "attributes": {
                               "assignments": [
-                                1317
+                                1444
                               ]
                             },
                             "children": [
@@ -1767,7 +1767,7 @@
                                 "attributes": {
                                   "constant": false,
                                   "name": "index",
-                                  "scope": 1381,
+                                  "scope": 1508,
                                   "stateVariable": false,
                                   "storageLocation": "default",
                                   "type": "uint256",
@@ -1780,14 +1780,14 @@
                                       "name": "uint256",
                                       "type": "uint256"
                                     },
-                                    "id": 1316,
+                                    "id": 1443,
                                     "name": "ElementaryTypeName",
-                                    "src": "1936:7:5"
+                                    "src": "1936:7:6"
                                   }
                                 ],
-                                "id": 1317,
+                                "id": 1444,
                                 "name": "VariableDeclaration",
-                                "src": "1936:13:5"
+                                "src": "1936:13:6"
                               },
                               {
                                 "attributes": {
@@ -1807,7 +1807,7 @@
                                       "isPure": false,
                                       "lValueRequested": false,
                                       "member_name": "entryIndex",
-                                      "referencedDeclaration": 1201,
+                                      "referencedDeclaration": 1328,
                                       "type": "mapping(address => uint256)"
                                     },
                                     "children": [
@@ -1817,18 +1817,18 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1307,
+                                          "referencedDeclaration": 1434,
                                           "type": "struct AddressSet.SetData storage pointer",
                                           "value": "self"
                                         },
-                                        "id": 1318,
+                                        "id": 1445,
                                         "name": "Identifier",
-                                        "src": "1952:4:5"
+                                        "src": "1952:4:6"
                                       }
                                     ],
-                                    "id": 1319,
+                                    "id": 1446,
                                     "name": "MemberAccess",
-                                    "src": "1952:15:5"
+                                    "src": "1952:15:6"
                                   },
                                   {
                                     "attributes": {
@@ -1836,23 +1836,23 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1309,
+                                      "referencedDeclaration": 1436,
                                       "type": "address",
                                       "value": "a"
                                     },
-                                    "id": 1320,
+                                    "id": 1447,
                                     "name": "Identifier",
-                                    "src": "1968:1:5"
+                                    "src": "1968:1:6"
                                   }
                                 ],
-                                "id": 1321,
+                                "id": 1448,
                                 "name": "IndexAccess",
-                                "src": "1952:18:5"
+                                "src": "1952:18:6"
                               }
                             ],
-                            "id": 1322,
+                            "id": 1449,
                             "name": "VariableDeclarationStatement",
-                            "src": "1936:34:5"
+                            "src": "1936:34:6"
                           },
                           {
                             "attributes": {
@@ -1880,13 +1880,13 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1317,
+                                      "referencedDeclaration": 1444,
                                       "type": "uint256",
                                       "value": "index"
                                     },
-                                    "id": 1323,
+                                    "id": 1450,
                                     "name": "Identifier",
-                                    "src": "2052:5:5"
+                                    "src": "2052:5:6"
                                   },
                                   {
                                     "attributes": {
@@ -1922,20 +1922,20 @@
                                             "attributes": {
                                               "argumentTypes": [
                                                 {
-                                                  "typeIdentifier": "t_struct$_SetData_$1205_storage_ptr",
+                                                  "typeIdentifier": "t_struct$_SetData_$1332_storage_ptr",
                                                   "typeString": "struct AddressSet.SetData storage pointer"
                                                 }
                                               ],
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1262,
+                                              "referencedDeclaration": 1389,
                                               "type": "function (struct AddressSet.SetData storage pointer) view returns (uint256)",
                                               "value": "size"
                                             },
-                                            "id": 1324,
+                                            "id": 1451,
                                             "name": "Identifier",
-                                            "src": "2060:4:5"
+                                            "src": "2060:4:6"
                                           },
                                           {
                                             "attributes": {
@@ -1943,18 +1943,18 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1307,
+                                              "referencedDeclaration": 1434,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1325,
+                                            "id": 1452,
                                             "name": "Identifier",
-                                            "src": "2065:4:5"
+                                            "src": "2065:4:6"
                                           }
                                         ],
-                                        "id": 1326,
+                                        "id": 1453,
                                         "name": "FunctionCall",
-                                        "src": "2060:10:5"
+                                        "src": "2060:10:6"
                                       },
                                       {
                                         "attributes": {
@@ -1969,26 +1969,26 @@
                                           "type": "int_const 1",
                                           "value": "1"
                                         },
-                                        "id": 1327,
+                                        "id": 1454,
                                         "name": "Literal",
-                                        "src": "2073:1:5"
+                                        "src": "2073:1:6"
                                       }
                                     ],
-                                    "id": 1328,
+                                    "id": 1455,
                                     "name": "BinaryOperation",
-                                    "src": "2060:14:5"
+                                    "src": "2060:14:6"
                                   }
                                 ],
-                                "id": 1329,
+                                "id": 1456,
                                 "name": "BinaryOperation",
-                                "src": "2052:22:5"
+                                "src": "2052:22:6"
                               },
                               {
                                 "children": [
                                   {
                                     "attributes": {
                                       "assignments": [
-                                        1331
+                                        1458
                                       ]
                                     },
                                     "children": [
@@ -1996,7 +1996,7 @@
                                         "attributes": {
                                           "constant": false,
                                           "name": "lastEntry",
-                                          "scope": 1381,
+                                          "scope": 1508,
                                           "stateVariable": false,
                                           "storageLocation": "default",
                                           "type": "address",
@@ -2009,14 +2009,14 @@
                                               "name": "address",
                                               "type": "address"
                                             },
-                                            "id": 1330,
+                                            "id": 1457,
                                             "name": "ElementaryTypeName",
-                                            "src": "2094:7:5"
+                                            "src": "2094:7:6"
                                           }
                                         ],
-                                        "id": 1331,
+                                        "id": 1458,
                                         "name": "VariableDeclaration",
-                                        "src": "2094:17:5"
+                                        "src": "2094:17:6"
                                       },
                                       {
                                         "attributes": {
@@ -2036,7 +2036,7 @@
                                               "isPure": false,
                                               "lValueRequested": false,
                                               "member_name": "entries",
-                                              "referencedDeclaration": 1204,
+                                              "referencedDeclaration": 1331,
                                               "type": "address[] storage ref"
                                             },
                                             "children": [
@@ -2046,18 +2046,18 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 1307,
+                                                  "referencedDeclaration": 1434,
                                                   "type": "struct AddressSet.SetData storage pointer",
                                                   "value": "self"
                                                 },
-                                                "id": 1332,
+                                                "id": 1459,
                                                 "name": "Identifier",
-                                                "src": "2114:4:5"
+                                                "src": "2114:4:6"
                                               }
                                             ],
-                                            "id": 1333,
+                                            "id": 1460,
                                             "name": "MemberAccess",
-                                            "src": "2114:12:5"
+                                            "src": "2114:12:6"
                                           },
                                           {
                                             "attributes": {
@@ -2093,20 +2093,20 @@
                                                     "attributes": {
                                                       "argumentTypes": [
                                                         {
-                                                          "typeIdentifier": "t_struct$_SetData_$1205_storage_ptr",
+                                                          "typeIdentifier": "t_struct$_SetData_$1332_storage_ptr",
                                                           "typeString": "struct AddressSet.SetData storage pointer"
                                                         }
                                                       ],
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 1262,
+                                                      "referencedDeclaration": 1389,
                                                       "type": "function (struct AddressSet.SetData storage pointer) view returns (uint256)",
                                                       "value": "size"
                                                     },
-                                                    "id": 1334,
+                                                    "id": 1461,
                                                     "name": "Identifier",
-                                                    "src": "2127:4:5"
+                                                    "src": "2127:4:6"
                                                   },
                                                   {
                                                     "attributes": {
@@ -2114,18 +2114,18 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 1307,
+                                                      "referencedDeclaration": 1434,
                                                       "type": "struct AddressSet.SetData storage pointer",
                                                       "value": "self"
                                                     },
-                                                    "id": 1335,
+                                                    "id": 1462,
                                                     "name": "Identifier",
-                                                    "src": "2132:4:5"
+                                                    "src": "2132:4:6"
                                                   }
                                                 ],
-                                                "id": 1336,
+                                                "id": 1463,
                                                 "name": "FunctionCall",
-                                                "src": "2127:10:5"
+                                                "src": "2127:10:6"
                                               },
                                               {
                                                 "attributes": {
@@ -2140,24 +2140,24 @@
                                                   "type": "int_const 1",
                                                   "value": "1"
                                                 },
-                                                "id": 1337,
+                                                "id": 1464,
                                                 "name": "Literal",
-                                                "src": "2138:1:5"
+                                                "src": "2138:1:6"
                                               }
                                             ],
-                                            "id": 1338,
+                                            "id": 1465,
                                             "name": "BinaryOperation",
-                                            "src": "2127:12:5"
+                                            "src": "2127:12:6"
                                           }
                                         ],
-                                        "id": 1339,
+                                        "id": 1466,
                                         "name": "IndexAccess",
-                                        "src": "2114:26:5"
+                                        "src": "2114:26:6"
                                       }
                                     ],
-                                    "id": 1340,
+                                    "id": 1467,
                                     "name": "VariableDeclarationStatement",
-                                    "src": "2094:46:5"
+                                    "src": "2094:46:6"
                                   },
                                   {
                                     "children": [
@@ -2190,7 +2190,7 @@
                                                   "isPure": false,
                                                   "lValueRequested": false,
                                                   "member_name": "entries",
-                                                  "referencedDeclaration": 1204,
+                                                  "referencedDeclaration": 1331,
                                                   "type": "address[] storage ref"
                                                 },
                                                 "children": [
@@ -2200,18 +2200,18 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 1307,
+                                                      "referencedDeclaration": 1434,
                                                       "type": "struct AddressSet.SetData storage pointer",
                                                       "value": "self"
                                                     },
-                                                    "id": 1341,
+                                                    "id": 1468,
                                                     "name": "Identifier",
-                                                    "src": "2158:4:5"
+                                                    "src": "2158:4:6"
                                                   }
                                                 ],
-                                                "id": 1344,
+                                                "id": 1471,
                                                 "name": "MemberAccess",
-                                                "src": "2158:12:5"
+                                                "src": "2158:12:6"
                                               },
                                               {
                                                 "attributes": {
@@ -2219,18 +2219,18 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 1317,
+                                                  "referencedDeclaration": 1444,
                                                   "type": "uint256",
                                                   "value": "index"
                                                 },
-                                                "id": 1343,
+                                                "id": 1470,
                                                 "name": "Identifier",
-                                                "src": "2171:5:5"
+                                                "src": "2171:5:6"
                                               }
                                             ],
-                                            "id": 1345,
+                                            "id": 1472,
                                             "name": "IndexAccess",
-                                            "src": "2158:19:5"
+                                            "src": "2158:19:6"
                                           },
                                           {
                                             "attributes": {
@@ -2238,23 +2238,23 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1331,
+                                              "referencedDeclaration": 1458,
                                               "type": "address",
                                               "value": "lastEntry"
                                             },
-                                            "id": 1346,
+                                            "id": 1473,
                                             "name": "Identifier",
-                                            "src": "2180:9:5"
+                                            "src": "2180:9:6"
                                           }
                                         ],
-                                        "id": 1347,
+                                        "id": 1474,
                                         "name": "Assignment",
-                                        "src": "2158:31:5"
+                                        "src": "2158:31:6"
                                       }
                                     ],
-                                    "id": 1348,
+                                    "id": 1475,
                                     "name": "ExpressionStatement",
-                                    "src": "2158:31:5"
+                                    "src": "2158:31:6"
                                   },
                                   {
                                     "children": [
@@ -2287,7 +2287,7 @@
                                                   "isPure": false,
                                                   "lValueRequested": false,
                                                   "member_name": "entryIndex",
-                                                  "referencedDeclaration": 1201,
+                                                  "referencedDeclaration": 1328,
                                                   "type": "mapping(address => uint256)"
                                                 },
                                                 "children": [
@@ -2297,18 +2297,18 @@
                                                       "overloadedDeclarations": [
                                                         null
                                                       ],
-                                                      "referencedDeclaration": 1307,
+                                                      "referencedDeclaration": 1434,
                                                       "type": "struct AddressSet.SetData storage pointer",
                                                       "value": "self"
                                                     },
-                                                    "id": 1349,
+                                                    "id": 1476,
                                                     "name": "Identifier",
-                                                    "src": "2207:4:5"
+                                                    "src": "2207:4:6"
                                                   }
                                                 ],
-                                                "id": 1352,
+                                                "id": 1479,
                                                 "name": "MemberAccess",
-                                                "src": "2207:15:5"
+                                                "src": "2207:15:6"
                                               },
                                               {
                                                 "attributes": {
@@ -2316,18 +2316,18 @@
                                                   "overloadedDeclarations": [
                                                     null
                                                   ],
-                                                  "referencedDeclaration": 1331,
+                                                  "referencedDeclaration": 1458,
                                                   "type": "address",
                                                   "value": "lastEntry"
                                                 },
-                                                "id": 1351,
+                                                "id": 1478,
                                                 "name": "Identifier",
-                                                "src": "2223:9:5"
+                                                "src": "2223:9:6"
                                               }
                                             ],
-                                            "id": 1353,
+                                            "id": 1480,
                                             "name": "IndexAccess",
-                                            "src": "2207:26:5"
+                                            "src": "2207:26:6"
                                           },
                                           {
                                             "attributes": {
@@ -2335,33 +2335,33 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1317,
+                                              "referencedDeclaration": 1444,
                                               "type": "uint256",
                                               "value": "index"
                                             },
-                                            "id": 1354,
+                                            "id": 1481,
                                             "name": "Identifier",
-                                            "src": "2236:5:5"
+                                            "src": "2236:5:6"
                                           }
                                         ],
-                                        "id": 1355,
+                                        "id": 1482,
                                         "name": "Assignment",
-                                        "src": "2207:34:5"
+                                        "src": "2207:34:6"
                                       }
                                     ],
-                                    "id": 1356,
+                                    "id": 1483,
                                     "name": "ExpressionStatement",
-                                    "src": "2207:34:5"
+                                    "src": "2207:34:6"
                                   }
                                 ],
-                                "id": 1357,
+                                "id": 1484,
                                 "name": "Block",
-                                "src": "2076:180:5"
+                                "src": "2076:180:6"
                               }
                             ],
-                            "id": 1358,
+                            "id": 1485,
                             "name": "IfStatement",
-                            "src": "2048:208:5"
+                            "src": "2048:208:6"
                           },
                           {
                             "children": [
@@ -2397,7 +2397,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "entries",
-                                          "referencedDeclaration": 1204,
+                                          "referencedDeclaration": 1331,
                                           "type": "address[] storage ref"
                                         },
                                         "children": [
@@ -2407,33 +2407,33 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1307,
+                                              "referencedDeclaration": 1434,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1359,
+                                            "id": 1486,
                                             "name": "Identifier",
-                                            "src": "2297:4:5"
+                                            "src": "2297:4:6"
                                           }
                                         ],
-                                        "id": 1362,
+                                        "id": 1489,
                                         "name": "MemberAccess",
-                                        "src": "2297:12:5"
+                                        "src": "2297:12:6"
                                       }
                                     ],
-                                    "id": 1363,
+                                    "id": 1490,
                                     "name": "MemberAccess",
-                                    "src": "2297:19:5"
+                                    "src": "2297:19:6"
                                   }
                                 ],
-                                "id": 1364,
+                                "id": 1491,
                                 "name": "UnaryOperation",
-                                "src": "2297:21:5"
+                                "src": "2297:21:6"
                               }
                             ],
-                            "id": 1365,
+                            "id": 1492,
                             "name": "ExpressionStatement",
-                            "src": "2297:21:5"
+                            "src": "2297:21:6"
                           },
                           {
                             "children": [
@@ -2467,7 +2467,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "entryExists",
-                                          "referencedDeclaration": 1197,
+                                          "referencedDeclaration": 1324,
                                           "type": "mapping(address => bool)"
                                         },
                                         "children": [
@@ -2477,18 +2477,18 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1307,
+                                              "referencedDeclaration": 1434,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1366,
+                                            "id": 1493,
                                             "name": "Identifier",
-                                            "src": "2339:4:5"
+                                            "src": "2339:4:6"
                                           }
                                         ],
-                                        "id": 1367,
+                                        "id": 1494,
                                         "name": "MemberAccess",
-                                        "src": "2339:16:5"
+                                        "src": "2339:16:6"
                                       },
                                       {
                                         "attributes": {
@@ -2496,28 +2496,28 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1309,
+                                          "referencedDeclaration": 1436,
                                           "type": "address",
                                           "value": "a"
                                         },
-                                        "id": 1368,
+                                        "id": 1495,
                                         "name": "Identifier",
-                                        "src": "2356:1:5"
+                                        "src": "2356:1:6"
                                       }
                                     ],
-                                    "id": 1369,
+                                    "id": 1496,
                                     "name": "IndexAccess",
-                                    "src": "2339:19:5"
+                                    "src": "2339:19:6"
                                   }
                                 ],
-                                "id": 1370,
+                                "id": 1497,
                                 "name": "UnaryOperation",
-                                "src": "2332:26:5"
+                                "src": "2332:26:6"
                               }
                             ],
-                            "id": 1371,
+                            "id": 1498,
                             "name": "ExpressionStatement",
-                            "src": "2332:26:5"
+                            "src": "2332:26:6"
                           },
                           {
                             "children": [
@@ -2551,7 +2551,7 @@
                                           "isPure": false,
                                           "lValueRequested": false,
                                           "member_name": "entryIndex",
-                                          "referencedDeclaration": 1201,
+                                          "referencedDeclaration": 1328,
                                           "type": "mapping(address => uint256)"
                                         },
                                         "children": [
@@ -2561,18 +2561,18 @@
                                               "overloadedDeclarations": [
                                                 null
                                               ],
-                                              "referencedDeclaration": 1307,
+                                              "referencedDeclaration": 1434,
                                               "type": "struct AddressSet.SetData storage pointer",
                                               "value": "self"
                                             },
-                                            "id": 1372,
+                                            "id": 1499,
                                             "name": "Identifier",
-                                            "src": "2379:4:5"
+                                            "src": "2379:4:6"
                                           }
                                         ],
-                                        "id": 1373,
+                                        "id": 1500,
                                         "name": "MemberAccess",
-                                        "src": "2379:15:5"
+                                        "src": "2379:15:6"
                                       },
                                       {
                                         "attributes": {
@@ -2580,58 +2580,58 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1309,
+                                          "referencedDeclaration": 1436,
                                           "type": "address",
                                           "value": "a"
                                         },
-                                        "id": 1374,
+                                        "id": 1501,
                                         "name": "Identifier",
-                                        "src": "2395:1:5"
+                                        "src": "2395:1:6"
                                       }
                                     ],
-                                    "id": 1375,
+                                    "id": 1502,
                                     "name": "IndexAccess",
-                                    "src": "2379:18:5"
+                                    "src": "2379:18:6"
                                   }
                                 ],
-                                "id": 1376,
+                                "id": 1503,
                                 "name": "UnaryOperation",
-                                "src": "2372:25:5"
+                                "src": "2372:25:6"
                               }
                             ],
-                            "id": 1377,
+                            "id": 1504,
                             "name": "ExpressionStatement",
-                            "src": "2372:25:5"
+                            "src": "2372:25:6"
                           }
                         ],
-                        "id": 1378,
+                        "id": 1505,
                         "name": "Block",
-                        "src": "1922:486:5"
+                        "src": "1922:486:6"
                       }
                     ],
-                    "id": 1379,
+                    "id": 1506,
                     "name": "IfStatement",
-                    "src": "1897:511:5"
+                    "src": "1897:511:6"
                   }
                 ],
-                "id": 1380,
+                "id": 1507,
                 "name": "Block",
-                "src": "1887:527:5"
+                "src": "1887:527:6"
               }
             ],
-            "id": 1381,
+            "id": 1508,
             "name": "FunctionDefinition",
-            "src": "1831:583:5"
+            "src": "1831:583:6"
           }
         ],
-        "id": 1382,
+        "id": 1509,
         "name": "ContractDefinition",
-        "src": "895:1521:5"
+        "src": "895:1521:6"
       }
     ],
-    "id": 1383,
+    "id": 1510,
     "name": "SourceUnit",
-    "src": "868:1548:5"
+    "src": "868:1548:6"
   },
   "compiler": {
     "name": "solc",
@@ -2641,9 +2641,9 @@
     "4447": {
       "events": {},
       "links": {},
-      "address": "0xfb88de099e13c3ed21f80a7a1e49f8caecf10df6"
+      "address": "0xf07ed3a526698d6d649591bbf15572c8f0622aba"
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-06T16:13:54.565Z"
+  "updatedAt": "2017-12-06T17:19:54.592Z"
 }

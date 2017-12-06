@@ -11,10 +11,18 @@ program
 
 let addr = program.args[0];
 
-tally.tally({
+tally.tallyAllByPool({
     electionAddress: addr
 }).then((res) => {
-    console.log(JSON.stringify(res,null,"\t"));
+    console.log("BY POOL="+JSON.stringify(res,null,"\t"));
+}).catch((err) => {
+    console.error(err);
+});
+
+tally.tallyAllByBallot({
+    electionAddress: addr
+}).then((res) => {
+    console.log("BY Ballot="+JSON.stringify(res,null,"\t"));
 }).catch((err) => {
     console.error(err);
 });
