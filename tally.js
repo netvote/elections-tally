@@ -142,7 +142,7 @@ const addVoteToResult = (choices, ballotAddr, group, result) => {
         let choice = choices[c];
 
         if(choice.writeIn) {
-            let cleanWriteIn = choice.writeIn.toLowerCase().trim();
+            let cleanWriteIn = choice.writeIn.toUpperCase().trim();
             if(!result[ballotAddr][group][c]["writeIn"]){
                 result[ballotAddr][group][c]["writeIn"] = {};
             }
