@@ -539,7 +539,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1319,
+          "SourceUnit": 1297,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/elections/VoteAllowance.sol",
           "file": "./VoteAllowance.sol",
           "scope": 707,
@@ -554,7 +554,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1796,
+          "SourceUnit": 1774,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/links/BallotRegistry.sol",
           "file": "../links/BallotRegistry.sol",
           "scope": 707,
@@ -569,7 +569,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 1891,
+          "SourceUnit": 1869,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/links/PoolRegistry.sol",
           "file": "../links/PoolRegistry.sol",
           "scope": 707,
@@ -584,7 +584,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 2122,
+          "SourceUnit": 2100,
           "absolutePath": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
           "file": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
           "scope": 707,
@@ -601,25 +601,25 @@
         "attributes": {
           "contractDependencies": [
             110,
-            1795,
-            1890,
-            2034,
-            2098,
-            2121,
-            2177
+            1773,
+            1868,
+            2012,
+            2076,
+            2099,
+            2155
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             706,
-            2121,
-            1890,
-            1795,
-            2034,
-            2098,
+            2099,
+            1868,
+            1773,
+            2012,
+            2076,
             110,
-            2177
+            2155
           ],
           "name": "Election",
           "scope": 707
@@ -636,7 +636,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "BallotRegistry",
-                  "referencedDeclaration": 1795,
+                  "referencedDeclaration": 1773,
                   "type": "contract BallotRegistry"
                 },
                 "id": 597,
@@ -659,7 +659,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "PoolRegistry",
-                  "referencedDeclaration": 1890,
+                  "referencedDeclaration": 1868,
                   "type": "contract PoolRegistry"
                 },
                 "id": 599,
@@ -682,7 +682,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ReentrancyGuard",
-                  "referencedDeclaration": 2121,
+                  "referencedDeclaration": 2099,
                   "type": "contract ReentrancyGuard"
                 },
                 "id": 601,
@@ -732,7 +732,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "VoteAllowance",
-                  "referencedDeclaration": 1318,
+                  "referencedDeclaration": 1296,
                   "type": "contract VoteAllowance"
                 },
                 "id": 605,
@@ -1015,7 +1015,7 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1318,
+                                  "referencedDeclaration": 1296,
                                   "type": "type(contract VoteAllowance)",
                                   "value": "VoteAllowance"
                                 },
@@ -1176,7 +1176,7 @@
               "payable": false,
               "scope": 706,
               "stateMutability": "view",
-              "superFunction": 1982,
+              "superFunction": 1960,
               "visibility": "public"
             },
             "children": [
@@ -1333,7 +1333,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1925,
+                      "referencedDeclaration": 1903,
                       "type": "modifier ()",
                       "value": "building"
                     },
@@ -1505,7 +1505,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1955,
+                      "referencedDeclaration": 1933,
                       "type": "modifier ()",
                       "value": "closed"
                     },
@@ -1700,7 +1700,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -1736,7 +1736,7 @@
                                   "isPure": false,
                                   "lValueRequested": false,
                                   "member_name": "contains",
-                                  "referencedDeclaration": 1377,
+                                  "referencedDeclaration": 1355,
                                   "type": "function (struct AddressSet.SetData storage pointer,address) view returns (bool)"
                                 },
                                 "children": [
@@ -1746,7 +1746,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1808,
+                                      "referencedDeclaration": 1786,
                                       "type": "struct AddressSet.SetData storage ref",
                                       "value": "poolSet"
                                     },
@@ -1777,7 +1777,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 2189,
+                                      "referencedDeclaration": 2167,
                                       "type": "msg",
                                       "value": "msg"
                                     },
@@ -1868,7 +1868,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1940,
+                      "referencedDeclaration": 1918,
                       "type": "modifier ()",
                       "value": "voting"
                     },
@@ -1894,7 +1894,7 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 2120,
+                      "referencedDeclaration": 2098,
                       "type": "modifier ()",
                       "value": "nonReentrant"
                     },
@@ -1965,7 +1965,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "deduct",
-                              "referencedDeclaration": 1317,
+                              "referencedDeclaration": 1295,
                               "type": "function (address) external"
                             },
                             "children": [
@@ -2040,10 +2040,10 @@
     "4447": {
       "events": {},
       "links": {
-        "AddressSet": "0xf07ed3a526698d6d649591bbf15572c8f0622aba"
+        "AddressSet": "0xecfcab0a285d3380e488a39b4bb21e777f8a4eac"
       }
     }
   },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-06T17:19:54.719Z"
+  "updatedAt": "2017-12-07T21:05:57.475Z"
 }

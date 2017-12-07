@@ -217,7 +217,7 @@
       "absolutePath": "/Users/slanders/netvote/elections/contracts/state/ElectionPhaseable.sol",
       "exportedSymbols": {
         "ElectionPhaseable": [
-          2034
+          2012
         ]
       }
     },
@@ -231,22 +231,22 @@
             ".17"
           ]
         },
-        "id": 1892,
+        "id": 1870,
         "name": "PragmaDirective",
         "src": "868:24:10"
       },
       {
         "attributes": {
-          "SourceUnit": 2099,
+          "SourceUnit": 2077,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/state/Lockable.sol",
           "file": "./Lockable.sol",
-          "scope": 2035,
+          "scope": 2013,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1893,
+        "id": 1871,
         "name": "ImportDirective",
         "src": "894:24:10"
       },
@@ -254,20 +254,20 @@
         "attributes": {
           "contractDependencies": [
             110,
-            2098,
-            2177
+            2076,
+            2155
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            2034,
-            2098,
+            2012,
+            2076,
             110,
-            2177
+            2155
           ],
           "name": "ElectionPhaseable",
-          "scope": 2035
+          "scope": 2013
         },
         "children": [
           {
@@ -281,15 +281,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Lockable",
-                  "referencedDeclaration": 2098,
+                  "referencedDeclaration": 2076,
                   "type": "contract Lockable"
                 },
-                "id": 1894,
+                "id": 1872,
                 "name": "UserDefinedTypeName",
                 "src": "1041:8:10"
               }
             ],
-            "id": 1895,
+            "id": 1873,
             "name": "InheritanceSpecifier",
             "src": "1041:8:10"
           },
@@ -306,12 +306,12 @@
                   ]
                 },
                 "children": [],
-                "id": 1896,
+                "id": 1874,
                 "name": "ParameterList",
                 "src": "1068:2:10"
               }
             ],
-            "id": 1897,
+            "id": 1875,
             "name": "EventDefinition",
             "src": "1056:15:10"
           },
@@ -328,12 +328,12 @@
                   ]
                 },
                 "children": [],
-                "id": 1898,
+                "id": 1876,
                 "name": "ParameterList",
                 "src": "1091:2:10"
               }
             ],
-            "id": 1899,
+            "id": 1877,
             "name": "EventDefinition",
             "src": "1076:18:10"
           },
@@ -350,12 +350,12 @@
                   ]
                 },
                 "children": [],
-                "id": 1900,
+                "id": 1878,
                 "name": "ParameterList",
                 "src": "1112:2:10"
               }
             ],
-            "id": 1901,
+            "id": 1879,
             "name": "EventDefinition",
             "src": "1099:16:10"
           },
@@ -363,7 +363,7 @@
             "attributes": {
               "constant": false,
               "name": "electionPhase",
-              "scope": 2034,
+              "scope": 2012,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "enum ElectionPhaseable.ElectionPhase",
@@ -374,10 +374,10 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ElectionPhase",
-                  "referencedDeclaration": 1910,
+                  "referencedDeclaration": 1888,
                   "type": "enum ElectionPhaseable.ElectionPhase"
                 },
-                "id": 1902,
+                "id": 1880,
                 "name": "UserDefinedTypeName",
                 "src": "1121:13:10"
               },
@@ -399,21 +399,21 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1910,
+                      "referencedDeclaration": 1888,
                       "type": "type(enum ElectionPhaseable.ElectionPhase)",
                       "value": "ElectionPhase"
                     },
-                    "id": 1903,
+                    "id": 1881,
                     "name": "Identifier",
                     "src": "1158:13:10"
                   }
                 ],
-                "id": 1904,
+                "id": 1882,
                 "name": "MemberAccess",
                 "src": "1158:22:10"
               }
             ],
-            "id": 1905,
+            "id": 1883,
             "name": "VariableDeclaration",
             "src": "1121:59:10"
           },
@@ -427,7 +427,7 @@
                 "attributes": {
                   "name": "Building"
                 },
-                "id": 1906,
+                "id": 1884,
                 "name": "EnumValue",
                 "src": "1216:8:10"
               },
@@ -435,7 +435,7 @@
                 "attributes": {
                   "name": "Voting"
                 },
-                "id": 1907,
+                "id": 1885,
                 "name": "EnumValue",
                 "src": "1234:6:10"
               },
@@ -443,7 +443,7 @@
                 "attributes": {
                   "name": "Closed"
                 },
-                "id": 1908,
+                "id": 1886,
                 "name": "EnumValue",
                 "src": "1250:6:10"
               },
@@ -451,12 +451,12 @@
                 "attributes": {
                   "name": "Aborted"
                 },
-                "id": 1909,
+                "id": 1887,
                 "name": "EnumValue",
                 "src": "1266:7:10"
               }
             ],
-            "id": 1910,
+            "id": 1888,
             "name": "EnumDefinition",
             "src": "1187:92:10"
           },
@@ -473,7 +473,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1911,
+                "id": 1889,
                 "name": "ParameterList",
                 "src": "1302:2:10"
               },
@@ -507,11 +507,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1912,
+                            "id": 1890,
                             "name": "Identifier",
                             "src": "1315:7:10"
                           },
@@ -568,21 +568,21 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 2071,
+                                          "referencedDeclaration": 2049,
                                           "type": "function () view returns (bool)",
                                           "value": "isLocked"
                                         },
-                                        "id": 1913,
+                                        "id": 1891,
                                         "name": "Identifier",
                                         "src": "1324:8:10"
                                       }
                                     ],
-                                    "id": 1914,
+                                    "id": 1892,
                                     "name": "FunctionCall",
                                     "src": "1324:10:10"
                                   }
                                 ],
-                                "id": 1915,
+                                "id": 1893,
                                 "name": "UnaryOperation",
                                 "src": "1323:11:10"
                               },
@@ -590,7 +590,7 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "commonType": {
-                                    "typeIdentifier": "t_enum$_ElectionPhase_$1910",
+                                    "typeIdentifier": "t_enum$_ElectionPhase_$1888",
                                     "typeString": "enum ElectionPhaseable.ElectionPhase"
                                   },
                                   "isConstant": false,
@@ -607,11 +607,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1905,
+                                      "referencedDeclaration": 1883,
                                       "type": "enum ElectionPhaseable.ElectionPhase",
                                       "value": "electionPhase"
                                     },
-                                    "id": 1916,
+                                    "id": 1894,
                                     "name": "Identifier",
                                     "src": "1338:13:10"
                                   },
@@ -633,51 +633,51 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1910,
+                                          "referencedDeclaration": 1888,
                                           "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                           "value": "ElectionPhase"
                                         },
-                                        "id": 1917,
+                                        "id": 1895,
                                         "name": "Identifier",
                                         "src": "1355:13:10"
                                       }
                                     ],
-                                    "id": 1918,
+                                    "id": 1896,
                                     "name": "MemberAccess",
                                     "src": "1355:22:10"
                                   }
                                 ],
-                                "id": 1919,
+                                "id": 1897,
                                 "name": "BinaryOperation",
                                 "src": "1338:39:10"
                               }
                             ],
-                            "id": 1920,
+                            "id": 1898,
                             "name": "BinaryOperation",
                             "src": "1323:54:10"
                           }
                         ],
-                        "id": 1921,
+                        "id": 1899,
                         "name": "FunctionCall",
                         "src": "1315:63:10"
                       }
                     ],
-                    "id": 1922,
+                    "id": 1900,
                     "name": "ExpressionStatement",
                     "src": "1315:63:10"
                   },
                   {
-                    "id": 1923,
+                    "id": 1901,
                     "name": "PlaceholderStatement",
                     "src": "1388:1:10"
                   }
                 ],
-                "id": 1924,
+                "id": 1902,
                 "name": "Block",
                 "src": "1305:91:10"
               }
             ],
-            "id": 1925,
+            "id": 1903,
             "name": "ModifierDefinition",
             "src": "1285:111:10"
           },
@@ -694,7 +694,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1926,
+                "id": 1904,
                 "name": "ParameterList",
                 "src": "1417:2:10"
               },
@@ -728,11 +728,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1927,
+                            "id": 1905,
                             "name": "Identifier",
                             "src": "1430:7:10"
                           },
@@ -789,21 +789,21 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 2071,
+                                          "referencedDeclaration": 2049,
                                           "type": "function () view returns (bool)",
                                           "value": "isLocked"
                                         },
-                                        "id": 1928,
+                                        "id": 1906,
                                         "name": "Identifier",
                                         "src": "1439:8:10"
                                       }
                                     ],
-                                    "id": 1929,
+                                    "id": 1907,
                                     "name": "FunctionCall",
                                     "src": "1439:10:10"
                                   }
                                 ],
-                                "id": 1930,
+                                "id": 1908,
                                 "name": "UnaryOperation",
                                 "src": "1438:11:10"
                               },
@@ -811,7 +811,7 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "commonType": {
-                                    "typeIdentifier": "t_enum$_ElectionPhase_$1910",
+                                    "typeIdentifier": "t_enum$_ElectionPhase_$1888",
                                     "typeString": "enum ElectionPhaseable.ElectionPhase"
                                   },
                                   "isConstant": false,
@@ -828,11 +828,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1905,
+                                      "referencedDeclaration": 1883,
                                       "type": "enum ElectionPhaseable.ElectionPhase",
                                       "value": "electionPhase"
                                     },
-                                    "id": 1931,
+                                    "id": 1909,
                                     "name": "Identifier",
                                     "src": "1453:13:10"
                                   },
@@ -854,51 +854,51 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1910,
+                                          "referencedDeclaration": 1888,
                                           "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                           "value": "ElectionPhase"
                                         },
-                                        "id": 1932,
+                                        "id": 1910,
                                         "name": "Identifier",
                                         "src": "1470:13:10"
                                       }
                                     ],
-                                    "id": 1933,
+                                    "id": 1911,
                                     "name": "MemberAccess",
                                     "src": "1470:20:10"
                                   }
                                 ],
-                                "id": 1934,
+                                "id": 1912,
                                 "name": "BinaryOperation",
                                 "src": "1453:37:10"
                               }
                             ],
-                            "id": 1935,
+                            "id": 1913,
                             "name": "BinaryOperation",
                             "src": "1438:52:10"
                           }
                         ],
-                        "id": 1936,
+                        "id": 1914,
                         "name": "FunctionCall",
                         "src": "1430:61:10"
                       }
                     ],
-                    "id": 1937,
+                    "id": 1915,
                     "name": "ExpressionStatement",
                     "src": "1430:61:10"
                   },
                   {
-                    "id": 1938,
+                    "id": 1916,
                     "name": "PlaceholderStatement",
                     "src": "1501:1:10"
                   }
                 ],
-                "id": 1939,
+                "id": 1917,
                 "name": "Block",
                 "src": "1420:89:10"
               }
             ],
-            "id": 1940,
+            "id": 1918,
             "name": "ModifierDefinition",
             "src": "1402:107:10"
           },
@@ -915,7 +915,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1941,
+                "id": 1919,
                 "name": "ParameterList",
                 "src": "1530:2:10"
               },
@@ -949,11 +949,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1942,
+                            "id": 1920,
                             "name": "Identifier",
                             "src": "1543:7:10"
                           },
@@ -1010,21 +1010,21 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 2071,
+                                          "referencedDeclaration": 2049,
                                           "type": "function () view returns (bool)",
                                           "value": "isLocked"
                                         },
-                                        "id": 1943,
+                                        "id": 1921,
                                         "name": "Identifier",
                                         "src": "1552:8:10"
                                       }
                                     ],
-                                    "id": 1944,
+                                    "id": 1922,
                                     "name": "FunctionCall",
                                     "src": "1552:10:10"
                                   }
                                 ],
-                                "id": 1945,
+                                "id": 1923,
                                 "name": "UnaryOperation",
                                 "src": "1551:11:10"
                               },
@@ -1032,7 +1032,7 @@
                                 "attributes": {
                                   "argumentTypes": null,
                                   "commonType": {
-                                    "typeIdentifier": "t_enum$_ElectionPhase_$1910",
+                                    "typeIdentifier": "t_enum$_ElectionPhase_$1888",
                                     "typeString": "enum ElectionPhaseable.ElectionPhase"
                                   },
                                   "isConstant": false,
@@ -1049,11 +1049,11 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1905,
+                                      "referencedDeclaration": 1883,
                                       "type": "enum ElectionPhaseable.ElectionPhase",
                                       "value": "electionPhase"
                                     },
-                                    "id": 1946,
+                                    "id": 1924,
                                     "name": "Identifier",
                                     "src": "1566:13:10"
                                   },
@@ -1075,51 +1075,51 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 1910,
+                                          "referencedDeclaration": 1888,
                                           "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                           "value": "ElectionPhase"
                                         },
-                                        "id": 1947,
+                                        "id": 1925,
                                         "name": "Identifier",
                                         "src": "1583:13:10"
                                       }
                                     ],
-                                    "id": 1948,
+                                    "id": 1926,
                                     "name": "MemberAccess",
                                     "src": "1583:20:10"
                                   }
                                 ],
-                                "id": 1949,
+                                "id": 1927,
                                 "name": "BinaryOperation",
                                 "src": "1566:37:10"
                               }
                             ],
-                            "id": 1950,
+                            "id": 1928,
                             "name": "BinaryOperation",
                             "src": "1551:52:10"
                           }
                         ],
-                        "id": 1951,
+                        "id": 1929,
                         "name": "FunctionCall",
                         "src": "1543:61:10"
                       }
                     ],
-                    "id": 1952,
+                    "id": 1930,
                     "name": "ExpressionStatement",
                     "src": "1543:61:10"
                   },
                   {
-                    "id": 1953,
+                    "id": 1931,
                     "name": "PlaceholderStatement",
                     "src": "1614:1:10"
                   }
                 ],
-                "id": 1954,
+                "id": 1932,
                 "name": "Block",
                 "src": "1533:89:10"
               }
             ],
-            "id": 1955,
+            "id": 1933,
             "name": "ModifierDefinition",
             "src": "1515:107:10"
           },
@@ -1136,7 +1136,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1956,
+                "id": 1934,
                 "name": "ParameterList",
                 "src": "1644:2:10"
               },
@@ -1170,11 +1170,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1957,
+                            "id": 1935,
                             "name": "Identifier",
                             "src": "1657:7:10"
                           },
@@ -1182,7 +1182,7 @@
                             "attributes": {
                               "argumentTypes": null,
                               "commonType": {
-                                "typeIdentifier": "t_enum$_ElectionPhase_$1910",
+                                "typeIdentifier": "t_enum$_ElectionPhase_$1888",
                                 "typeString": "enum ElectionPhaseable.ElectionPhase"
                               },
                               "isConstant": false,
@@ -1199,11 +1199,11 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1905,
+                                  "referencedDeclaration": 1883,
                                   "type": "enum ElectionPhaseable.ElectionPhase",
                                   "value": "electionPhase"
                                 },
-                                "id": 1958,
+                                "id": 1936,
                                 "name": "Identifier",
                                 "src": "1665:13:10"
                               },
@@ -1225,46 +1225,46 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 1910,
+                                      "referencedDeclaration": 1888,
                                       "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                       "value": "ElectionPhase"
                                     },
-                                    "id": 1959,
+                                    "id": 1937,
                                     "name": "Identifier",
                                     "src": "1682:13:10"
                                   }
                                 ],
-                                "id": 1960,
+                                "id": 1938,
                                 "name": "MemberAccess",
                                 "src": "1682:21:10"
                               }
                             ],
-                            "id": 1961,
+                            "id": 1939,
                             "name": "BinaryOperation",
                             "src": "1665:38:10"
                           }
                         ],
-                        "id": 1962,
+                        "id": 1940,
                         "name": "FunctionCall",
                         "src": "1657:47:10"
                       }
                     ],
-                    "id": 1963,
+                    "id": 1941,
                     "name": "ExpressionStatement",
                     "src": "1657:47:10"
                   },
                   {
-                    "id": 1964,
+                    "id": 1942,
                     "name": "PlaceholderStatement",
                     "src": "1714:1:10"
                   }
                 ],
-                "id": 1965,
+                "id": 1943,
                 "name": "Block",
                 "src": "1647:75:10"
               }
             ],
-            "id": 1966,
+            "id": 1944,
             "name": "ModifierDefinition",
             "src": "1628:94:10"
           },
@@ -1278,7 +1278,7 @@
               ],
               "name": "isClosed",
               "payable": false,
-              "scope": 2034,
+              "scope": 2012,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1291,7 +1291,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1967,
+                "id": 1945,
                 "name": "ParameterList",
                 "src": "1745:2:10"
               },
@@ -1301,7 +1301,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1977,
+                      "scope": 1955,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1314,17 +1314,17 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1968,
+                        "id": 1946,
                         "name": "ElementaryTypeName",
                         "src": "1773:4:10"
                       }
                     ],
-                    "id": 1969,
+                    "id": 1947,
                     "name": "VariableDeclaration",
                     "src": "1773:4:10"
                   }
                 ],
-                "id": 1970,
+                "id": 1948,
                 "name": "ParameterList",
                 "src": "1772:6:10"
               },
@@ -1332,14 +1332,14 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1970
+                      "functionReturnParameters": 1948
                     },
                     "children": [
                       {
                         "attributes": {
                           "argumentTypes": null,
                           "commonType": {
-                            "typeIdentifier": "t_enum$_ElectionPhase_$1910",
+                            "typeIdentifier": "t_enum$_ElectionPhase_$1888",
                             "typeString": "enum ElectionPhaseable.ElectionPhase"
                           },
                           "isConstant": false,
@@ -1356,11 +1356,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1905,
+                              "referencedDeclaration": 1883,
                               "type": "enum ElectionPhaseable.ElectionPhase",
                               "value": "electionPhase"
                             },
-                            "id": 1971,
+                            "id": 1949,
                             "name": "Identifier",
                             "src": "1796:13:10"
                           },
@@ -1382,36 +1382,36 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1910,
+                                  "referencedDeclaration": 1888,
                                   "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                   "value": "ElectionPhase"
                                 },
-                                "id": 1972,
+                                "id": 1950,
                                 "name": "Identifier",
                                 "src": "1813:13:10"
                               }
                             ],
-                            "id": 1973,
+                            "id": 1951,
                             "name": "MemberAccess",
                             "src": "1813:20:10"
                           }
                         ],
-                        "id": 1974,
+                        "id": 1952,
                         "name": "BinaryOperation",
                         "src": "1796:37:10"
                       }
                     ],
-                    "id": 1975,
+                    "id": 1953,
                     "name": "Return",
                     "src": "1789:44:10"
                   }
                 ],
-                "id": 1976,
+                "id": 1954,
                 "name": "Block",
                 "src": "1779:61:10"
               }
             ],
-            "id": 1977,
+            "id": 1955,
             "name": "FunctionDefinition",
             "src": "1728:112:10"
           },
@@ -1426,7 +1426,7 @@
               ],
               "name": "checkConfig",
               "payable": false,
-              "scope": 2034,
+              "scope": 2012,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1439,7 +1439,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1978,
+                "id": 1956,
                 "name": "ParameterList",
                 "src": "1866:2:10"
               },
@@ -1449,7 +1449,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1982,
+                      "scope": 1960,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1462,22 +1462,22 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1979,
+                        "id": 1957,
                         "name": "ElementaryTypeName",
                         "src": "1894:4:10"
                       }
                     ],
-                    "id": 1980,
+                    "id": 1958,
                     "name": "VariableDeclaration",
                     "src": "1894:4:10"
                   }
                 ],
-                "id": 1981,
+                "id": 1959,
                 "name": "ParameterList",
                 "src": "1893:6:10"
               }
             ],
-            "id": 1982,
+            "id": 1960,
             "name": "FunctionDefinition",
             "src": "1846:54:10"
           },
@@ -1488,7 +1488,7 @@
               "isConstructor": false,
               "name": "activate",
               "payable": false,
-              "scope": 2034,
+              "scope": 2012,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1501,7 +1501,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1983,
+                "id": 1961,
                 "name": "ParameterList",
                 "src": "1923:2:10"
               },
@@ -1512,7 +1512,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1988,
+                "id": 1966,
                 "name": "ParameterList",
                 "src": "1948:0:10"
               },
@@ -1529,16 +1529,16 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1925,
+                      "referencedDeclaration": 1903,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1984,
+                    "id": 1962,
                     "name": "Identifier",
                     "src": "1933:8:10"
                   }
                 ],
-                "id": 1985,
+                "id": 1963,
                 "name": "ModifierInvocation",
                 "src": "1933:8:10"
               },
@@ -1559,12 +1559,12 @@
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1986,
+                    "id": 1964,
                     "name": "Identifier",
                     "src": "1942:5:10"
                   }
                 ],
-                "id": 1987,
+                "id": 1965,
                 "name": "ModifierInvocation",
                 "src": "1942:5:10"
               },
@@ -1598,11 +1598,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 1989,
+                            "id": 1967,
                             "name": "Identifier",
                             "src": "1958:7:10"
                           },
@@ -1632,26 +1632,26 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1982,
+                                  "referencedDeclaration": 1960,
                                   "type": "function () view returns (bool)",
                                   "value": "checkConfig"
                                 },
-                                "id": 1990,
+                                "id": 1968,
                                 "name": "Identifier",
                                 "src": "1966:11:10"
                               }
                             ],
-                            "id": 1991,
+                            "id": 1969,
                             "name": "FunctionCall",
                             "src": "1966:13:10"
                           }
                         ],
-                        "id": 1992,
+                        "id": 1970,
                         "name": "FunctionCall",
                         "src": "1958:22:10"
                       }
                     ],
-                    "id": 1993,
+                    "id": 1971,
                     "name": "ExpressionStatement",
                     "src": "1958:22:10"
                   },
@@ -1674,11 +1674,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1905,
+                              "referencedDeclaration": 1883,
                               "type": "enum ElectionPhaseable.ElectionPhase",
                               "value": "electionPhase"
                             },
-                            "id": 1994,
+                            "id": 1972,
                             "name": "Identifier",
                             "src": "1990:13:10"
                           },
@@ -1700,26 +1700,26 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1910,
+                                  "referencedDeclaration": 1888,
                                   "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                   "value": "ElectionPhase"
                                 },
-                                "id": 1995,
+                                "id": 1973,
                                 "name": "Identifier",
                                 "src": "2006:13:10"
                               }
                             ],
-                            "id": 1996,
+                            "id": 1974,
                             "name": "MemberAccess",
                             "src": "2006:20:10"
                           }
                         ],
-                        "id": 1997,
+                        "id": 1975,
                         "name": "Assignment",
                         "src": "1990:36:10"
                       }
                     ],
-                    "id": 1998,
+                    "id": 1976,
                     "name": "ExpressionStatement",
                     "src": "1990:36:10"
                   },
@@ -1751,31 +1751,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1899,
+                              "referencedDeclaration": 1877,
                               "type": "function ()",
                               "value": "Activated"
                             },
-                            "id": 1999,
+                            "id": 1977,
                             "name": "Identifier",
                             "src": "2036:9:10"
                           }
                         ],
-                        "id": 2000,
+                        "id": 1978,
                         "name": "FunctionCall",
                         "src": "2036:11:10"
                       }
                     ],
-                    "id": 2001,
+                    "id": 1979,
                     "name": "ExpressionStatement",
                     "src": "2036:11:10"
                   }
                 ],
-                "id": 2002,
+                "id": 1980,
                 "name": "Block",
                 "src": "1948:106:10"
               }
             ],
-            "id": 2003,
+            "id": 1981,
             "name": "FunctionDefinition",
             "src": "1906:148:10"
           },
@@ -1786,7 +1786,7 @@
               "isConstructor": false,
               "name": "close",
               "payable": false,
-              "scope": 2034,
+              "scope": 2012,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1799,7 +1799,7 @@
                   ]
                 },
                 "children": [],
-                "id": 2004,
+                "id": 1982,
                 "name": "ParameterList",
                 "src": "2074:2:10"
               },
@@ -1810,7 +1810,7 @@
                   ]
                 },
                 "children": [],
-                "id": 2009,
+                "id": 1987,
                 "name": "ParameterList",
                 "src": "2097:0:10"
               },
@@ -1827,16 +1827,16 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1940,
+                      "referencedDeclaration": 1918,
                       "type": "modifier ()",
                       "value": "voting"
                     },
-                    "id": 2005,
+                    "id": 1983,
                     "name": "Identifier",
                     "src": "2084:6:10"
                   }
                 ],
-                "id": 2006,
+                "id": 1984,
                 "name": "ModifierInvocation",
                 "src": "2084:6:10"
               },
@@ -1857,12 +1857,12 @@
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 2007,
+                    "id": 1985,
                     "name": "Identifier",
                     "src": "2091:5:10"
                   }
                 ],
-                "id": 2008,
+                "id": 1986,
                 "name": "ModifierInvocation",
                 "src": "2091:5:10"
               },
@@ -1887,11 +1887,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1905,
+                              "referencedDeclaration": 1883,
                               "type": "enum ElectionPhaseable.ElectionPhase",
                               "value": "electionPhase"
                             },
-                            "id": 2010,
+                            "id": 1988,
                             "name": "Identifier",
                             "src": "2107:13:10"
                           },
@@ -1913,26 +1913,26 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1910,
+                                  "referencedDeclaration": 1888,
                                   "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                   "value": "ElectionPhase"
                                 },
-                                "id": 2011,
+                                "id": 1989,
                                 "name": "Identifier",
                                 "src": "2123:13:10"
                               }
                             ],
-                            "id": 2012,
+                            "id": 1990,
                             "name": "MemberAccess",
                             "src": "2123:20:10"
                           }
                         ],
-                        "id": 2013,
+                        "id": 1991,
                         "name": "Assignment",
                         "src": "2107:36:10"
                       }
                     ],
-                    "id": 2014,
+                    "id": 1992,
                     "name": "ExpressionStatement",
                     "src": "2107:36:10"
                   },
@@ -1964,31 +1964,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1897,
+                              "referencedDeclaration": 1875,
                               "type": "function ()",
                               "value": "Closed"
                             },
-                            "id": 2015,
+                            "id": 1993,
                             "name": "Identifier",
                             "src": "2153:6:10"
                           }
                         ],
-                        "id": 2016,
+                        "id": 1994,
                         "name": "FunctionCall",
                         "src": "2153:8:10"
                       }
                     ],
-                    "id": 2017,
+                    "id": 1995,
                     "name": "ExpressionStatement",
                     "src": "2153:8:10"
                   }
                 ],
-                "id": 2018,
+                "id": 1996,
                 "name": "Block",
                 "src": "2097:71:10"
               }
             ],
-            "id": 2019,
+            "id": 1997,
             "name": "FunctionDefinition",
             "src": "2060:108:10"
           },
@@ -1999,7 +1999,7 @@
               "isConstructor": false,
               "name": "abort",
               "payable": false,
-              "scope": 2034,
+              "scope": 2012,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -2012,7 +2012,7 @@
                   ]
                 },
                 "children": [],
-                "id": 2020,
+                "id": 1998,
                 "name": "ParameterList",
                 "src": "2188:2:10"
               },
@@ -2023,7 +2023,7 @@
                   ]
                 },
                 "children": [],
-                "id": 2023,
+                "id": 2001,
                 "name": "ParameterList",
                 "src": "2204:0:10"
               },
@@ -2044,12 +2044,12 @@
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 2021,
+                    "id": 1999,
                     "name": "Identifier",
                     "src": "2198:5:10"
                   }
                 ],
-                "id": 2022,
+                "id": 2000,
                 "name": "ModifierInvocation",
                 "src": "2198:5:10"
               },
@@ -2074,11 +2074,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1905,
+                              "referencedDeclaration": 1883,
                               "type": "enum ElectionPhaseable.ElectionPhase",
                               "value": "electionPhase"
                             },
-                            "id": 2024,
+                            "id": 2002,
                             "name": "Identifier",
                             "src": "2214:13:10"
                           },
@@ -2100,26 +2100,26 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1910,
+                                  "referencedDeclaration": 1888,
                                   "type": "type(enum ElectionPhaseable.ElectionPhase)",
                                   "value": "ElectionPhase"
                                 },
-                                "id": 2025,
+                                "id": 2003,
                                 "name": "Identifier",
                                 "src": "2230:13:10"
                               }
                             ],
-                            "id": 2026,
+                            "id": 2004,
                             "name": "MemberAccess",
                             "src": "2230:21:10"
                           }
                         ],
-                        "id": 2027,
+                        "id": 2005,
                         "name": "Assignment",
                         "src": "2214:37:10"
                       }
                     ],
-                    "id": 2028,
+                    "id": 2006,
                     "name": "ExpressionStatement",
                     "src": "2214:37:10"
                   },
@@ -2151,41 +2151,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1901,
+                              "referencedDeclaration": 1879,
                               "type": "function ()",
                               "value": "Aborted"
                             },
-                            "id": 2029,
+                            "id": 2007,
                             "name": "Identifier",
                             "src": "2261:7:10"
                           }
                         ],
-                        "id": 2030,
+                        "id": 2008,
                         "name": "FunctionCall",
                         "src": "2261:9:10"
                       }
                     ],
-                    "id": 2031,
+                    "id": 2009,
                     "name": "ExpressionStatement",
                     "src": "2261:9:10"
                   }
                 ],
-                "id": 2032,
+                "id": 2010,
                 "name": "Block",
                 "src": "2204:73:10"
               }
             ],
-            "id": 2033,
+            "id": 2011,
             "name": "FunctionDefinition",
             "src": "2174:103:10"
           }
         ],
-        "id": 2034,
+        "id": 2012,
         "name": "ContractDefinition",
         "src": "1011:1268:10"
       }
     ],
-    "id": 2035,
+    "id": 2013,
     "name": "SourceUnit",
     "src": "868:1411:10"
   },
@@ -2195,5 +2195,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-06T17:19:52.134Z"
+  "updatedAt": "2017-12-07T21:05:53.903Z"
 }

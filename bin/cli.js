@@ -16,7 +16,7 @@ program
         election = electionAddress;
     })
     .option("-r, --ropsten", "Use ropsten test network")
-    .option("-p, --provider", "Use specified endpoint")
+    .option("-p, --provider [provider]", "Use specified endpoint")
     .parse(process.argv);
 
 if(!election || !Eth.isAddress(election)) {
@@ -31,6 +31,8 @@ if(program.provider){
 } else if (program.ropsten){
     provider = ROPSTEN_URL;
 }
+
+console.log("provider = "+program.provider);
 
 tally.tallyAllByPool({
     electionAddress: election,

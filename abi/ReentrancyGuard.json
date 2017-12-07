@@ -12,7 +12,7 @@
       "absolutePath": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
       "exportedSymbols": {
         "ReentrancyGuard": [
-          2121
+          2099
         ]
       }
     },
@@ -26,7 +26,7 @@
             ".11"
           ]
         },
-        "id": 2100,
+        "id": 2078,
         "name": "PragmaDirective",
         "src": "0:24:12"
       },
@@ -42,17 +42,17 @@
           "documentation": "@title Helps contracts guard agains rentrancy attacks.\n@author Remco Bloemen <remco@2π.com>\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`.",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            2121
+            2099
           ],
           "name": "ReentrancyGuard",
-          "scope": 2122
+          "scope": 2100
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "rentrancy_lock",
-              "scope": 2121,
+              "scope": 2099,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bool",
@@ -64,7 +64,7 @@
                   "name": "bool",
                   "type": "bool"
                 },
-                "id": 2101,
+                "id": 2079,
                 "name": "ElementaryTypeName",
                 "src": "319:4:12"
               },
@@ -81,12 +81,12 @@
                   "type": "bool",
                   "value": "false"
                 },
-                "id": 2102,
+                "id": 2080,
                 "name": "Literal",
                 "src": "349:5:12"
               }
             ],
-            "id": 2103,
+            "id": 2081,
             "name": "VariableDeclaration",
             "src": "319:35:12"
           },
@@ -103,7 +103,7 @@
                   ]
                 },
                 "children": [],
-                "id": 2104,
+                "id": 2082,
                 "name": "ParameterList",
                 "src": "762:2:12"
               },
@@ -137,11 +137,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2192,
+                              "referencedDeclaration": 2170,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 2105,
+                            "id": 2083,
                             "name": "Identifier",
                             "src": "771:7:12"
                           },
@@ -163,26 +163,26 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2103,
+                                  "referencedDeclaration": 2081,
                                   "type": "bool",
                                   "value": "rentrancy_lock"
                                 },
-                                "id": 2106,
+                                "id": 2084,
                                 "name": "Identifier",
                                 "src": "780:14:12"
                               }
                             ],
-                            "id": 2107,
+                            "id": 2085,
                             "name": "UnaryOperation",
                             "src": "779:15:12"
                           }
                         ],
-                        "id": 2108,
+                        "id": 2086,
                         "name": "FunctionCall",
                         "src": "771:24:12"
                       }
                     ],
-                    "id": 2109,
+                    "id": 2087,
                     "name": "ExpressionStatement",
                     "src": "771:24:12"
                   },
@@ -205,11 +205,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2103,
+                              "referencedDeclaration": 2081,
                               "type": "bool",
                               "value": "rentrancy_lock"
                             },
-                            "id": 2110,
+                            "id": 2088,
                             "name": "Identifier",
                             "src": "801:14:12"
                           },
@@ -226,22 +226,22 @@
                               "type": "bool",
                               "value": "true"
                             },
-                            "id": 2111,
+                            "id": 2089,
                             "name": "Literal",
                             "src": "818:4:12"
                           }
                         ],
-                        "id": 2112,
+                        "id": 2090,
                         "name": "Assignment",
                         "src": "801:21:12"
                       }
                     ],
-                    "id": 2113,
+                    "id": 2091,
                     "name": "ExpressionStatement",
                     "src": "801:21:12"
                   },
                   {
-                    "id": 2114,
+                    "id": 2092,
                     "name": "PlaceholderStatement",
                     "src": "828:1:12"
                   },
@@ -264,11 +264,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2103,
+                              "referencedDeclaration": 2081,
                               "type": "bool",
                               "value": "rentrancy_lock"
                             },
-                            "id": 2115,
+                            "id": 2093,
                             "name": "Identifier",
                             "src": "835:14:12"
                           },
@@ -285,37 +285,37 @@
                               "type": "bool",
                               "value": "false"
                             },
-                            "id": 2116,
+                            "id": 2094,
                             "name": "Literal",
                             "src": "852:5:12"
                           }
                         ],
-                        "id": 2117,
+                        "id": 2095,
                         "name": "Assignment",
                         "src": "835:22:12"
                       }
                     ],
-                    "id": 2118,
+                    "id": 2096,
                     "name": "ExpressionStatement",
                     "src": "835:22:12"
                   }
                 ],
-                "id": 2119,
+                "id": 2097,
                 "name": "Block",
                 "src": "765:97:12"
               }
             ],
-            "id": 2120,
+            "id": 2098,
             "name": "ModifierDefinition",
             "src": "741:121:12"
           }
         ],
-        "id": 2121,
+        "id": 2099,
         "name": "ContractDefinition",
         "src": "222:643:12"
       }
     ],
-    "id": 2122,
+    "id": 2100,
     "name": "SourceUnit",
     "src": "0:866:12"
   },
@@ -325,5 +325,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-06T17:19:52.134Z"
+  "updatedAt": "2017-12-07T21:05:53.904Z"
 }

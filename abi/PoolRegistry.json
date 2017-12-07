@@ -316,7 +316,7 @@
       "absolutePath": "/Users/slanders/netvote/elections/contracts/links/PoolRegistry.sol",
       "exportedSymbols": {
         "PoolRegistry": [
-          1890
+          1868
         ]
       }
     },
@@ -330,37 +330,37 @@
             ".17"
           ]
         },
-        "id": 1797,
+        "id": 1775,
         "name": "PragmaDirective",
         "src": "868:24:9"
       },
       {
         "attributes": {
-          "SourceUnit": 2035,
+          "SourceUnit": 2013,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/state/ElectionPhaseable.sol",
           "file": "../state/ElectionPhaseable.sol",
-          "scope": 1891,
+          "scope": 1869,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1798,
+        "id": 1776,
         "name": "ImportDirective",
         "src": "894:40:9"
       },
       {
         "attributes": {
-          "SourceUnit": 1510,
+          "SourceUnit": 1488,
           "absolutePath": "/Users/slanders/netvote/elections/contracts/lib/AddressSet.sol",
           "file": "../lib/AddressSet.sol",
-          "scope": 1891,
+          "scope": 1869,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1799,
+        "id": 1777,
         "name": "ImportDirective",
         "src": "935:31:9"
       },
@@ -368,22 +368,22 @@
         "attributes": {
           "contractDependencies": [
             110,
-            2034,
-            2098,
-            2177
+            2012,
+            2076,
+            2155
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": false,
           "linearizedBaseContracts": [
-            1890,
-            2034,
-            2098,
+            1868,
+            2012,
+            2076,
             110,
-            2177
+            2155
           ],
           "name": "PoolRegistry",
-          "scope": 1891
+          "scope": 1869
         },
         "children": [
           {
@@ -400,12 +400,12 @@
                   "referencedDeclaration": 110,
                   "type": "contract Adminable"
                 },
-                "id": 1800,
+                "id": 1778,
                 "name": "UserDefinedTypeName",
                 "src": "994:9:9"
               }
             ],
-            "id": 1801,
+            "id": 1779,
             "name": "InheritanceSpecifier",
             "src": "994:9:9"
           },
@@ -420,15 +420,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ElectionPhaseable",
-                  "referencedDeclaration": 2034,
+                  "referencedDeclaration": 2012,
                   "type": "contract ElectionPhaseable"
                 },
-                "id": 1802,
+                "id": 1780,
                 "name": "UserDefinedTypeName",
                 "src": "1005:17:9"
               }
             ],
-            "id": 1803,
+            "id": 1781,
             "name": "InheritanceSpecifier",
             "src": "1005:17:9"
           },
@@ -438,10 +438,10 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet",
-                  "referencedDeclaration": 1509,
+                  "referencedDeclaration": 1487,
                   "type": "library AddressSet"
                 },
-                "id": 1804,
+                "id": 1782,
                 "name": "UserDefinedTypeName",
                 "src": "1035:10:9"
               },
@@ -449,15 +449,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet.SetData",
-                  "referencedDeclaration": 1332,
+                  "referencedDeclaration": 1310,
                   "type": "struct AddressSet.SetData storage pointer"
                 },
-                "id": 1805,
+                "id": 1783,
                 "name": "UserDefinedTypeName",
                 "src": "1050:18:9"
               }
             ],
-            "id": 1806,
+            "id": 1784,
             "name": "UsingForDirective",
             "src": "1029:40:9"
           },
@@ -465,7 +465,7 @@
             "attributes": {
               "constant": false,
               "name": "poolSet",
-              "scope": 1890,
+              "scope": 1868,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "struct AddressSet.SetData storage ref",
@@ -477,15 +477,15 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet.SetData",
-                  "referencedDeclaration": 1332,
+                  "referencedDeclaration": 1310,
                   "type": "struct AddressSet.SetData storage pointer"
                 },
-                "id": 1807,
+                "id": 1785,
                 "name": "UserDefinedTypeName",
                 "src": "1075:18:9"
               }
             ],
-            "id": 1808,
+            "id": 1786,
             "name": "VariableDeclaration",
             "src": "1075:26:9"
           },
@@ -499,7 +499,7 @@
               ],
               "name": "getPoolIndex",
               "payable": false,
-              "scope": 1890,
+              "scope": 1868,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -511,7 +511,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "p",
-                      "scope": 1821,
+                      "scope": 1799,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -524,17 +524,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1809,
+                        "id": 1787,
                         "name": "ElementaryTypeName",
                         "src": "1130:7:9"
                       }
                     ],
-                    "id": 1810,
+                    "id": 1788,
                     "name": "VariableDeclaration",
                     "src": "1130:9:9"
                   }
                 ],
-                "id": 1811,
+                "id": 1789,
                 "name": "ParameterList",
                 "src": "1129:11:9"
               },
@@ -544,7 +544,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1821,
+                      "scope": 1799,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -557,17 +557,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1812,
+                        "id": 1790,
                         "name": "ElementaryTypeName",
                         "src": "1166:7:9"
                       }
                     ],
-                    "id": 1813,
+                    "id": 1791,
                     "name": "VariableDeclaration",
                     "src": "1166:7:9"
                   }
                 ],
-                "id": 1814,
+                "id": 1792,
                 "name": "ParameterList",
                 "src": "1165:9:9"
               },
@@ -575,7 +575,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1814
+                      "functionReturnParameters": 1792
                     },
                     "children": [
                       {
@@ -606,7 +606,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "indexOf",
-                              "referencedDeclaration": 1347,
+                              "referencedDeclaration": 1325,
                               "type": "function (struct AddressSet.SetData storage pointer,address) view returns (uint256)"
                             },
                             "children": [
@@ -616,16 +616,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1808,
+                                  "referencedDeclaration": 1786,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "poolSet"
                                 },
-                                "id": 1815,
+                                "id": 1793,
                                 "name": "Identifier",
                                 "src": "1192:7:9"
                               }
                             ],
-                            "id": 1816,
+                            "id": 1794,
                             "name": "MemberAccess",
                             "src": "1192:15:9"
                           },
@@ -635,31 +635,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1810,
+                              "referencedDeclaration": 1788,
                               "type": "address",
                               "value": "p"
                             },
-                            "id": 1817,
+                            "id": 1795,
                             "name": "Identifier",
                             "src": "1208:1:9"
                           }
                         ],
-                        "id": 1818,
+                        "id": 1796,
                         "name": "FunctionCall",
                         "src": "1192:18:9"
                       }
                     ],
-                    "id": 1819,
+                    "id": 1797,
                     "name": "Return",
                     "src": "1185:25:9"
                   }
                 ],
-                "id": 1820,
+                "id": 1798,
                 "name": "Block",
                 "src": "1175:42:9"
               }
             ],
-            "id": 1821,
+            "id": 1799,
             "name": "FunctionDefinition",
             "src": "1108:109:9"
           },
@@ -673,7 +673,7 @@
               ],
               "name": "getPool",
               "payable": false,
-              "scope": 1890,
+              "scope": 1868,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -685,7 +685,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "index",
-                      "scope": 1834,
+                      "scope": 1812,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -698,17 +698,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1822,
+                        "id": 1800,
                         "name": "ElementaryTypeName",
                         "src": "1240:7:9"
                       }
                     ],
-                    "id": 1823,
+                    "id": 1801,
                     "name": "VariableDeclaration",
                     "src": "1240:13:9"
                   }
                 ],
-                "id": 1824,
+                "id": 1802,
                 "name": "ParameterList",
                 "src": "1239:15:9"
               },
@@ -718,7 +718,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1834,
+                      "scope": 1812,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -731,17 +731,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1825,
+                        "id": 1803,
                         "name": "ElementaryTypeName",
                         "src": "1279:7:9"
                       }
                     ],
-                    "id": 1826,
+                    "id": 1804,
                     "name": "VariableDeclaration",
                     "src": "1279:7:9"
                   }
                 ],
-                "id": 1827,
+                "id": 1805,
                 "name": "ParameterList",
                 "src": "1278:9:9"
               },
@@ -749,7 +749,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1827
+                      "functionReturnParameters": 1805
                     },
                     "children": [
                       {
@@ -780,7 +780,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "getAt",
-                              "referencedDeclaration": 1362,
+                              "referencedDeclaration": 1340,
                               "type": "function (struct AddressSet.SetData storage pointer,uint256) view returns (address)"
                             },
                             "children": [
@@ -790,16 +790,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1808,
+                                  "referencedDeclaration": 1786,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "poolSet"
                                 },
-                                "id": 1828,
+                                "id": 1806,
                                 "name": "Identifier",
                                 "src": "1305:7:9"
                               }
                             ],
-                            "id": 1829,
+                            "id": 1807,
                             "name": "MemberAccess",
                             "src": "1305:13:9"
                           },
@@ -809,31 +809,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1823,
+                              "referencedDeclaration": 1801,
                               "type": "uint256",
                               "value": "index"
                             },
-                            "id": 1830,
+                            "id": 1808,
                             "name": "Identifier",
                             "src": "1319:5:9"
                           }
                         ],
-                        "id": 1831,
+                        "id": 1809,
                         "name": "FunctionCall",
                         "src": "1305:20:9"
                       }
                     ],
-                    "id": 1832,
+                    "id": 1810,
                     "name": "Return",
                     "src": "1298:27:9"
                   }
                 ],
-                "id": 1833,
+                "id": 1811,
                 "name": "Block",
                 "src": "1288:44:9"
               }
             ],
-            "id": 1834,
+            "id": 1812,
             "name": "FunctionDefinition",
             "src": "1223:109:9"
           },
@@ -847,7 +847,7 @@
               ],
               "name": "getPoolCount",
               "payable": false,
-              "scope": 1890,
+              "scope": 1868,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -860,7 +860,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1835,
+                "id": 1813,
                 "name": "ParameterList",
                 "src": "1359:2:9"
               },
@@ -870,7 +870,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1844,
+                      "scope": 1822,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -883,17 +883,17 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1836,
+                        "id": 1814,
                         "name": "ElementaryTypeName",
                         "src": "1387:7:9"
                       }
                     ],
-                    "id": 1837,
+                    "id": 1815,
                     "name": "VariableDeclaration",
                     "src": "1387:7:9"
                   }
                 ],
-                "id": 1838,
+                "id": 1816,
                 "name": "ParameterList",
                 "src": "1386:9:9"
               },
@@ -901,7 +901,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1838
+                      "functionReturnParameters": 1816
                     },
                     "children": [
                       {
@@ -932,7 +932,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "size",
-                              "referencedDeclaration": 1389,
+                              "referencedDeclaration": 1367,
                               "type": "function (struct AddressSet.SetData storage pointer) view returns (uint256)"
                             },
                             "children": [
@@ -942,36 +942,36 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1808,
+                                  "referencedDeclaration": 1786,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "poolSet"
                                 },
-                                "id": 1839,
+                                "id": 1817,
                                 "name": "Identifier",
                                 "src": "1413:7:9"
                               }
                             ],
-                            "id": 1840,
+                            "id": 1818,
                             "name": "MemberAccess",
                             "src": "1413:12:9"
                           }
                         ],
-                        "id": 1841,
+                        "id": 1819,
                         "name": "FunctionCall",
                         "src": "1413:14:9"
                       }
                     ],
-                    "id": 1842,
+                    "id": 1820,
                     "name": "Return",
                     "src": "1406:21:9"
                   }
                 ],
-                "id": 1843,
+                "id": 1821,
                 "name": "Block",
                 "src": "1396:38:9"
               }
             ],
-            "id": 1844,
+            "id": 1822,
             "name": "FunctionDefinition",
             "src": "1338:96:9"
           },
@@ -982,7 +982,7 @@
               "isConstructor": false,
               "name": "addPool",
               "payable": false,
-              "scope": 1890,
+              "scope": 1868,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -994,7 +994,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "p",
-                      "scope": 1860,
+                      "scope": 1838,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1007,17 +1007,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1845,
+                        "id": 1823,
                         "name": "ElementaryTypeName",
                         "src": "1457:7:9"
                       }
                     ],
-                    "id": 1846,
+                    "id": 1824,
                     "name": "VariableDeclaration",
                     "src": "1457:9:9"
                   }
                 ],
-                "id": 1847,
+                "id": 1825,
                 "name": "ParameterList",
                 "src": "1456:11:9"
               },
@@ -1028,7 +1028,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1852,
+                "id": 1830,
                 "name": "ParameterList",
                 "src": "1490:0:9"
               },
@@ -1045,16 +1045,16 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1925,
+                      "referencedDeclaration": 1903,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1848,
+                    "id": 1826,
                     "name": "Identifier",
                     "src": "1475:8:9"
                   }
                 ],
-                "id": 1849,
+                "id": 1827,
                 "name": "ModifierInvocation",
                 "src": "1475:8:9"
               },
@@ -1075,12 +1075,12 @@
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1850,
+                    "id": 1828,
                     "name": "Identifier",
                     "src": "1484:5:9"
                   }
                 ],
-                "id": 1851,
+                "id": 1829,
                 "name": "ModifierInvocation",
                 "src": "1484:5:9"
               },
@@ -1116,7 +1116,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "put",
-                              "referencedDeclaration": 1432,
+                              "referencedDeclaration": 1410,
                               "type": "function (struct AddressSet.SetData storage pointer,address)"
                             },
                             "children": [
@@ -1126,16 +1126,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1808,
+                                  "referencedDeclaration": 1786,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "poolSet"
                                 },
-                                "id": 1853,
+                                "id": 1831,
                                 "name": "Identifier",
                                 "src": "1500:7:9"
                               }
                             ],
-                            "id": 1855,
+                            "id": 1833,
                             "name": "MemberAccess",
                             "src": "1500:11:9"
                           },
@@ -1145,31 +1145,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1846,
+                              "referencedDeclaration": 1824,
                               "type": "address",
                               "value": "p"
                             },
-                            "id": 1856,
+                            "id": 1834,
                             "name": "Identifier",
                             "src": "1512:1:9"
                           }
                         ],
-                        "id": 1857,
+                        "id": 1835,
                         "name": "FunctionCall",
                         "src": "1500:14:9"
                       }
                     ],
-                    "id": 1858,
+                    "id": 1836,
                     "name": "ExpressionStatement",
                     "src": "1500:14:9"
                   }
                 ],
-                "id": 1859,
+                "id": 1837,
                 "name": "Block",
                 "src": "1490:31:9"
               }
             ],
-            "id": 1860,
+            "id": 1838,
             "name": "FunctionDefinition",
             "src": "1440:81:9"
           },
@@ -1180,7 +1180,7 @@
               "isConstructor": false,
               "name": "removePool",
               "payable": false,
-              "scope": 1890,
+              "scope": 1868,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1192,7 +1192,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "p",
-                      "scope": 1876,
+                      "scope": 1854,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1205,17 +1205,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1861,
+                        "id": 1839,
                         "name": "ElementaryTypeName",
                         "src": "1547:7:9"
                       }
                     ],
-                    "id": 1862,
+                    "id": 1840,
                     "name": "VariableDeclaration",
                     "src": "1547:9:9"
                   }
                 ],
-                "id": 1863,
+                "id": 1841,
                 "name": "ParameterList",
                 "src": "1546:11:9"
               },
@@ -1226,7 +1226,7 @@
                   ]
                 },
                 "children": [],
-                "id": 1868,
+                "id": 1846,
                 "name": "ParameterList",
                 "src": "1580:0:9"
               },
@@ -1243,16 +1243,16 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1925,
+                      "referencedDeclaration": 1903,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1864,
+                    "id": 1842,
                     "name": "Identifier",
                     "src": "1565:8:9"
                   }
                 ],
-                "id": 1865,
+                "id": 1843,
                 "name": "ModifierInvocation",
                 "src": "1565:8:9"
               },
@@ -1273,12 +1273,12 @@
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1866,
+                    "id": 1844,
                     "name": "Identifier",
                     "src": "1574:5:9"
                   }
                 ],
-                "id": 1867,
+                "id": 1845,
                 "name": "ModifierInvocation",
                 "src": "1574:5:9"
               },
@@ -1314,7 +1314,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "remove",
-                              "referencedDeclaration": 1508,
+                              "referencedDeclaration": 1486,
                               "type": "function (struct AddressSet.SetData storage pointer,address)"
                             },
                             "children": [
@@ -1324,16 +1324,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1808,
+                                  "referencedDeclaration": 1786,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "poolSet"
                                 },
-                                "id": 1869,
+                                "id": 1847,
                                 "name": "Identifier",
                                 "src": "1590:7:9"
                               }
                             ],
-                            "id": 1871,
+                            "id": 1849,
                             "name": "MemberAccess",
                             "src": "1590:14:9"
                           },
@@ -1343,31 +1343,31 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1862,
+                              "referencedDeclaration": 1840,
                               "type": "address",
                               "value": "p"
                             },
-                            "id": 1872,
+                            "id": 1850,
                             "name": "Identifier",
                             "src": "1605:1:9"
                           }
                         ],
-                        "id": 1873,
+                        "id": 1851,
                         "name": "FunctionCall",
                         "src": "1590:17:9"
                       }
                     ],
-                    "id": 1874,
+                    "id": 1852,
                     "name": "ExpressionStatement",
                     "src": "1590:17:9"
                   }
                 ],
-                "id": 1875,
+                "id": 1853,
                 "name": "Block",
                 "src": "1580:34:9"
               }
             ],
-            "id": 1876,
+            "id": 1854,
             "name": "FunctionDefinition",
             "src": "1527:87:9"
           },
@@ -1381,7 +1381,7 @@
               ],
               "name": "poolExists",
               "payable": false,
-              "scope": 1890,
+              "scope": 1868,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1393,7 +1393,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "p",
-                      "scope": 1889,
+                      "scope": 1867,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1406,17 +1406,17 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1877,
+                        "id": 1855,
                         "name": "ElementaryTypeName",
                         "src": "1640:7:9"
                       }
                     ],
-                    "id": 1878,
+                    "id": 1856,
                     "name": "VariableDeclaration",
                     "src": "1640:9:9"
                   }
                 ],
-                "id": 1879,
+                "id": 1857,
                 "name": "ParameterList",
                 "src": "1639:11:9"
               },
@@ -1426,7 +1426,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1889,
+                      "scope": 1867,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1439,17 +1439,17 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1880,
+                        "id": 1858,
                         "name": "ElementaryTypeName",
                         "src": "1676:4:9"
                       }
                     ],
-                    "id": 1881,
+                    "id": 1859,
                     "name": "VariableDeclaration",
                     "src": "1676:4:9"
                   }
                 ],
-                "id": 1882,
+                "id": 1860,
                 "name": "ParameterList",
                 "src": "1675:6:9"
               },
@@ -1457,7 +1457,7 @@
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1882
+                      "functionReturnParameters": 1860
                     },
                     "children": [
                       {
@@ -1488,7 +1488,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "contains",
-                              "referencedDeclaration": 1377,
+                              "referencedDeclaration": 1355,
                               "type": "function (struct AddressSet.SetData storage pointer,address) view returns (bool)"
                             },
                             "children": [
@@ -1498,16 +1498,16 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1808,
+                                  "referencedDeclaration": 1786,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "poolSet"
                                 },
-                                "id": 1883,
+                                "id": 1861,
                                 "name": "Identifier",
                                 "src": "1699:7:9"
                               }
                             ],
-                            "id": 1884,
+                            "id": 1862,
                             "name": "MemberAccess",
                             "src": "1699:16:9"
                           },
@@ -1517,41 +1517,41 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1878,
+                              "referencedDeclaration": 1856,
                               "type": "address",
                               "value": "p"
                             },
-                            "id": 1885,
+                            "id": 1863,
                             "name": "Identifier",
                             "src": "1716:1:9"
                           }
                         ],
-                        "id": 1886,
+                        "id": 1864,
                         "name": "FunctionCall",
                         "src": "1699:19:9"
                       }
                     ],
-                    "id": 1887,
+                    "id": 1865,
                     "name": "Return",
                     "src": "1692:26:9"
                   }
                 ],
-                "id": 1888,
+                "id": 1866,
                 "name": "Block",
                 "src": "1682:43:9"
               }
             ],
-            "id": 1889,
+            "id": 1867,
             "name": "FunctionDefinition",
             "src": "1620:105:9"
           }
         ],
-        "id": 1890,
+        "id": 1868,
         "name": "ContractDefinition",
         "src": "969:758:9"
       }
     ],
-    "id": 1891,
+    "id": 1869,
     "name": "SourceUnit",
     "src": "868:859:9"
   },
@@ -1561,5 +1561,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-06T17:19:54.722Z"
+  "updatedAt": "2017-12-07T21:05:57.482Z"
 }

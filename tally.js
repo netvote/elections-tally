@@ -314,7 +314,7 @@ const getPoolVoter = async (ballotAddr, poolAddr, index) => {
 };
 
 const getEncryptedVote = async (poolAddr, voterAddr) => {
-    return (await poolAt(poolAddr).getVote(voterAddr))[0];
+    return (await poolAt(poolAddr).votes(voterAddr))[0];
 };
 
 module.exports = {
