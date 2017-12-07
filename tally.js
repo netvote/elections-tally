@@ -7,7 +7,6 @@ const protobuf = require("protobufjs");
 const crypto2 = require('crypto2');
 
 const Eth = require('ethjs');
-let tallyProvider = "http://localhost:9545/";
 
 let eth;
 
@@ -28,14 +27,14 @@ let resultsUpdate = (res)=>{
  * @returns {Promise}
  */
 const tallyAllByPool = async (params) => {
-    if (params.provider) {
-        tallyProvider = params.provider;
+    if (!params.provider) {
+        throw new Error("param.provider is required")
     }
     if (params.resultsUpdateCallback) {
         resultsUpdate = params.resultsUpdateCallback;
     }
 
-    eth = new Eth(new Eth.HttpProvider(tallyProvider));
+    eth = new Eth(new Eth.HttpProvider(params.provider));
     let electionAddr = params.electionAddress;
     let root = await protobuf.load("protocol/vote.proto");
     let Vote = root.lookupType("netvote.Vote");
@@ -95,14 +94,14 @@ const tallyAllByPool = async (params) => {
  * @returns {Promise}
  */
 const tallyAllByBallot = async (params) => {
-    if (params.provider) {
-        tallyProvider = params.provider;
+    if (!params.provider) {
+        throw new Error("param.provider is required")
     }
     if (params.resultsUpdateCallback) {
         resultsUpdate = params.resultsUpdateCallback;
     }
 
-    eth = new Eth(new Eth.HttpProvider(tallyProvider));
+    eth = new Eth(new Eth.HttpProvider(params.provider));
     let electionAddr = params.electionAddress;
     let root = await protobuf.load("protocol/vote.proto");
     let Vote = root.lookupType("netvote.Vote");
