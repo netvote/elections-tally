@@ -7,11 +7,6 @@ const Eth = require('ethjs');
 const MAINNET_URL = "https://mainnet.infura.io/g6NZb5DRhMKT6HS5D2D2";
 const ROPSTEN_URL = "https://ropsten.infura.io/g6NZb5DRhMKT6HS5D2D2";
 
-const collect = (item, items) => {
-    items.push(item);
-    return items;
-};
-
 let election;
 
 program
@@ -36,7 +31,6 @@ if(program.provider){
 } else if (program.ropsten){
     provider = ROPSTEN_URL;
 }
-
 
 tally.tallyAllByPool({
     electionAddress: election,
