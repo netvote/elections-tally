@@ -25,7 +25,6 @@ let resultsUpdate = (res)=>{
  * @param {string} params.electionAddress - the address of the ballot to tally
  * @param {string} params.provider - the url of the provider of the remote node (default: localhost:9545)
  * @param {string} params.resultsUpdateCallback - each vote will invoke this callback w/results (for ui)
- * @param {string} params.groupCallback - each group tally will invoke this callback w/results (for ui)
  * @returns {Promise}
  */
 const tallyAllByPool = async (params) => {
@@ -44,32 +43,42 @@ const tallyAllByPool = async (params) => {
     let poolLength = await getElectionPoolCount(electionAddr);
     let result = {};
 
-    for(let p=0; p<poolLength; p++) {
+    for (let p = 0; p < poolLength; p++) {
         let pool = await getElectionPoolAt(electionAddr, p);
         let ballotLength = await getPoolBallotCount(pool);
-        for(let b=0;b<ballotLength;b++){
+        for (let b = 0; b < ballotLength; b++) {
             let ballot = await getPoolBallotAt(pool, b);
 
-            if(!result[ballot]){
+            if (!result[ballot]) {
                 result[ballot] = {};
             }
 
             let groups = await getGroupsForPool(ballot, pool);
             let voterCount = await getPoolVoterCount(ballot, pool);
-            for(let v=0; v<voterCount; v++){
-                let encryptedVote = await getPoolVote(ballot, pool, v);
-                let encodedVote = await decrypt(encryptedVote, privateKey);
-                let buff = Buffer.from(encodedVote, 'utf8');
-                let vote = Vote.decode(buff);
+            for (let v = 0; v < voterCount; v++) {
+                try {
+                    let encryptedVote = await getPoolVote(ballot, pool, v);
+                    let encodedVote = await decrypt(encryptedVote, privateKey);
+                    let buff = Buffer.from(encodedVote, 'utf8');
+                    let vote = Vote.decode(buff);
 
-                let choices = vote.ballotVotes[b].choices;
-                for(let group of groups){
-                    if(!result[ballot][group]) {
-                        result[ballot][group] = [];
+                    let choices = vote.ballotVotes[b].choices;
+                    for (let group of groups) {
+                        if (!result[ballot][group]) {
+                            result[ballot][group] = [];
+                        }
+                        result = addVoteToResult(choices, ballot, group, result);
                     }
-                    result = addVoteToResult(choices, ballot, group, result);
+                    resultsUpdate(result);
+                } catch (e) {
+                    let errObj = {
+                        ballot: ballot,
+                        pool: pool.address,
+                        voterIndex: v,
+                        error: e.message
+                    };
+                    console.log("error: " + JSON.stringify(errObj));
                 }
-                resultsUpdate(result);
             }
         }
     }
@@ -83,11 +92,9 @@ const tallyAllByPool = async (params) => {
  * @param {string} params.electionAddress - the address of the ballot to tally
  * @param {string} params.provider - the url of the provider of the remote node (default: localhost:9545)
  * @param {string} params.resultsUpdateCallback - each vote will invoke this callback w/results (for ui)
- * @param {string} params.groupCallback - each group tally will invoke this callback w/results (for ui)
  * @returns {Promise}
  */
 const tallyAllByBallot = async (params) => {
-    log("TALLY START");
     if (params.provider) {
         tallyProvider = params.provider;
     }
@@ -103,28 +110,37 @@ const tallyAllByBallot = async (params) => {
     let ballotLength = await getElectionBallotCount(electionAddr);
     let result = {};
 
-    for(let b=0; b<ballotLength; b++){
+    for (let b = 0; b < ballotLength; b++) {
         let ballotAddr = await getElectionBallotAt(electionAddr, b);
 
         result[ballotAddr] = {};
 
         let ballotInfo = await collectBallotInfo(ballotAddr);
-        for(let group of ballotInfo.groups){
+        for (let group of ballotInfo.groups) {
             result[ballotAddr][group] = [];
 
             let pools = ballotInfo.groupPools[group].pools;
             for (let pool of pools) {
-                for(let voterIndex=0; voterIndex<pool.voterCount; voterIndex++){
-                    console.time("vote duration");
-                    let encryptedVote = await getPoolVote(ballotAddr, pool.address, voterIndex);
-                    let encodedVote = await decrypt(encryptedVote, privateKey);
-                    let buff = Buffer.from(encodedVote, 'utf8');
-                    let vote = Vote.decode(buff);
-                    let choices = vote.ballotVotes[pool.index].choices;
+                for (let voterIndex = 0; voterIndex < pool.voterCount; voterIndex++) {
+                    try {
+                        let encryptedVote = await getPoolVote(ballotAddr, pool.address, voterIndex);
+                        let encodedVote = await decrypt(encryptedVote, privateKey);
+                        let buff = Buffer.from(encodedVote, 'utf8');
+                        let vote = Vote.decode(buff);
+                        let choices = vote.ballotVotes[pool.index].choices;
 
-                    result = addVoteToResult(choices, ballotAddr, group, result);
-                    console.timeEnd("vote duration");
-                    resultsUpdate(result);
+                        result = addVoteToResult(choices, ballotAddr, group, result);
+                        resultsUpdate(result);
+                    }catch(e){
+                        let errObj = {
+                            ballot: ballotAddr,
+                            pool: pool.address,
+                            voterIndex: voterIndex,
+                            group: group,
+                            error: e.message
+                        };
+                        console.log("error: "+JSON.stringify(errObj));
+                    }
                 }
             }
         }
