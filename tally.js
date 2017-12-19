@@ -4,7 +4,9 @@ const ballotAbi = require('./abi/Ballot.json').abi;
 const electionAbi = require('./abi/Election.json').abi;
 const poolAbi = require('./abi/RegistrationPool.json').abi;
 const protobuf = require("protobufjs");
-const crypto2 = require('crypto2');
+const crypto = require('crypto');
+
+const algorithm = "aes-256-cbc";
 
 const Eth = require('ethjs');
 
@@ -175,18 +177,13 @@ const addVoteToResult = (choices, ballotAddr, group, result) => {
     return result;
 };
 
-const decrypt = async (vote, privateKey) => {
-    return new Promise((resolve, reject) => {
-        crypto2.decrypt.rsa(vote, privateKey, (err, decrypted) => {
-            if (err) {
-                console.error("error decrypting: " + err);
-                reject(err);
-                return;
-            }
-            resolve(decrypted);
-        });
-    });
-};
+
+function decrypt(v, password){
+    let decipher = crypto.createDecipher(algorithm, new Buffer(password));
+    let dec = decipher.update(v, "base64","utf8");
+    dec += decipher.final("utf8");
+    return dec;
+}
 
 const collectBallotInfo = async (ballotAddr) => {
     let res = {

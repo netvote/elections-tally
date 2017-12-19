@@ -12,7 +12,7 @@
       "absolutePath": "zeppelin-solidity/contracts/ReentrancyGuard.sol",
       "exportedSymbols": {
         "ReentrancyGuard": [
-          2099
+          2024
         ]
       }
     },
@@ -26,7 +26,7 @@
             ".11"
           ]
         },
-        "id": 2078,
+        "id": 2003,
         "name": "PragmaDirective",
         "src": "0:24:12"
       },
@@ -42,17 +42,17 @@
           "documentation": "@title Helps contracts guard agains rentrancy attacks.\n@author Remco Bloemen <remco@2π.com>\n@notice If you mark a function `nonReentrant`, you should also\nmark it `external`.",
           "fullyImplemented": true,
           "linearizedBaseContracts": [
-            2099
+            2024
           ],
           "name": "ReentrancyGuard",
-          "scope": 2100
+          "scope": 2025
         },
         "children": [
           {
             "attributes": {
               "constant": false,
               "name": "rentrancy_lock",
-              "scope": 2099,
+              "scope": 2024,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "bool",
@@ -64,7 +64,7 @@
                   "name": "bool",
                   "type": "bool"
                 },
-                "id": 2079,
+                "id": 2004,
                 "name": "ElementaryTypeName",
                 "src": "319:4:12"
               },
@@ -81,12 +81,12 @@
                   "type": "bool",
                   "value": "false"
                 },
-                "id": 2080,
+                "id": 2005,
                 "name": "Literal",
                 "src": "349:5:12"
               }
             ],
-            "id": 2081,
+            "id": 2006,
             "name": "VariableDeclaration",
             "src": "319:35:12"
           },
@@ -103,7 +103,7 @@
                   ]
                 },
                 "children": [],
-                "id": 2082,
+                "id": 2007,
                 "name": "ParameterList",
                 "src": "762:2:12"
               },
@@ -137,11 +137,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2170,
+                              "referencedDeclaration": 2095,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
-                            "id": 2083,
+                            "id": 2008,
                             "name": "Identifier",
                             "src": "771:7:12"
                           },
@@ -163,26 +163,26 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 2081,
+                                  "referencedDeclaration": 2006,
                                   "type": "bool",
                                   "value": "rentrancy_lock"
                                 },
-                                "id": 2084,
+                                "id": 2009,
                                 "name": "Identifier",
                                 "src": "780:14:12"
                               }
                             ],
-                            "id": 2085,
+                            "id": 2010,
                             "name": "UnaryOperation",
                             "src": "779:15:12"
                           }
                         ],
-                        "id": 2086,
+                        "id": 2011,
                         "name": "FunctionCall",
                         "src": "771:24:12"
                       }
                     ],
-                    "id": 2087,
+                    "id": 2012,
                     "name": "ExpressionStatement",
                     "src": "771:24:12"
                   },
@@ -205,11 +205,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2081,
+                              "referencedDeclaration": 2006,
                               "type": "bool",
                               "value": "rentrancy_lock"
                             },
-                            "id": 2088,
+                            "id": 2013,
                             "name": "Identifier",
                             "src": "801:14:12"
                           },
@@ -226,22 +226,22 @@
                               "type": "bool",
                               "value": "true"
                             },
-                            "id": 2089,
+                            "id": 2014,
                             "name": "Literal",
                             "src": "818:4:12"
                           }
                         ],
-                        "id": 2090,
+                        "id": 2015,
                         "name": "Assignment",
                         "src": "801:21:12"
                       }
                     ],
-                    "id": 2091,
+                    "id": 2016,
                     "name": "ExpressionStatement",
                     "src": "801:21:12"
                   },
                   {
-                    "id": 2092,
+                    "id": 2017,
                     "name": "PlaceholderStatement",
                     "src": "828:1:12"
                   },
@@ -264,11 +264,11 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2081,
+                              "referencedDeclaration": 2006,
                               "type": "bool",
                               "value": "rentrancy_lock"
                             },
-                            "id": 2093,
+                            "id": 2018,
                             "name": "Identifier",
                             "src": "835:14:12"
                           },
@@ -285,37 +285,37 @@
                               "type": "bool",
                               "value": "false"
                             },
-                            "id": 2094,
+                            "id": 2019,
                             "name": "Literal",
                             "src": "852:5:12"
                           }
                         ],
-                        "id": 2095,
+                        "id": 2020,
                         "name": "Assignment",
                         "src": "835:22:12"
                       }
                     ],
-                    "id": 2096,
+                    "id": 2021,
                     "name": "ExpressionStatement",
                     "src": "835:22:12"
                   }
                 ],
-                "id": 2097,
+                "id": 2022,
                 "name": "Block",
                 "src": "765:97:12"
               }
             ],
-            "id": 2098,
+            "id": 2023,
             "name": "ModifierDefinition",
             "src": "741:121:12"
           }
         ],
-        "id": 2099,
+        "id": 2024,
         "name": "ContractDefinition",
         "src": "222:643:12"
       }
     ],
-    "id": 2100,
+    "id": 2025,
     "name": "SourceUnit",
     "src": "0:866:12"
   },
@@ -325,5 +325,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-07T21:05:53.904Z"
+  "updatedAt": "2017-12-19T00:44:25.715Z"
 }

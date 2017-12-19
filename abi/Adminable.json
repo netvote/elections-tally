@@ -106,7 +106,7 @@
       },
       {
         "attributes": {
-          "SourceUnit": 2156,
+          "SourceUnit": 2081,
           "absolutePath": "zeppelin-solidity/contracts/ownership/Ownable.sol",
           "file": "zeppelin-solidity/contracts/ownership/Ownable.sol",
           "scope": 111,
@@ -122,14 +122,14 @@
       {
         "attributes": {
           "contractDependencies": [
-            2155
+            2080
           ],
           "contractKind": "contract",
           "documentation": null,
           "fullyImplemented": true,
           "linearizedBaseContracts": [
             110,
-            2155
+            2080
           ],
           "name": "Adminable",
           "scope": 111
@@ -146,7 +146,7 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Ownable",
-                  "referencedDeclaration": 2155,
+                  "referencedDeclaration": 2080,
                   "type": "contract Ownable"
                 },
                 "id": 60,
@@ -250,7 +250,7 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 2170,
+                              "referencedDeclaration": 2095,
                               "type": "function (bool) pure",
                               "value": "require"
                             },
@@ -306,7 +306,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 2167,
+                                          "referencedDeclaration": 2092,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -325,7 +325,7 @@
                                       "overloadedDeclarations": [
                                         null
                                       ],
-                                      "referencedDeclaration": 2103,
+                                      "referencedDeclaration": 2028,
                                       "type": "address",
                                       "value": "owner"
                                     },
@@ -380,7 +380,7 @@
                                           "overloadedDeclarations": [
                                             null
                                           ],
-                                          "referencedDeclaration": 2167,
+                                          "referencedDeclaration": 2092,
                                           "type": "msg",
                                           "value": "msg"
                                         },
@@ -800,5 +800,5 @@
   },
   "networks": {},
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-07T21:05:53.898Z"
+  "updatedAt": "2017-12-19T00:44:25.706Z"
 }
