@@ -45,6 +45,25 @@
     },
     {
       "constant": true,
+      "inputs": [
+        {
+          "name": "addr",
+          "type": "address"
+        }
+      ],
+      "name": "isAdmin",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
       "inputs": [],
       "name": "electionPhase",
       "outputs": [
@@ -70,6 +89,15 @@
       "constant": false,
       "inputs": [],
       "name": "close",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [],
+      "name": "removeSelf",
       "outputs": [],
       "payable": false,
       "stateMutability": "nonpayable",
@@ -305,18 +333,18 @@
       "type": "event"
     }
   ],
-  "bytecode": "0x",
-  "deployedBytecode": "0x",
-  "sourceMap": "",
-  "deployedSourceMap": "",
-  "source": "// ------------------------------------------------------------------------------\n// This file is part of netvote.\n//\n// netvote is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// netvote is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with solidity.  If not, see <http://www.gnu.org/licenses/>\n//\n// (c) 2017 netvote contributors.\n//------------------------------------------------------------------------------\n\npragma solidity ^0.4.17;\n\nimport \"../state/ElectionPhaseable.sol\";\nimport \"../lib/AddressSet.sol\";\n\n\ncontract BallotRegistry is Adminable, ElectionPhaseable {\n    using AddressSet for AddressSet.SetData;\n\n    AddressSet.SetData ballotSet;\n\n    function getBallotIndex(address b) public constant returns (uint256) {\n        return ballotSet.indexOf(b);\n    }\n\n    function getBallot(uint256 index) public constant returns(address) {\n        return ballotSet.getAt(index);\n    }\n\n    function getBallotCount() public constant returns (uint256) {\n        return ballotSet.size();\n    }\n\n    function addBallot(address b) public building admin {\n        ballotSet.put(b);\n    }\n\n    function removeBallot(address b) public building admin {\n        ballotSet.remove(b);\n    }\n\n    function ballotExists(address b) public constant returns (bool) {\n        return ballotSet.contains(b);\n    }\n}",
-  "sourcePath": "/Users/slanders/netvote/elections/contracts/links/BallotRegistry.sol",
+  "bytecode": "0x60606040526000600260006101000a81548160ff0219169083151502179055506000600260016101000a81548160ff0219169083600381111561003e57fe5b0217905550336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055506111c9806100926000396000f30060606040526004361061011d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f15f4c014610122578063138b1fa0146101375780631785f53c1461018857806324d7806c146101c1578063265050b61461021257806335a063b41461024957806343d726d61461025e5780635e898dac1461027357806370480275146102885780638da5cb5b146102c1578063a4e2d63414610316578063a69df4b514610343578063b474149514610358578063c2b6b58c14610381578063d71c6772146103ae578063db30eafb146103e7578063f098fe4714610434578063f2fde38b14610461578063f83d08ba1461049a578063f8c74afa146104af578063f9d5ee75146104e8575b600080fd5b341561012d57600080fd5b61013561054b565b005b341561014257600080fd5b61016e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610609565b604051808215151515815260200191505060405180910390f35b341561019357600080fd5b6101bf600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106d7565b005b34156101cc57600080fd5b6101f8600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061078d565b604051808215151515815260200191505060405180910390f35b341561021d57600080fd5b610225610872565b6040518082600381111561023557fe5b60ff16815260200191505060405180910390f35b341561025457600080fd5b61025c610885565b005b341561026957600080fd5b6102716108eb565b005b341561027e57600080fd5b610286610995565b005b341561029357600080fd5b6102bf600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610a03565b005b34156102cc57600080fd5b6102d4610ab8565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561032157600080fd5b610329610add565b604051808215151515815260200191505060405180910390f35b341561034e57600080fd5b610356610af4565b005b341561036357600080fd5b61036b610b6c565b6040518082815260200191505060405180910390f35b341561038c57600080fd5b610394610c04565b604051808215151515815260200191505060405180910390f35b34156103b957600080fd5b6103e5600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610c34565b005b34156103f257600080fd5b61041e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610d45565b6040518082815260200191505060405180910390f35b341561043f57600080fd5b610447610e13565b604051808215151515815260200191505060405180910390f35b341561046c57600080fd5b610498600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610e1c565b005b34156104a557600080fd5b6104ad610f71565b005b34156104ba57600080fd5b6104e6600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610fea565b005b34156104f357600080fd5b61050960048080359060200190919050506110fb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610553610add565b15801561058557506000600381111561056857fe5b600260019054906101000a900460ff16600381111561058357fe5b145b151561059057600080fd5b6105993361078d565b15156105a457600080fd5b6105ac610e13565b15156105b757600080fd5b6001600260016101000a81548160ff021916908360038111156105d657fe5b02179055507fed1cd0670ee0c0017f550451a038818c696d0b6a9d6ce5b369e44275573cf9b060405160405180910390a1565b6000600373__AddressSet____________________________63758241e09091846000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060206040518083038186803b15156106b557600080fd5b6102c65a03f415156106c657600080fd5b505050604051805190509050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561073257600080fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415801561086b57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16148061086a5750600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff165b5b9050919050565b600260019054906101000a900460ff1681565b61088e3361078d565b151561089957600080fd5b6003600260016101000a81548160ff021916908360038111156108b857fe5b02179055507f72c874aeff0b183a56e2b79c71b46e1aed4dee5e09862134b8821ba2fddbf8bf60405160405180910390a1565b6108f3610add565b15801561092557506001600381111561090857fe5b600260019054906101000a900460ff16600381111561092357fe5b145b151561093057600080fd5b6109393361078d565b151561094457600080fd5b60028060016101000a81548160ff0219169083600381111561096257fe5b02179055507f1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a60405160405180910390a1565b61099e3361078d565b15156109a957600080fd5b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141515610a5e57600080fd5b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600260009054906101000a900460ff16905090565b610afd3361078d565b1515610b0857600080fd5b600260009054906101000a900460ff161515610b2357600080fd5b6000600260006101000a81548160ff0219169083151502179055507f19aad37188a1d3921e29eb3c66acf43d81975e107cb650d58cca878627955fd660405160405180910390a1565b6000600373__AddressSet____________________________63913aa6cd90916000604051602001526040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018082815260200191505060206040518083038186803b1515610be457600080fd5b6102c65a03f41515610bf557600080fd5b50505060405180519050905090565b600060026003811115610c1357fe5b600260019054906101000a900460ff166003811115610c2e57fe5b14905090565b610c3c610add565b158015610c6e575060006003811115610c5157fe5b600260019054906101000a900460ff166003811115610c6c57fe5b145b1515610c7957600080fd5b610c823361078d565b1515610c8d57600080fd5b600373__AddressSet____________________________63e134066a9091836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060006040518083038186803b1515610d2e57600080fd5b6102c65a03f41515610d3f57600080fd5b50505050565b6000600373__AddressSet____________________________6318c402499091846000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060206040518083038186803b1515610df157600080fd5b6102c65a03f41515610e0257600080fd5b505050604051805190509050919050565b60006001905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141515610e7757600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151515610eb357600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b610f7a3361078d565b1515610f8557600080fd5b600260009054906101000a900460ff16151515610fa157600080fd5b6001600260006101000a81548160ff0219169083151502179055507f0f2e5b6c72c6a4491efd919a9f9a409f324ef0708c11ee57d410c2cb06c0992b60405160405180910390a1565b610ff2610add565b15801561102457506000600381111561100757fe5b600260019054906101000a900460ff16600381111561102257fe5b145b151561102f57600080fd5b6110383361078d565b151561104357600080fd5b600373__AddressSet____________________________63f9802f859091836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060006040518083038186803b15156110e457600080fd5b6102c65a03f415156110f557600080fd5b50505050565b6000600373__AddressSet____________________________635c2125a79091846000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b151561117b57600080fd5b6102c65a03f4151561118c57600080fd5b5050506040518051905090509190505600a165627a7a7230582045fc05df1b719a3ec050bb2cf6c94077a6d66c8b76c352fc7fee03f8bab678110029",
+  "deployedBytecode": "0x60606040526004361061011d576000357c0100000000000000000000000000000000000000000000000000000000900463ffffffff1680630f15f4c014610122578063138b1fa0146101375780631785f53c1461018857806324d7806c146101c1578063265050b61461021257806335a063b41461024957806343d726d61461025e5780635e898dac1461027357806370480275146102885780638da5cb5b146102c1578063a4e2d63414610316578063a69df4b514610343578063b474149514610358578063c2b6b58c14610381578063d71c6772146103ae578063db30eafb146103e7578063f098fe4714610434578063f2fde38b14610461578063f83d08ba1461049a578063f8c74afa146104af578063f9d5ee75146104e8575b600080fd5b341561012d57600080fd5b61013561054b565b005b341561014257600080fd5b61016e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610609565b604051808215151515815260200191505060405180910390f35b341561019357600080fd5b6101bf600480803573ffffffffffffffffffffffffffffffffffffffff169060200190919050506106d7565b005b34156101cc57600080fd5b6101f8600480803573ffffffffffffffffffffffffffffffffffffffff1690602001909190505061078d565b604051808215151515815260200191505060405180910390f35b341561021d57600080fd5b610225610872565b6040518082600381111561023557fe5b60ff16815260200191505060405180910390f35b341561025457600080fd5b61025c610885565b005b341561026957600080fd5b6102716108eb565b005b341561027e57600080fd5b610286610995565b005b341561029357600080fd5b6102bf600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610a03565b005b34156102cc57600080fd5b6102d4610ab8565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b341561032157600080fd5b610329610add565b604051808215151515815260200191505060405180910390f35b341561034e57600080fd5b610356610af4565b005b341561036357600080fd5b61036b610b6c565b6040518082815260200191505060405180910390f35b341561038c57600080fd5b610394610c04565b604051808215151515815260200191505060405180910390f35b34156103b957600080fd5b6103e5600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610c34565b005b34156103f257600080fd5b61041e600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610d45565b6040518082815260200191505060405180910390f35b341561043f57600080fd5b610447610e13565b604051808215151515815260200191505060405180910390f35b341561046c57600080fd5b610498600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610e1c565b005b34156104a557600080fd5b6104ad610f71565b005b34156104ba57600080fd5b6104e6600480803573ffffffffffffffffffffffffffffffffffffffff16906020019091905050610fea565b005b34156104f357600080fd5b61050960048080359060200190919050506110fb565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b610553610add565b15801561058557506000600381111561056857fe5b600260019054906101000a900460ff16600381111561058357fe5b145b151561059057600080fd5b6105993361078d565b15156105a457600080fd5b6105ac610e13565b15156105b757600080fd5b6001600260016101000a81548160ff021916908360038111156105d657fe5b02179055507fed1cd0670ee0c0017f550451a038818c696d0b6a9d6ce5b369e44275573cf9b060405160405180910390a1565b6000600373__AddressSet____________________________63758241e09091846000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060206040518083038186803b15156106b557600080fd5b6102c65a03f415156106c657600080fd5b505050604051805190509050919050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff1614151561073257600080fd5b6000600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b60008073ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff161415801561086b57506000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff168273ffffffffffffffffffffffffffffffffffffffff16148061086a5750600160008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060009054906101000a900460ff165b5b9050919050565b600260019054906101000a900460ff1681565b61088e3361078d565b151561089957600080fd5b6003600260016101000a81548160ff021916908360038111156108b857fe5b02179055507f72c874aeff0b183a56e2b79c71b46e1aed4dee5e09862134b8821ba2fddbf8bf60405160405180910390a1565b6108f3610add565b15801561092557506001600381111561090857fe5b600260019054906101000a900460ff16600381111561092357fe5b145b151561093057600080fd5b6109393361078d565b151561094457600080fd5b60028060016101000a81548160ff0219169083600381111561096257fe5b02179055507f1cdde67b72a90f19919ac732a437ac2f7a10fc128d28c2a6e525d89ce5cd9d3a60405160405180910390a1565b61099e3361078d565b15156109a957600080fd5b6000600160003373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff021916908315150217905550565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141515610a5e57600080fd5b60018060008373ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200190815260200160002060006101000a81548160ff02191690831515021790555050565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1681565b6000600260009054906101000a900460ff16905090565b610afd3361078d565b1515610b0857600080fd5b600260009054906101000a900460ff161515610b2357600080fd5b6000600260006101000a81548160ff0219169083151502179055507f19aad37188a1d3921e29eb3c66acf43d81975e107cb650d58cca878627955fd660405160405180910390a1565b6000600373__AddressSet____________________________63913aa6cd90916000604051602001526040518263ffffffff167c01000000000000000000000000000000000000000000000000000000000281526004018082815260200191505060206040518083038186803b1515610be457600080fd5b6102c65a03f41515610bf557600080fd5b50505060405180519050905090565b600060026003811115610c1357fe5b600260019054906101000a900460ff166003811115610c2e57fe5b14905090565b610c3c610add565b158015610c6e575060006003811115610c5157fe5b600260019054906101000a900460ff166003811115610c6c57fe5b145b1515610c7957600080fd5b610c823361078d565b1515610c8d57600080fd5b600373__AddressSet____________________________63e134066a9091836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060006040518083038186803b1515610d2e57600080fd5b6102c65a03f41515610d3f57600080fd5b50505050565b6000600373__AddressSet____________________________6318c402499091846000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060206040518083038186803b1515610df157600080fd5b6102c65a03f41515610e0257600080fd5b505050604051805190509050919050565b60006001905090565b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff163373ffffffffffffffffffffffffffffffffffffffff16141515610e7757600080fd5b600073ffffffffffffffffffffffffffffffffffffffff168173ffffffffffffffffffffffffffffffffffffffff1614151515610eb357600080fd5b8073ffffffffffffffffffffffffffffffffffffffff166000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff167f8be0079c531659141344cd1fd0a4f28419497f9722a3daafe3b4186f6b6457e060405160405180910390a3806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050565b610f7a3361078d565b1515610f8557600080fd5b600260009054906101000a900460ff16151515610fa157600080fd5b6001600260006101000a81548160ff0219169083151502179055507f0f2e5b6c72c6a4491efd919a9f9a409f324ef0708c11ee57d410c2cb06c0992b60405160405180910390a1565b610ff2610add565b15801561102457506000600381111561100757fe5b600260019054906101000a900460ff16600381111561102257fe5b145b151561102f57600080fd5b6110383361078d565b151561104357600080fd5b600373__AddressSet____________________________63f9802f859091836040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1681526020019250505060006040518083038186803b15156110e457600080fd5b6102c65a03f415156110f557600080fd5b50505050565b6000600373__AddressSet____________________________635c2125a79091846000604051602001526040518363ffffffff167c0100000000000000000000000000000000000000000000000000000000028152600401808381526020018281526020019250505060206040518083038186803b151561117b57600080fd5b6102c65a03f4151561118c57600080fd5b5050506040518051905090509190505600a165627a7a7230582045fc05df1b719a3ec050bb2cf6c94077a6d66c8b76c352fc7fee03f8bab678110029",
+  "sourceMap": "1172:786:7:-;;;1200:5:16;1183:22;;;;;;;;;;;;;;;;;;;;1363::15;1326:59;;;;;;;;;;;;;;;;;;;;;;;;;;502:10:18;494:5;;:18;;;;;;;;;;;;;;;;;;1172:786:7;;;;;;",
+  "deployedSourceMap": "1172:786:7:-;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2119:148:15;;;;;;;;;;;;;;1847:109:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1460:95:1;;;;;;;;;;;;;;;;;;;;;;;;;;;;1212:145;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1326:59:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2387:103;;;;;;;;;;;;;;2273:108;;;;;;;;;;;;;;1561:84:1;;;;;;;;;;;;;;1363:91;;;;;;;;;;;;;;;;;;;;;;;;;;;;238:20:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1355:84:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1540:92;;;;;;;;;;;;;;1553:100:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1833:112:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1750:91:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;1315:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1951:162:15;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;827:169:18;;;;;;;;;;;;;;;;;;;;;;;;;;;;1445:89:16;;;;;;;;;;;;;;1659:85:7;;;;;;;;;;;;;;;;;;;;;;;;;;;;1434:113;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;2119:148:15;1529:10;:8;:10::i;:::-;1528:11;:54;;;;;1560:22;1543:39;;;;;;;;:13;;;;;;;;;;;:39;;;;;;;;;1528:54;1520:63;;;;;;;;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;2179:13:15;:11;:13::i;:::-;2171:22;;;;;;;;2219:20;2203:13;;:36;;;;;;;;;;;;;;;;;;;;;;;;2249:11;;;;;;;;;;2119:148::o;1847:109:7:-;1905:4;1928:9;:18;;;;1947:1;1928:21;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1921:28;;1847:109;;;:::o;1460:95:1:-;647:5:18;;;;;;;;;;;633:19;;:10;:19;;;625:28;;;;;;;;1543:5:1;1522:12;:18;1535:4;1522:18;;;;;;;;;;;;;;;;:26;;;;;;;;;;;;;;;;;;1460:95;:::o;1212:145::-;1268:4;1307:1;1291:18;;:4;:18;;;;:59;;;;;1322:5;;;;;;;;;;;1314:13;;:4;:13;;;:35;;;;1331:12;:18;1344:4;1331:18;;;;;;;;;;;;;;;;;;;;;;;;;1314:35;1291:59;1284:66;;1212:145;;;:::o;1326:59:15:-;;;;;;;;;;;;;:::o;2387:103::-;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;2443:21:15;2427:13;;:37;;;;;;;;;;;;;;;;;;;;;;;;2474:9;;;;;;;;;;2387:103::o;2273:108::-;1644:10;:8;:10::i;:::-;1643:11;:52;;;;;1675:20;1658:37;;;;;;;;:13;;;;;;;;;;;:37;;;;;;;;;1643:52;1635:61;;;;;;;;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;2336:20:15;2320:13;;:36;;;;;;;;;;;;;;;;;;;;;;;;2366:8;;;;;;;;;;2273:108::o;1561:84:1:-;1168:19;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;1633:5;1606:12;:24;1619:10;1606:24;;;;;;;;;;;;;;;;:32;;;;;;;;;;;;;;;;;;1561:84::o;1363:91::-;647:5:18;;;;;;;;;;;633:19;;:10;:19;;;625:28;;;;;;;;1443:4:1;1422:12;:18;1435:4;1422:18;;;;;;;;;;;;;;;;:25;;;;;;;;;;;;;;;;;;1363:91;:::o;238:20:18:-;;;;;;;;;;;;;:::o;1355:84:16:-;1400:4;1423:9;;;;;;;;;;;1416:16;;1355:84;:::o;1540:92::-;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;1248:9:16;;;;;;;;;;;1240:18;;;;;;;;1600:5;1588:9;;:17;;;;;;;;;;;;;;;;;;1615:10;;;;;;;;;;1540:92::o;1553:100:7:-;1604:7;1630:9;:14;;;;:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1623:23;;1553:100;:::o;1833:112:15:-;1878:4;1918:20;1901:37;;;;;;;;:13;;;;;;;;;;;:37;;;;;;;;;1894:44;;1833:112;:::o;1750:91:7:-;1529:10:15;:8;:10::i;:::-;1528:11;:54;;;;;1560:22;1543:39;;;;;;;;:13;;;;;;;;;;;:39;;;;;;;;;1528:54;1520:63;;;;;;;;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;1815:9:7;:16;;;;1832:1;1815:19;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1750:91;:::o;1315:113::-;1375:7;1401:9;:17;;;;1419:1;1401:20;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1394:27;;1315:113;;;:::o;1951:162:15:-;1999:4;2102;2095:11;;1951:162;:::o;827:169:18:-;647:5;;;;;;;;;;;633:19;;:10;:19;;;625:28;;;;;;;;923:1;903:22;;:8;:22;;;;895:31;;;;;;;;960:8;932:37;;953:5;;;;;;;;;;;932:37;;;;;;;;;;;;983:8;975:5;;:16;;;;;;;;;;;;;;;;;;827:169;:::o;1445:89:16:-;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;1321:9:16;;;;;;;;;;;1320:10;1312:19;;;;;;;;1505:4;1493:9;;:16;;;;;;;;;;;;;;;;;;1519:8;;;;;;;;;;1445:89::o;1659:85:7:-;1529:10:15;:8;:10::i;:::-;1528:11;:54;;;;;1560:22;1543:39;;;;;;;;:13;;;;;;;;;;;:39;;;;;;;;;1528:54;1520:63;;;;;;;;1168:19:1;1176:10;1168:7;:19::i;:::-;1160:28;;;;;;;;1721:9:7;:13;;;;1735:1;1721:16;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1659:85;:::o;1434:113::-;1492:7;1518:9;:15;;;;1534:5;1518:22;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;1511:29;;1434:113;;;:::o",
+  "source": "// ------------------------------------------------------------------------------\n// This file is part of netvote.\n//\n// netvote is free software: you can redistribute it and/or modify\n// it under the terms of the GNU General Public License as published by\n// the Free Software Foundation, either version 3 of the License, or\n// (at your option) any later version.\n//\n// netvote is distributed in the hope that it will be useful,\n// but WITHOUT ANY WARRANTY; without even the implied warranty of\n// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n// GNU General Public License for more details.\n//\n// You should have received a copy of the GNU General Public License\n// along with solidity.  If not, see <http://www.gnu.org/licenses/>\n//\n// (c) 2017 netvote contributors.\n//------------------------------------------------------------------------------\n\npragma solidity ^0.4.17;\n\nimport \"../../state/ElectionPhaseable.sol\";\nimport \"../../lib/AddressSet.sol\";\n\n\n/**\n * @title BallotRegistry\n * @dev Hooks for iterating over a list of ballots.  This uses an AddressSet\n * which prevents duplicates and allows for removal.\n * Note: Order is not guaranteed.\n */\ncontract BallotRegistry is Adminable, ElectionPhaseable {\n    using AddressSet for AddressSet.SetData;\n\n    AddressSet.SetData ballotSet;\n\n    function getBallotIndex(address b) public constant returns (uint256) {\n        return ballotSet.indexOf(b);\n    }\n\n    function getBallot(uint256 index) public constant returns(address) {\n        return ballotSet.getAt(index);\n    }\n\n    function getBallotCount() public constant returns (uint256) {\n        return ballotSet.size();\n    }\n\n    function addBallot(address b) public building admin {\n        ballotSet.put(b);\n    }\n\n    function removeBallot(address b) public building admin {\n        ballotSet.remove(b);\n    }\n\n    function ballotExists(address b) public constant returns (bool) {\n        return ballotSet.contains(b);\n    }\n}",
+  "sourcePath": "/Users/slanders/netvote/elections-solidity/contracts/elections/links/BallotRegistry.sol",
   "ast": {
     "attributes": {
-      "absolutePath": "/Users/slanders/netvote/elections/contracts/links/BallotRegistry.sol",
+      "absolutePath": "/Users/slanders/netvote/elections-solidity/contracts/elections/links/BallotRegistry.sol",
       "exportedSymbols": {
         "BallotRegistry": [
-          1698
+          770
         ]
       }
     },
@@ -330,60 +358,60 @@
             ".17"
           ]
         },
-        "id": 1605,
+        "id": 677,
         "name": "PragmaDirective",
-        "src": "868:24:8"
+        "src": "868:24:7"
       },
       {
         "attributes": {
-          "SourceUnit": 1938,
-          "absolutePath": "/Users/slanders/netvote/elections/contracts/state/ElectionPhaseable.sol",
-          "file": "../state/ElectionPhaseable.sol",
-          "scope": 1699,
+          "SourceUnit": 2125,
+          "absolutePath": "/Users/slanders/netvote/elections-solidity/contracts/state/ElectionPhaseable.sol",
+          "file": "../../state/ElectionPhaseable.sol",
+          "scope": 771,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1606,
+        "id": 678,
         "name": "ImportDirective",
-        "src": "894:40:8"
+        "src": "894:43:7"
       },
       {
         "attributes": {
-          "SourceUnit": 1413,
-          "absolutePath": "/Users/slanders/netvote/elections/contracts/lib/AddressSet.sol",
-          "file": "../lib/AddressSet.sol",
-          "scope": 1699,
+          "SourceUnit": 1798,
+          "absolutePath": "/Users/slanders/netvote/elections-solidity/contracts/lib/AddressSet.sol",
+          "file": "../../lib/AddressSet.sol",
+          "scope": 771,
           "symbolAliases": [
             null
           ],
           "unitAlias": ""
         },
-        "id": 1607,
+        "id": 679,
         "name": "ImportDirective",
-        "src": "935:31:8"
+        "src": "938:34:7"
       },
       {
         "attributes": {
           "contractDependencies": [
-            110,
-            1937,
-            2001,
-            2080
+            141,
+            2124,
+            2192,
+            2271
           ],
           "contractKind": "contract",
-          "documentation": null,
-          "fullyImplemented": false,
+          "documentation": "@title BallotRegistry\n@dev Hooks for iterating over a list of ballots.  This uses an AddressSet\nwhich prevents duplicates and allows for removal.\nNote: Order is not guaranteed.",
+          "fullyImplemented": true,
           "linearizedBaseContracts": [
-            1698,
-            1937,
-            2001,
-            110,
-            2080
+            770,
+            2124,
+            2192,
+            141,
+            2271
           ],
           "name": "BallotRegistry",
-          "scope": 1699
+          "scope": 771
         },
         "children": [
           {
@@ -397,17 +425,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "Adminable",
-                  "referencedDeclaration": 110,
+                  "referencedDeclaration": 141,
                   "type": "contract Adminable"
                 },
-                "id": 1608,
+                "id": 680,
                 "name": "UserDefinedTypeName",
-                "src": "996:9:8"
+                "src": "1199:9:7"
               }
             ],
-            "id": 1609,
+            "id": 681,
             "name": "InheritanceSpecifier",
-            "src": "996:9:8"
+            "src": "1199:9:7"
           },
           {
             "attributes": {
@@ -420,17 +448,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "ElectionPhaseable",
-                  "referencedDeclaration": 1937,
+                  "referencedDeclaration": 2124,
                   "type": "contract ElectionPhaseable"
                 },
-                "id": 1610,
+                "id": 682,
                 "name": "UserDefinedTypeName",
-                "src": "1007:17:8"
+                "src": "1210:17:7"
               }
             ],
-            "id": 1611,
+            "id": 683,
             "name": "InheritanceSpecifier",
-            "src": "1007:17:8"
+            "src": "1210:17:7"
           },
           {
             "children": [
@@ -438,34 +466,34 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet",
-                  "referencedDeclaration": 1412,
+                  "referencedDeclaration": 1797,
                   "type": "library AddressSet"
                 },
-                "id": 1612,
+                "id": 684,
                 "name": "UserDefinedTypeName",
-                "src": "1037:10:8"
+                "src": "1240:10:7"
               },
               {
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet.SetData",
-                  "referencedDeclaration": 1235,
+                  "referencedDeclaration": 1620,
                   "type": "struct AddressSet.SetData storage pointer"
                 },
-                "id": 1613,
+                "id": 685,
                 "name": "UserDefinedTypeName",
-                "src": "1052:18:8"
+                "src": "1255:18:7"
               }
             ],
-            "id": 1614,
+            "id": 686,
             "name": "UsingForDirective",
-            "src": "1031:40:8"
+            "src": "1234:40:7"
           },
           {
             "attributes": {
               "constant": false,
               "name": "ballotSet",
-              "scope": 1698,
+              "scope": 770,
               "stateVariable": true,
               "storageLocation": "default",
               "type": "struct AddressSet.SetData storage ref",
@@ -477,17 +505,17 @@
                 "attributes": {
                   "contractScope": null,
                   "name": "AddressSet.SetData",
-                  "referencedDeclaration": 1235,
+                  "referencedDeclaration": 1620,
                   "type": "struct AddressSet.SetData storage pointer"
                 },
-                "id": 1615,
+                "id": 687,
                 "name": "UserDefinedTypeName",
-                "src": "1077:18:8"
+                "src": "1280:18:7"
               }
             ],
-            "id": 1616,
+            "id": 688,
             "name": "VariableDeclaration",
-            "src": "1077:28:8"
+            "src": "1280:28:7"
           },
           {
             "attributes": {
@@ -499,7 +527,7 @@
               ],
               "name": "getBallotIndex",
               "payable": false,
-              "scope": 1698,
+              "scope": 770,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -511,7 +539,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1629,
+                      "scope": 701,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -524,19 +552,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1617,
+                        "id": 689,
                         "name": "ElementaryTypeName",
-                        "src": "1136:7:8"
+                        "src": "1339:7:7"
                       }
                     ],
-                    "id": 1618,
+                    "id": 690,
                     "name": "VariableDeclaration",
-                    "src": "1136:9:8"
+                    "src": "1339:9:7"
                   }
                 ],
-                "id": 1619,
+                "id": 691,
                 "name": "ParameterList",
-                "src": "1135:11:8"
+                "src": "1338:11:7"
               },
               {
                 "children": [
@@ -544,7 +572,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1629,
+                      "scope": 701,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -557,25 +585,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1620,
+                        "id": 692,
                         "name": "ElementaryTypeName",
-                        "src": "1172:7:8"
+                        "src": "1375:7:7"
                       }
                     ],
-                    "id": 1621,
+                    "id": 693,
                     "name": "VariableDeclaration",
-                    "src": "1172:7:8"
+                    "src": "1375:7:7"
                   }
                 ],
-                "id": 1622,
+                "id": 694,
                 "name": "ParameterList",
-                "src": "1171:9:8"
+                "src": "1374:9:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1622
+                      "functionReturnParameters": 694
                     },
                     "children": [
                       {
@@ -606,7 +634,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "indexOf",
-                              "referencedDeclaration": 1250,
+                              "referencedDeclaration": 1635,
                               "type": "function (struct AddressSet.SetData storage pointer,address) view returns (uint256)"
                             },
                             "children": [
@@ -616,18 +644,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1616,
+                                  "referencedDeclaration": 688,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1623,
+                                "id": 695,
                                 "name": "Identifier",
-                                "src": "1198:9:8"
+                                "src": "1401:9:7"
                               }
                             ],
-                            "id": 1624,
+                            "id": 696,
                             "name": "MemberAccess",
-                            "src": "1198:17:8"
+                            "src": "1401:17:7"
                           },
                           {
                             "attributes": {
@@ -635,33 +663,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1618,
+                              "referencedDeclaration": 690,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1625,
+                            "id": 697,
                             "name": "Identifier",
-                            "src": "1216:1:8"
+                            "src": "1419:1:7"
                           }
                         ],
-                        "id": 1626,
+                        "id": 698,
                         "name": "FunctionCall",
-                        "src": "1198:20:8"
+                        "src": "1401:20:7"
                       }
                     ],
-                    "id": 1627,
+                    "id": 699,
                     "name": "Return",
-                    "src": "1191:27:8"
+                    "src": "1394:27:7"
                   }
                 ],
-                "id": 1628,
+                "id": 700,
                 "name": "Block",
-                "src": "1181:44:8"
+                "src": "1384:44:7"
               }
             ],
-            "id": 1629,
+            "id": 701,
             "name": "FunctionDefinition",
-            "src": "1112:113:8"
+            "src": "1315:113:7"
           },
           {
             "attributes": {
@@ -673,7 +701,7 @@
               ],
               "name": "getBallot",
               "payable": false,
-              "scope": 1698,
+              "scope": 770,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -685,7 +713,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "index",
-                      "scope": 1642,
+                      "scope": 714,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -698,19 +726,19 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1630,
+                        "id": 702,
                         "name": "ElementaryTypeName",
-                        "src": "1250:7:8"
+                        "src": "1453:7:7"
                       }
                     ],
-                    "id": 1631,
+                    "id": 703,
                     "name": "VariableDeclaration",
-                    "src": "1250:13:8"
+                    "src": "1453:13:7"
                   }
                 ],
-                "id": 1632,
+                "id": 704,
                 "name": "ParameterList",
-                "src": "1249:15:8"
+                "src": "1452:15:7"
               },
               {
                 "children": [
@@ -718,7 +746,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1642,
+                      "scope": 714,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -731,25 +759,25 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1633,
+                        "id": 705,
                         "name": "ElementaryTypeName",
-                        "src": "1289:7:8"
+                        "src": "1492:7:7"
                       }
                     ],
-                    "id": 1634,
+                    "id": 706,
                     "name": "VariableDeclaration",
-                    "src": "1289:7:8"
+                    "src": "1492:7:7"
                   }
                 ],
-                "id": 1635,
+                "id": 707,
                 "name": "ParameterList",
-                "src": "1288:9:8"
+                "src": "1491:9:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1635
+                      "functionReturnParameters": 707
                     },
                     "children": [
                       {
@@ -780,7 +808,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "getAt",
-                              "referencedDeclaration": 1265,
+                              "referencedDeclaration": 1650,
                               "type": "function (struct AddressSet.SetData storage pointer,uint256) view returns (address)"
                             },
                             "children": [
@@ -790,18 +818,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1616,
+                                  "referencedDeclaration": 688,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1636,
+                                "id": 708,
                                 "name": "Identifier",
-                                "src": "1315:9:8"
+                                "src": "1518:9:7"
                               }
                             ],
-                            "id": 1637,
+                            "id": 709,
                             "name": "MemberAccess",
-                            "src": "1315:15:8"
+                            "src": "1518:15:7"
                           },
                           {
                             "attributes": {
@@ -809,33 +837,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1631,
+                              "referencedDeclaration": 703,
                               "type": "uint256",
                               "value": "index"
                             },
-                            "id": 1638,
+                            "id": 710,
                             "name": "Identifier",
-                            "src": "1331:5:8"
+                            "src": "1534:5:7"
                           }
                         ],
-                        "id": 1639,
+                        "id": 711,
                         "name": "FunctionCall",
-                        "src": "1315:22:8"
+                        "src": "1518:22:7"
                       }
                     ],
-                    "id": 1640,
+                    "id": 712,
                     "name": "Return",
-                    "src": "1308:29:8"
+                    "src": "1511:29:7"
                   }
                 ],
-                "id": 1641,
+                "id": 713,
                 "name": "Block",
-                "src": "1298:46:8"
+                "src": "1501:46:7"
               }
             ],
-            "id": 1642,
+            "id": 714,
             "name": "FunctionDefinition",
-            "src": "1231:113:8"
+            "src": "1434:113:7"
           },
           {
             "attributes": {
@@ -847,7 +875,7 @@
               ],
               "name": "getBallotCount",
               "payable": false,
-              "scope": 1698,
+              "scope": 770,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -860,9 +888,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1643,
+                "id": 715,
                 "name": "ParameterList",
-                "src": "1373:2:8"
+                "src": "1576:2:7"
               },
               {
                 "children": [
@@ -870,7 +898,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1652,
+                      "scope": 724,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "uint256",
@@ -883,25 +911,25 @@
                           "name": "uint256",
                           "type": "uint256"
                         },
-                        "id": 1644,
+                        "id": 716,
                         "name": "ElementaryTypeName",
-                        "src": "1401:7:8"
+                        "src": "1604:7:7"
                       }
                     ],
-                    "id": 1645,
+                    "id": 717,
                     "name": "VariableDeclaration",
-                    "src": "1401:7:8"
+                    "src": "1604:7:7"
                   }
                 ],
-                "id": 1646,
+                "id": 718,
                 "name": "ParameterList",
-                "src": "1400:9:8"
+                "src": "1603:9:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1646
+                      "functionReturnParameters": 718
                     },
                     "children": [
                       {
@@ -932,7 +960,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "size",
-                              "referencedDeclaration": 1292,
+                              "referencedDeclaration": 1677,
                               "type": "function (struct AddressSet.SetData storage pointer) view returns (uint256)"
                             },
                             "children": [
@@ -942,38 +970,38 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1616,
+                                  "referencedDeclaration": 688,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1647,
+                                "id": 719,
                                 "name": "Identifier",
-                                "src": "1427:9:8"
+                                "src": "1630:9:7"
                               }
                             ],
-                            "id": 1648,
+                            "id": 720,
                             "name": "MemberAccess",
-                            "src": "1427:14:8"
+                            "src": "1630:14:7"
                           }
                         ],
-                        "id": 1649,
+                        "id": 721,
                         "name": "FunctionCall",
-                        "src": "1427:16:8"
+                        "src": "1630:16:7"
                       }
                     ],
-                    "id": 1650,
+                    "id": 722,
                     "name": "Return",
-                    "src": "1420:23:8"
+                    "src": "1623:23:7"
                   }
                 ],
-                "id": 1651,
+                "id": 723,
                 "name": "Block",
-                "src": "1410:40:8"
+                "src": "1613:40:7"
               }
             ],
-            "id": 1652,
+            "id": 724,
             "name": "FunctionDefinition",
-            "src": "1350:100:8"
+            "src": "1553:100:7"
           },
           {
             "attributes": {
@@ -982,7 +1010,7 @@
               "isConstructor": false,
               "name": "addBallot",
               "payable": false,
-              "scope": 1698,
+              "scope": 770,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -994,7 +1022,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1668,
+                      "scope": 740,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1007,19 +1035,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1653,
+                        "id": 725,
                         "name": "ElementaryTypeName",
-                        "src": "1475:7:8"
+                        "src": "1678:7:7"
                       }
                     ],
-                    "id": 1654,
+                    "id": 726,
                     "name": "VariableDeclaration",
-                    "src": "1475:9:8"
+                    "src": "1678:9:7"
                   }
                 ],
-                "id": 1655,
+                "id": 727,
                 "name": "ParameterList",
-                "src": "1474:11:8"
+                "src": "1677:11:7"
               },
               {
                 "attributes": {
@@ -1028,9 +1056,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1660,
+                "id": 732,
                 "name": "ParameterList",
-                "src": "1508:0:8"
+                "src": "1711:0:7"
               },
               {
                 "attributes": {
@@ -1045,18 +1073,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1828,
+                      "referencedDeclaration": 2023,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1656,
+                    "id": 728,
                     "name": "Identifier",
-                    "src": "1493:8:8"
+                    "src": "1696:8:7"
                   }
                 ],
-                "id": 1657,
+                "id": 729,
                 "name": "ModifierInvocation",
-                "src": "1493:8:8"
+                "src": "1696:8:7"
               },
               {
                 "attributes": {
@@ -1071,18 +1099,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 81,
+                      "referencedDeclaration": 76,
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1658,
+                    "id": 730,
                     "name": "Identifier",
-                    "src": "1502:5:8"
+                    "src": "1705:5:7"
                   }
                 ],
-                "id": 1659,
+                "id": 731,
                 "name": "ModifierInvocation",
-                "src": "1502:5:8"
+                "src": "1705:5:7"
               },
               {
                 "children": [
@@ -1116,7 +1144,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "put",
-                              "referencedDeclaration": 1335,
+                              "referencedDeclaration": 1720,
                               "type": "function (struct AddressSet.SetData storage pointer,address)"
                             },
                             "children": [
@@ -1126,18 +1154,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1616,
+                                  "referencedDeclaration": 688,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1661,
+                                "id": 733,
                                 "name": "Identifier",
-                                "src": "1518:9:8"
+                                "src": "1721:9:7"
                               }
                             ],
-                            "id": 1663,
+                            "id": 735,
                             "name": "MemberAccess",
-                            "src": "1518:13:8"
+                            "src": "1721:13:7"
                           },
                           {
                             "attributes": {
@@ -1145,33 +1173,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1654,
+                              "referencedDeclaration": 726,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1664,
+                            "id": 736,
                             "name": "Identifier",
-                            "src": "1532:1:8"
+                            "src": "1735:1:7"
                           }
                         ],
-                        "id": 1665,
+                        "id": 737,
                         "name": "FunctionCall",
-                        "src": "1518:16:8"
+                        "src": "1721:16:7"
                       }
                     ],
-                    "id": 1666,
+                    "id": 738,
                     "name": "ExpressionStatement",
-                    "src": "1518:16:8"
+                    "src": "1721:16:7"
                   }
                 ],
-                "id": 1667,
+                "id": 739,
                 "name": "Block",
-                "src": "1508:33:8"
+                "src": "1711:33:7"
               }
             ],
-            "id": 1668,
+            "id": 740,
             "name": "FunctionDefinition",
-            "src": "1456:85:8"
+            "src": "1659:85:7"
           },
           {
             "attributes": {
@@ -1180,7 +1208,7 @@
               "isConstructor": false,
               "name": "removeBallot",
               "payable": false,
-              "scope": 1698,
+              "scope": 770,
               "stateMutability": "nonpayable",
               "superFunction": null,
               "visibility": "public"
@@ -1192,7 +1220,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1684,
+                      "scope": 756,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1205,19 +1233,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1669,
+                        "id": 741,
                         "name": "ElementaryTypeName",
-                        "src": "1569:7:8"
+                        "src": "1772:7:7"
                       }
                     ],
-                    "id": 1670,
+                    "id": 742,
                     "name": "VariableDeclaration",
-                    "src": "1569:9:8"
+                    "src": "1772:9:7"
                   }
                 ],
-                "id": 1671,
+                "id": 743,
                 "name": "ParameterList",
-                "src": "1568:11:8"
+                "src": "1771:11:7"
               },
               {
                 "attributes": {
@@ -1226,9 +1254,9 @@
                   ]
                 },
                 "children": [],
-                "id": 1676,
+                "id": 748,
                 "name": "ParameterList",
-                "src": "1602:0:8"
+                "src": "1805:0:7"
               },
               {
                 "attributes": {
@@ -1243,18 +1271,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 1828,
+                      "referencedDeclaration": 2023,
                       "type": "modifier ()",
                       "value": "building"
                     },
-                    "id": 1672,
+                    "id": 744,
                     "name": "Identifier",
-                    "src": "1587:8:8"
+                    "src": "1790:8:7"
                   }
                 ],
-                "id": 1673,
+                "id": 745,
                 "name": "ModifierInvocation",
-                "src": "1587:8:8"
+                "src": "1790:8:7"
               },
               {
                 "attributes": {
@@ -1269,18 +1297,18 @@
                       "overloadedDeclarations": [
                         null
                       ],
-                      "referencedDeclaration": 81,
+                      "referencedDeclaration": 76,
                       "type": "modifier ()",
                       "value": "admin"
                     },
-                    "id": 1674,
+                    "id": 746,
                     "name": "Identifier",
-                    "src": "1596:5:8"
+                    "src": "1799:5:7"
                   }
                 ],
-                "id": 1675,
+                "id": 747,
                 "name": "ModifierInvocation",
-                "src": "1596:5:8"
+                "src": "1799:5:7"
               },
               {
                 "children": [
@@ -1314,7 +1342,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "remove",
-                              "referencedDeclaration": 1411,
+                              "referencedDeclaration": 1796,
                               "type": "function (struct AddressSet.SetData storage pointer,address)"
                             },
                             "children": [
@@ -1324,18 +1352,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1616,
+                                  "referencedDeclaration": 688,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1677,
+                                "id": 749,
                                 "name": "Identifier",
-                                "src": "1612:9:8"
+                                "src": "1815:9:7"
                               }
                             ],
-                            "id": 1679,
+                            "id": 751,
                             "name": "MemberAccess",
-                            "src": "1612:16:8"
+                            "src": "1815:16:7"
                           },
                           {
                             "attributes": {
@@ -1343,33 +1371,33 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1670,
+                              "referencedDeclaration": 742,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1680,
+                            "id": 752,
                             "name": "Identifier",
-                            "src": "1629:1:8"
+                            "src": "1832:1:7"
                           }
                         ],
-                        "id": 1681,
+                        "id": 753,
                         "name": "FunctionCall",
-                        "src": "1612:19:8"
+                        "src": "1815:19:7"
                       }
                     ],
-                    "id": 1682,
+                    "id": 754,
                     "name": "ExpressionStatement",
-                    "src": "1612:19:8"
+                    "src": "1815:19:7"
                   }
                 ],
-                "id": 1683,
+                "id": 755,
                 "name": "Block",
-                "src": "1602:36:8"
+                "src": "1805:36:7"
               }
             ],
-            "id": 1684,
+            "id": 756,
             "name": "FunctionDefinition",
-            "src": "1547:91:8"
+            "src": "1750:91:7"
           },
           {
             "attributes": {
@@ -1381,7 +1409,7 @@
               ],
               "name": "ballotExists",
               "payable": false,
-              "scope": 1698,
+              "scope": 770,
               "stateMutability": "view",
               "superFunction": null,
               "visibility": "public"
@@ -1393,7 +1421,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "b",
-                      "scope": 1697,
+                      "scope": 769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "address",
@@ -1406,19 +1434,19 @@
                           "name": "address",
                           "type": "address"
                         },
-                        "id": 1685,
+                        "id": 757,
                         "name": "ElementaryTypeName",
-                        "src": "1666:7:8"
+                        "src": "1869:7:7"
                       }
                     ],
-                    "id": 1686,
+                    "id": 758,
                     "name": "VariableDeclaration",
-                    "src": "1666:9:8"
+                    "src": "1869:9:7"
                   }
                 ],
-                "id": 1687,
+                "id": 759,
                 "name": "ParameterList",
-                "src": "1665:11:8"
+                "src": "1868:11:7"
               },
               {
                 "children": [
@@ -1426,7 +1454,7 @@
                     "attributes": {
                       "constant": false,
                       "name": "",
-                      "scope": 1697,
+                      "scope": 769,
                       "stateVariable": false,
                       "storageLocation": "default",
                       "type": "bool",
@@ -1439,25 +1467,25 @@
                           "name": "bool",
                           "type": "bool"
                         },
-                        "id": 1688,
+                        "id": 760,
                         "name": "ElementaryTypeName",
-                        "src": "1702:4:8"
+                        "src": "1905:4:7"
                       }
                     ],
-                    "id": 1689,
+                    "id": 761,
                     "name": "VariableDeclaration",
-                    "src": "1702:4:8"
+                    "src": "1905:4:7"
                   }
                 ],
-                "id": 1690,
+                "id": 762,
                 "name": "ParameterList",
-                "src": "1701:6:8"
+                "src": "1904:6:7"
               },
               {
                 "children": [
                   {
                     "attributes": {
-                      "functionReturnParameters": 1690
+                      "functionReturnParameters": 762
                     },
                     "children": [
                       {
@@ -1488,7 +1516,7 @@
                               "isPure": false,
                               "lValueRequested": false,
                               "member_name": "contains",
-                              "referencedDeclaration": 1280,
+                              "referencedDeclaration": 1665,
                               "type": "function (struct AddressSet.SetData storage pointer,address) view returns (bool)"
                             },
                             "children": [
@@ -1498,18 +1526,18 @@
                                   "overloadedDeclarations": [
                                     null
                                   ],
-                                  "referencedDeclaration": 1616,
+                                  "referencedDeclaration": 688,
                                   "type": "struct AddressSet.SetData storage ref",
                                   "value": "ballotSet"
                                 },
-                                "id": 1691,
+                                "id": 763,
                                 "name": "Identifier",
-                                "src": "1725:9:8"
+                                "src": "1928:9:7"
                               }
                             ],
-                            "id": 1692,
+                            "id": 764,
                             "name": "MemberAccess",
-                            "src": "1725:18:8"
+                            "src": "1928:18:7"
                           },
                           {
                             "attributes": {
@@ -1517,49 +1545,56 @@
                               "overloadedDeclarations": [
                                 null
                               ],
-                              "referencedDeclaration": 1686,
+                              "referencedDeclaration": 758,
                               "type": "address",
                               "value": "b"
                             },
-                            "id": 1693,
+                            "id": 765,
                             "name": "Identifier",
-                            "src": "1744:1:8"
+                            "src": "1947:1:7"
                           }
                         ],
-                        "id": 1694,
+                        "id": 766,
                         "name": "FunctionCall",
-                        "src": "1725:21:8"
+                        "src": "1928:21:7"
                       }
                     ],
-                    "id": 1695,
+                    "id": 767,
                     "name": "Return",
-                    "src": "1718:28:8"
+                    "src": "1921:28:7"
                   }
                 ],
-                "id": 1696,
+                "id": 768,
                 "name": "Block",
-                "src": "1708:45:8"
+                "src": "1911:45:7"
               }
             ],
-            "id": 1697,
+            "id": 769,
             "name": "FunctionDefinition",
-            "src": "1644:109:8"
+            "src": "1847:109:7"
           }
         ],
-        "id": 1698,
+        "id": 770,
         "name": "ContractDefinition",
-        "src": "969:786:8"
+        "src": "1172:786:7"
       }
     ],
-    "id": 1699,
+    "id": 771,
     "name": "SourceUnit",
-    "src": "868:887:8"
+    "src": "868:1090:7"
   },
   "compiler": {
     "name": "solc",
     "version": "0.4.18+commit.9cf6e910.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "4447": {
+      "events": {},
+      "links": {
+        "AddressSet": "0x345ca3e014aaf5dca488057592ee47305d9b3e10"
+      }
+    }
+  },
   "schemaVersion": "1.0.1",
-  "updatedAt": "2017-12-19T00:44:28.700Z"
+  "updatedAt": "2018-01-02T21:50:06.432Z"
 }

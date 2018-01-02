@@ -3,4 +3,4 @@
 abi:
 	rm -rf abi
 	mkdir abi
-	cp ../elections/build/contracts/* abi
+	cp ../elections-solidity/build/contracts/* abi
