@@ -2,7 +2,6 @@
 
 let program = require('commander');
 let tally = require('../tally');
-const Eth = require('ethjs');
 
 let election;
 
@@ -10,8 +9,8 @@ program
     .version('0.0.1')
     .usage('[options] <electionAddress>')
     .arguments('<electionAddress>').action(function (electionAddress) {
-    election = electionAddress;
-})
+        election = electionAddress;
+    })
     .option("-p, --provider [provider]", "Use specified endpoint")
     .parse(process.argv);
 
@@ -21,7 +20,11 @@ if(!election) {
     process.exit(1);
 }
 
-console.log("provider = "+program.provider);
+if(!program.provider) {
+    console.log("Provider (--provider, -p) is required.  Example: http://localhost:9545/");
+    program.help();
+    process.exit(1);
+}
 
 tally.tallyElection({
     electionAddress: election,
@@ -30,7 +33,7 @@ tally.tallyElection({
         console.log("results update: "+JSON.stringify(res));
     }
 }).then((res) => {
-    console.log("final results: "+JSON.stringify(res));
+    console.log("final results: "+JSON.stringify(res, null, "\t"));
 }).catch((err) => {
     console.error(err);
 });
