@@ -8,4 +8,4 @@ Library and CLI for tallying elections
 
 License
 -------
-All smart contracts are released under GPL v3.
+All code is released under GPL v3.
