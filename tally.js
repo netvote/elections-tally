@@ -188,7 +188,7 @@ const initTally = (params) => {
 
 
 const voteProto = async () => {
-    let root = await protobuf.load("protocol/vote.proto");
+    let root = await protobuf.load("./node_modules/@netvote/elections-solidity/protocol/vote.proto");
     return root.lookupType("netvote.Vote");
 };
 
