@@ -3,7 +3,7 @@
 let program = require('commander');
 let tally = require('../tally');
 
-let election;
+let election="";
 
 program
     .version('0.0.1')

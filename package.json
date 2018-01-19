@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/netvote/elections-tally#readme",
   "dependencies": {
+    "@netvote/elections-solidity": "^1.0.0",
     "commander": "^2.12.1",
     "crypto": "^1.0.1",
     "protobufjs": "^6.8.3",

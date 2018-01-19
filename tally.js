@@ -5,10 +5,10 @@ const crypto = require('crypto');
 
 let web3;
 
-let BasicElection = contract(require('./abi/BasicElection.json'));
-let TieredElection = contract(require('./abi/TieredElection.json'));
-let TieredBallot = contract(require('./abi/TieredBallot.json'));
-let TieredPool = contract(require('./abi/TieredPool.json'));
+let BasicElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BasicElection.json'));
+let TieredElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredElection.json'));
+let TieredBallot = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredBallot.json'));
+let TieredPool = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredPool.json'));
 
 /**
  * Wrapper function that tallies results for a ballot
