@@ -2,6 +2,13 @@ const contract = require("truffle-contract");
 const Web3 = require("web3");
 const protobuf = require("protobufjs");
 const crypto = require('crypto');
+const IPFS = require('ipfs-mini');
+const ipfs = new IPFS({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' });
+
+Array.prototype.pushArray = function(arr) {
+    this.push.apply(this, arr);
+};
+
 
 let web3;
 
@@ -37,7 +44,7 @@ const tallyTieredElection = async (params) => {
     let Vote = await voteProto();
     let election = TieredElection.at(params.electionAddress);
     let key = await election.privateKey();
-
+    
     let results = {
         election: params.electionAddress,
         ballots: {}
@@ -50,17 +57,19 @@ const tallyTieredElection = async (params) => {
         let ballotCount = await pool.getBallotCount();
         for(let b = 0; b<ballotCount; b++){
             let ballotAddress = await pool.getBallot(b);
+            let ballot = TieredBallot.at(ballotAddress);
+            let poolGroups = await getGroupsForPool(ballot, poolAddress);
+            let voteCount = await pool.getVoteCount();
+            let metadata = await getIpfsBallot(ballot);
 
             if (!results.ballots[ballotAddress]) {
                 results.ballots[ballotAddress] = {
                     totalVotes: 0,
+                    decisionMetadata: metadata.decisions,
+                    ballotTitle: metadata.title,
                     results: {}
                 };
             }
-
-            let ballot = TieredBallot.at(ballotAddress);
-            let poolGroups = await getGroupsForPool(ballot, poolAddress);
-            let voteCount = await pool.getVoteCount();
 
             for(let i=0; i<voteCount; i++){
                 let encrypted = await pool.getVoteAt(i);
@@ -72,7 +81,7 @@ const tallyTieredElection = async (params) => {
                     if(!results.ballots[ballotAddress].results[group]){
                         results.ballots[ballotAddress].results[group] = []
                     }
-                    results = tallyVote(choices, ballotAddress, group, results);
+                    results = tallyVote(choices, ballotAddress, group, results, metadata);
                 });
                 params.resultsUpdateCallback({
                     status: "tallying",
@@ -99,6 +108,7 @@ const tallyBasicElection = async (params) => {
     let election = BasicElection.at(params.electionAddress);
     let key = await election.privateKey();
     let voteCount = await election.getVoteCount();
+    let metadata = await getIpfsBallot(election);
 
     //comply with tiered results structure
     let results = {
@@ -107,6 +117,8 @@ const tallyBasicElection = async (params) => {
     };
     results.ballots[params.electionAddress] = {
         totalVotes: 0,
+        decisionMetadata: metadata.decisions,
+        ballotTitle: metadata.title,
         results:{"ALL":[]}
     };
 
@@ -116,7 +128,7 @@ const tallyBasicElection = async (params) => {
         let buff = Buffer.from(encoded, 'utf8');
         let vote = Vote.decode(buff);
         let choices = vote.ballotVotes[0].choices;
-        results = tallyVote(choices, params.electionAddress, "ALL", results);
+        results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
         params.resultsUpdateCallback({
             status: "tallying",
             progress: {
@@ -139,26 +151,33 @@ const log = (msg) => {
     console.log(msg);
 };
 
-const tallyVote = (choices, ballot, group, result) => {
+const initDecisionResults = (decisionMeta) => {
+    let decisionResults = {};
+    decisionMeta.ballotItems.forEach((d)=>{
+        decisionResults[d.itemTitle] = 0;
+    });
+    decisionResults["writeIn"] = {};
+    return decisionResults;
+};
+
+const tallyVote = (choices, ballot, group, result, metadata) => {
     choices.forEach((choice, idx) => {
-        if(!result.ballots[ballot].results[group][idx]){
-            result.ballots[ballot].results[group][idx] = {};
+        let decisionMeta = metadata.decisions[idx];
+        let decisionKey = idx;
+
+        // inititalize
+        if(!result.ballots[ballot].results[group][decisionKey]){
+            result.ballots[ballot].results[group][decisionKey] = initDecisionResults(decisionMeta);
         }
-        let decision = result.ballots[ballot].results[group][idx];
+
+        let decision = result.ballots[ballot].results[group][decisionKey];
         if(choice.writeIn){
-            if(!decision["writeIn"]){
-                decision["writeIn"] = {};
-            }
             let writeInVal = choice.writeIn.toUpperCase().trim();
-            if(!decision["writeIn"][writeInVal]){
-                decision["writeIn"][writeInVal] = 0;
-            }
             decision["writeIn"][writeInVal]++;
         }else{
-            if(!decision[choice.selection]){
-                decision[choice.selection] = 0;
-            }
-            decision[choice.selection]++;
+            let selectionIndex = parseInt(choice.selection);
+            let selectionTitle = decisionMeta["ballotItems"][selectionIndex]["itemTitle"];
+            decision[selectionTitle]++;
         }
         result.ballots[ballot].results[group][idx] = decision;
     });
@@ -190,6 +209,26 @@ const initTally = (params) => {
 const voteProto = async () => {
     let root = await protobuf.load("./node_modules/@netvote/elections-solidity/protocol/vote.proto");
     return root.lookupType("netvote.Vote");
+};
+
+const getIpfsBallot = (ballot) => {
+    return new Promise(async (resolve, reject) => {
+        let location = await ballot.metadataLocation();
+        ipfs.catJSON(location, (err, metadata) => {
+            if(err){
+                console.error(err);
+                reject(err);
+            }
+            let decisions = [];
+            metadata.ballotGroups.forEach((bg)=>{
+                decisions.pushArray(bg.ballotSections);
+            });
+            resolve({
+                title: metadata.ballotTitle,
+                decisions: decisions
+            });
+        });
+    });
 };
 
 const getGroupsForPool = async(ballot, poolAddr) => {
