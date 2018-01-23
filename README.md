@@ -51,41 +51,41 @@ resultsStatusObj = {
 Example Results
 ```javascript
 finalResults = {
-               	"election": "0xabcdea541751984aa3e5fd9a1ba3a12e4ba04a23",
-               	"ballots": {
-               		"0xabcdea541751984aa3e5fd9a1ba3a12e4ba04a23": {
-               		    "ballotTitle": "2020 NYC Election",
-               			"totalVotes": 3236,
-               			"decisionMetadata": [
-               				{
-               					"sectionTitle": "Mayor",
-               					"sectionTitleNote": "",
-               					"ballotItems": [
-               						{
-               							"itemTitle": "John Doe",
-               							"itemDescription": "..."
-               						},
-               						{
-               							"itemTitle": "Sally Thomas",
-               							"itemDescription": "..."
-               						}
-               					]
-               				}
-               			],
-               			"results": {
-               				"ALL": [
-               					{
-               						"John Doe": 1001,
-               						"Sally Thomas": 2231,
-               						"writeIn": {
-               						    "Sarah Williams": 4
-               						}
-               					}
-               				]
-               			}
-               		}
-               	}
-               }
+    "election": "0xabcdea541751984aa3e5fd9a1ba3a12e4ba04a23",
+    "ballots": {
+        "0xabcdea541751984aa3e5fd9a1ba3a12e4ba04a23": {
+            "ballotTitle": "2020 NYC Election",
+            "totalVotes": 3236,
+            "decisionMetadata": [
+                {
+                    "sectionTitle": "Mayor",
+                    "sectionTitleNote": "",
+                    "ballotItems": [
+                        {
+                            "itemTitle": "John Doe",
+                            "itemDescription": "..."
+                        },
+                        {
+                            "itemTitle": "Sally Thomas",
+                            "itemDescription": "..."
+                        }
+                    ]
+                }
+            ],
+            "results": {
+                "ALL": [
+                    {
+                        "John Doe": 1001,
+                        "Sally Thomas": 2231,
+                        "writeIn": {
+                            "Sarah Williams": 4
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}
 ```
 
 License
