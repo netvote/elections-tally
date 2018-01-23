@@ -72,29 +72,41 @@ const tallyTieredElection = async (params) => {
             }
 
             for(let i=0; i<voteCount; i++){
-                let encrypted = await pool.getVoteAt(i);
-                let encoded = decrypt(encrypted, key);
-                let buff = Buffer.from(encoded, 'utf8');
-                let vote = Vote.decode(buff);
-                let choices = vote.ballotVotes[0].choices;
-                poolGroups.forEach((group, pgi) => {
-                    if(!results.ballots[ballotAddress].results[group]){
-                        results.ballots[ballotAddress].results[group] = []
+                try {
+                    let encrypted = await pool.getVoteAt(i);
+                    let encoded = decrypt(encrypted, key);
+                    let buff = Buffer.from(encoded, 'utf8');
+                    let vote = Vote.decode(buff);
+                    if (validateBallotCount(vote, ballotCount)) {
+                        let choices = vote.ballotVotes[0].choices;
+                        if (validateChoices(choices, metadata.decisions)) {
+                            poolGroups.forEach((group, pgi) => {
+                                if (!results.ballots[ballotAddress].results[group]) {
+                                    results.ballots[ballotAddress].results[group] = []
+                                }
+                                results = tallyVote(choices, ballotAddress, group, results, metadata);
+                            });
+                            params.resultsUpdateCallback({
+                                status: "tallying",
+                                progress: {
+                                    poolIndex: p,
+                                    poolTotal: parseInt(poolCount),
+                                    poolBallotIndex: b,
+                                    poolBallotTotal: parseInt(ballotCount),
+                                    poolVoterIndex: i,
+                                    poolVoterTotal: parseInt(voteCount)
+                                },
+                                results: results
+                            });
+                        } else {
+                            console.log("skipping vote due to invalid choices");
+                        }
+                    } else {
+                        console.log("skipping vote due to invalid ballot length");
                     }
-                    results = tallyVote(choices, ballotAddress, group, results, metadata);
-                });
-                params.resultsUpdateCallback({
-                    status: "tallying",
-                    progress: {
-                        poolIndex: p,
-                        poolTotal: parseInt(poolCount),
-                        poolBallotIndex: b,
-                        poolBallotTotal: parseInt(ballotCount),
-                        poolVoterIndex: i,
-                        poolVoterTotal: parseInt(voteCount)
-                    },
-                    results: results
-                });
+                }catch(e){
+                    console.log("skipping vote due to extraction error: "+e.message);
+                }
             }
         }
     }
@@ -123,29 +135,64 @@ const tallyBasicElection = async (params) => {
     };
 
     for(let i=0; i<voteCount; i++){
-        let encrypted = await election.getVoteAt(i);
-        let encoded = decrypt(encrypted, key);
-        let buff = Buffer.from(encoded, 'utf8');
-        let vote = Vote.decode(buff);
-        let choices = vote.ballotVotes[0].choices;
-        results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
-        params.resultsUpdateCallback({
-            status: "tallying",
-            progress: {
-                poolIndex: 0,
-                poolTotal: 1,
-                poolBallotIndex: 0,
-                poolBallotTotal: 1,
-                poolVoterIndex: i,
-                poolVoterTotal: parseInt(voteCount)
-            },
-            results: results
-        });
+        try {
+            let encrypted = await election.getVoteAt(i);
+            let encoded = decrypt(encrypted, key);
+            let buff = Buffer.from(encoded, 'utf8');
+            let vote = Vote.decode(buff);
+            if (validateBallotCount(vote, 1)) {
+                let choices = vote.ballotVotes[0].choices;
+                if (validateChoices(choices, metadata.decisions)) {
+                    results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
+                    params.resultsUpdateCallback({
+                        status: "tallying",
+                        progress: {
+                            poolIndex: 0,
+                            poolTotal: 1,
+                            poolBallotIndex: 0,
+                            poolBallotTotal: 1,
+                            poolVoterIndex: i,
+                            poolVoterTotal: parseInt(voteCount)
+                        },
+                        results: results
+                    });
+                } else {
+                    console.log("skipping vote due to invalid choices");
+                }
+            } else {
+                console.log("skipping vote due to invalid ballot length");
+            }
+        }catch(e){
+            console.log("skipping vote due to extraction error: "+e.message);
+        }
     }
     return results;
 };
 
 // INTERNAL METHODS
+
+const validateBallotCount = (vote, count) => {
+    return vote.ballotVotes.length === count;
+};
+
+const validateChoices = (choices, decisionsMetadata) => {
+    if(choices.length !== decisionsMetadata.length){
+        return false;
+    }
+    choices.forEach((c, idx)=>{
+       if(!c.writeIn){
+           if(c.selection < 0){
+               console.log("INVALID selection < 0: "+c.selection);
+               return false;
+           }
+           if(c.selection > (decisionsMetadata[idx].ballotItems.length-1)){
+               console.log("INVALID selection > array: "+c.selection);
+               return false;
+           }
+       }
+    });
+    return true;
+};
 
 const log = (msg) => {
     console.log(msg);
