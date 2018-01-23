@@ -78,7 +78,7 @@ finalResults = {
                         "John Doe": 1001,
                         "Sally Thomas": 2231,
                         "writeIn": {
-                            "Sarah Williams": 4
+                            "SARAH WILLIAMS": 4
                         }
                     }
                 ]
