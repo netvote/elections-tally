@@ -99,10 +99,10 @@ const tallyTieredElection = async (params) => {
                                 results: results
                             });
                         } else {
-                            console.log("skipping vote due to invalid choices");
+                            console.log("skipping vote due to invalid choices: "+encoded);
                         }
                     } else {
-                        console.log("skipping vote due to invalid ballot length");
+                        console.log("skipping vote due to invalid number of ballots: "+encoded);
                     }
                 }catch(e){
                     console.log("skipping vote due to extraction error: "+e.message);
@@ -157,10 +157,10 @@ const tallyBasicElection = async (params) => {
                         results: results
                     });
                 } else {
-                    console.log("skipping vote due to invalid choices");
+                    console.log("skipping vote due to invalid choices: "+encoded);
                 }
             } else {
-                console.log("skipping vote due to invalid ballot length");
+                console.log("skipping vote due to invalid number of ballots: "+encoded);
             }
         }catch(e){
             console.log("skipping vote due to extraction error: "+e.message);

@@ -10,7 +10,7 @@ Example Usage:
 const tally = require('@netvote/elections-tally');
 
 tally.tallyElection({
-    electionAddress: '0x70329ebf41456077e2074d66d68e2aeb1286be4b',
+    electionAddress: '0xabcd9ebf41456077e2074d66d68e2aeb1286be4b',
     provider: 'https://ropsten.infura.io',
     resultsUpdateCallback: (resultsStatusObj) => {
         
@@ -51,67 +51,41 @@ resultsStatusObj = {
 Example Results
 ```javascript
 finalResults = {
-    "electionAddress": "0x70329ebf41456077e2074d66d68e2aeb1286be4b",
-    "ballots": {
-        "0xABCD9ebf41456077e2074d66d68e2aeb1286be4b": {
-            "totalVotes": 10,
-            "results":{
-                // RESULTS BY GROUP
-                "ALL": [
-                    // FIRST DECISION
-                    {
-                        "0": 2,
-                        "1": 4,
-                        "writeIn":{
-                            "JOHN DOE": 4
-                        }
-                    },
-                    // SECOND DECISION
-                    {
-                        "0": 1,
-                        "1": 7,
-                        "2": 1,
-                        "writeIn":{
-                            "JANE SMITH": 1
-                        }
-                    }
-                ],
-                "district-1": [
-                    // FIRST DECISION
-                    {
-                        "0": 2,
-                        "1": 2,
-                        "writeIn":{
-                            "JOHN DOE": 2
-                        }
-                    },
-                    // SECOND DECISION
-                    {
-                        "0": 1,
-                        "1": 4
-                    }
-                ],
-                "district-2": [
-                    // FIRST DECISION
-                    {
-                        "1": 2,
-                        "writeIn":{
-                            "JOHN DOE": 2
-                        }
-                    },
-                    // SECOND DECISION
-                    {
-                        "1": 3,
-                        "2": 1,
-                        "writeIn":{
-                            "JANE SMITH": 1
-                        }
-                    }
-                ]
-            }
-        }
-    }
-}
+               	"election": "0xabcdea541751984aa3e5fd9a1ba3a12e4ba04a23",
+               	"ballots": {
+               		"0xabcdea541751984aa3e5fd9a1ba3a12e4ba04a23": {
+               		    "ballotTitle": "2020 NYC Election",
+               			"totalVotes": 3236,
+               			"decisionMetadata": [
+               				{
+               					"sectionTitle": "Mayor",
+               					"sectionTitleNote": "",
+               					"ballotItems": [
+               						{
+               							"itemTitle": "John Doe",
+               							"itemDescription": "..."
+               						},
+               						{
+               							"itemTitle": "Sally Thomas",
+               							"itemDescription": "..."
+               						}
+               					]
+               				}
+               			],
+               			"results": {
+               				"ALL": [
+               					{
+               						"John Doe": 1001,
+               						"Sally Thomas": 2231,
+               						"writeIn": {
+               						    "Sarah Williams": 4
+               						}
+               					}
+               				]
+               			}
+               		}
+               	}
+               }
 ```
 
 License
