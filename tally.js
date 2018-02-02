@@ -220,6 +220,9 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
         let decision = result.ballots[ballot].results[group][decisionKey];
         if(choice.writeIn){
             let writeInVal = choice.writeIn.toUpperCase().trim();
+            if(!decision["writeIn"][writeInVal]){
+                decision["writeIn"][writeInVal] = 0;
+            }
             decision["writeIn"][writeInVal]++;
         }else{
             let selectionIndex = parseInt(choice.selection);
