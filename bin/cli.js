@@ -29,11 +29,9 @@ if(!program.provider) {
 tally.tallyElection({
     electionAddress: election,
     provider: program.provider,
-    resultsUpdateCallback: (res) => {
-        console.log("results update: "+JSON.stringify(res));
-    }
+    resultsUpdateCallback: (res) => {}
 }).then((res) => {
-    console.log("final results: "+JSON.stringify(res, null, "\t"));
+    console.log(JSON.stringify(res, null, "\t"));
 }).catch((err) => {
     console.error(err);
 });

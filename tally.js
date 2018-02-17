@@ -99,13 +99,13 @@ const tallyTieredElection = async (params) => {
                                 results: results
                             });
                         } else {
-                            console.log("skipping vote due to invalid choices: "+encoded);
+                            log("skipping vote due to invalid choices: "+encoded);
                         }
                     } else {
-                        console.log("skipping vote due to invalid number of ballots: "+encoded);
+                        log("skipping vote due to invalid number of ballots: "+encoded);
                     }
                 }catch(e){
-                    console.log("skipping vote due to extraction error: "+e.message);
+                    log("skipping vote due to extraction error: "+e.message);
                 }
             }
         }
@@ -133,11 +133,13 @@ const tallyBasicElection = async (params) => {
         ballotTitle: metadata.title,
         results:{"ALL":[]}
     };
-
+    log("vote count = "+voteCount);
     for(let i=0; i<voteCount; i++){
         try {
             let encrypted = await election.getVoteAt(i);
             let encoded = decrypt(encrypted, key);
+            log("length="+encoded.length);
+            log("encoded="+encoded);
             let buff = Buffer.from(encoded, 'utf8');
             let vote = Vote.decode(buff);
             if (validateBallotCount(vote, 1)) {
@@ -157,13 +159,13 @@ const tallyBasicElection = async (params) => {
                         results: results
                     });
                 } else {
-                    console.log("skipping vote due to invalid choices: "+encoded);
+                    log("skipping vote due to invalid choices: "+encoded);
                 }
             } else {
-                console.log("skipping vote due to invalid number of ballots: "+encoded);
+                log("skipping vote due to invalid number of ballots: "+encoded);
             }
         }catch(e){
-            console.log("skipping vote due to extraction error: "+e.message);
+            log("skipping vote due to extraction error: "+e.message);
         }
     }
     return results;
@@ -182,11 +184,11 @@ const validateChoices = (choices, decisionsMetadata) => {
     choices.forEach((c, idx)=>{
        if(!c.writeIn){
            if(c.selection < 0){
-               console.log("INVALID selection < 0: "+c.selection);
+               log("INVALID selection < 0: "+c.selection);
                return false;
            }
            if(c.selection > (decisionsMetadata[idx].ballotItems.length-1)){
-               console.log("INVALID selection > array: "+c.selection);
+               log("INVALID selection > array: "+c.selection);
                return false;
            }
        }
@@ -195,7 +197,7 @@ const validateChoices = (choices, decisionsMetadata) => {
 };
 
 const log = (msg) => {
-    console.log(msg);
+    //console.log(msg);
 };
 
 const initDecisionResults = (decisionMeta) => {
@@ -244,7 +246,7 @@ const initTally = (params) => {
     }
     if (!params.resultsUpdateCallback){
         params.resultsUpdateCallback = (obj) => {
-            console.log(JSON.stringify(obj));
+            log(JSON.stringify(obj));
         }
     }
     let provider = new Web3.providers.HttpProvider(params.provider);
@@ -265,7 +267,8 @@ const getIpfsBallot = (ballot) => {
     return new Promise(async (resolve, reject) => {
         let location = await ballot.metadataLocation();
         ipfs.catJSON(location, (err, metadata) => {
-            if(err){
+       	log(JSON.stringify(metadata));
+	if(err){
                 console.error(err);
                 reject(err);
             }
