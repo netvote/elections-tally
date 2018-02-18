@@ -1,6 +1,6 @@
 Netvote Tally Library
 ======================
-
+[![Build Status](https://travis-ci.org/netvote/elections-tally.svg?branch=master)](https://travis-ci.org/netvote/elections-tally)
 <img src="https://s3.amazonaws.com/netvote-docs/nv.png" alt="Logo"  height="25%" width="25%"/>
 
 Library and CLI for tallying elections

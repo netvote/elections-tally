@@ -4,7 +4,7 @@
   "description": "Tally Netvote Elections",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "./pre-test.sh && cd elections-solidity && run-with-testrpc -l 20000000 'truffle test --network testing test/tally/Tally.js'",
     "tally": "bin/cli.js"
   },
   "repository": {
@@ -24,5 +24,9 @@
     "ipfs-mini": "^1.1.2",
     "protobufjs": "^6.8.3",
     "truffle-contract": "^3.0.1"
+  },
+  "devDependencies": {
+    "run-with-testrpc": "^0.3.0",
+    "truffle": "^4.0.6"
   }
 }

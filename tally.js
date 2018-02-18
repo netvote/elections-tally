@@ -11,6 +11,7 @@ Array.prototype.pushArray = function(arr) {
 
 
 let web3;
+let protoPath = "./node_modules/@netvote/elections-solidity/protocol/vote.proto";
 
 let BasicElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BasicElection.json'));
 let TieredElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredElection.json'));
@@ -29,6 +30,9 @@ const tallyElection = async (params) => {
     initTally(params);
     let election = TieredElection.at(params.electionAddress);
     let electionType = await election.electionType();
+    if(params.protoPath){
+        protoPath = params.protoPath
+    }
     switch(electionType){
         case "TIERED":
             return tallyTieredElection(params);
@@ -259,7 +263,7 @@ const initTally = (params) => {
 
 
 const voteProto = async () => {
-    let root = await protobuf.load("./node_modules/@netvote/elections-solidity/protocol/vote.proto");
+    let root = await protobuf.load(protoPath);
     return root.lookupType("netvote.Vote");
 };
 
