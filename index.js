@@ -1,3 +1,3 @@
 tally = require('./tally');
 
-exports.tally = tally.tally;
+exports.tallyElection = tally.tallyElection;
