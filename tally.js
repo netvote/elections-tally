@@ -209,7 +209,6 @@ const initDecisionResults = (decisionMeta) => {
     decisionMeta.ballotItems.forEach((d)=>{
         decisionResults[d.itemTitle] = 0;
     });
-    decisionResults["writeIn"] = {};
     return decisionResults;
 };
 
@@ -226,10 +225,10 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
         let decision = result.ballots[ballot].results[group][decisionKey];
         if(choice.writeIn){
             let writeInVal = choice.writeIn.toUpperCase().trim();
-            if(!decision["writeIn"][writeInVal]){
-                decision["writeIn"][writeInVal] = 0;
+            if(!decision["WRITEIN-"+writeInVal]){
+                decision["WRITEIN-"+writeInVal] = 0;
             }
-            decision["writeIn"][writeInVal]++;
+            decision["WRITEIN-"+writeInVal]++;
         }else{
             let selectionIndex = parseInt(choice.selection);
             let selectionTitle = decisionMeta["ballotItems"][selectionIndex]["itemTitle"];

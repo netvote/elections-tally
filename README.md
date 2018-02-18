@@ -78,9 +78,7 @@ finalResults = {
                     {
                         "John Doe": 1001,
                         "Sally Thomas": 2231,
-                        "writeIn": {
-                            "SARAH WILLIAMS": 4
-                        }
+                        "WRITEIN-SARAH WILLIAMS": 4
                     }
                 ]
             }
