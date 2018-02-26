@@ -99,4 +99,4 @@ Contributing
 
 License
 -------
-All code is released under GPL v3.
+All code is released under the <a href='https://www.gnu.org/licenses/gpl-3.0.en.html'>GNU General Public License v3.0</a>.
