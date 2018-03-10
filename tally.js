@@ -3,6 +3,7 @@ const Web3 = require("web3");
 const protobuf = require("protobufjs");
 const crypto = require('crypto');
 const IPFS = require('ipfs-mini');
+const abiDecoder = require('abi-decoder');
 const ipfs = new IPFS({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' });
 
 Array.prototype.pushArray = function(arr) {
@@ -17,6 +18,12 @@ let BasicElection = contract(require('./node_modules/@netvote/elections-solidity
 let TieredElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredElection.json'));
 let TieredBallot = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredBallot.json'));
 let TieredPool = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredPool.json'));
+let BaseBallot = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BaseBallot.json'));
+let BasePool = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BasePool.json'));
+let BaseElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BaseElection.json'));
+
+const poolAbi = require('./node_modules/@netvote/elections-solidity/build/contracts/BasePool.json').abi
+abiDecoder.addABI(poolAbi);
 
 /**
  * Wrapper function that tallies results for a ballot
@@ -109,6 +116,7 @@ const tallyTieredElection = async (params) => {
                         log("skipping vote due to invalid number of ballots: "+encoded);
                     }
                 }catch(e){
+                    console.error(e);
                     log("skipping vote due to extraction error: "+e.message);
                 }
             }
@@ -116,6 +124,83 @@ const tallyTieredElection = async (params) => {
     }
 
     return results;
+};
+
+const extractVoteFromTx = (txId) => {
+    return new Promise(async (resolve, reject) => {
+
+        web3.eth.getTransaction(txId,
+            (err, res) => {
+                let txObj = abiDecoder.decodeMethod(res.input);
+                resolve( {
+                    pool: res.to,
+                    voteId: txObj.params[0].value,
+                    vote: txObj.params[1].value,
+                    passphrase: txObj.params[2].value
+                });
+            });
+    });
+}
+
+
+const tallyTxVote = async (params) => {
+
+    initTally(params);
+    const Vote = await voteProto();
+    const txId = params.txId;
+    const election = BaseElection.at(params.electionAddress);
+    const key = await election.privateKey();
+
+    if(!key){
+        throw "Vote is encrypted until Election Close";
+    }
+
+    let results = {
+        election: params.electionAddress,
+        ballots: {}
+    };
+
+    let voteObj = await extractVoteFromTx(txId);
+
+    const pool = BasePool.at(voteObj.pool);
+
+    let encrypted = await pool.votes(voteObj.voteId);
+    let encoded = decrypt(encrypted, key);
+    let buff = Buffer.from(encoded, 'utf8');
+    let vote = Vote.decode(buff);
+
+    let ballotCount = await pool.getBallotCount();
+
+    if (validateBallotCount(vote, parseInt(ballotCount))) {
+
+        for(let i=0; i<ballotCount; i++){
+
+            let choices = vote.ballotVotes[i].choices;
+            let ballotAddress = await pool.getBallot(i);
+
+            let ballot = BaseBallot.at(ballotAddress);
+            let metadata = await getIpfsBallot(ballot);
+
+            results.ballots[ballotAddress] = {
+                totalVotes: 0,
+                decisionMetadata: metadata.decisions,
+                ballotTitle: metadata.title,
+                results:{"ALL":[]}
+            };
+
+            if (validateChoices(choices, metadata.decisions)) {
+                results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
+            } else {
+                throw "Invalid vote structure for ballot: "+ballotAddress;
+            }
+        }
+        return results;
+    } else {
+        throw "Expected "+ballotCount+" ballots but found "+vote.ballotVotes.length;
+    }
+
+
+
 };
 
 const tallyBasicElection = async (params) => {
@@ -149,6 +234,7 @@ const tallyBasicElection = async (params) => {
             if (validateBallotCount(vote, 1)) {
                 let choices = vote.ballotVotes[0].choices;
                 if (validateChoices(choices, metadata.decisions)) {
+			        console.log("weight = "+vote.weight);
                     results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
                     params.resultsUpdateCallback({
                         status: "tallying",
@@ -169,6 +255,7 @@ const tallyBasicElection = async (params) => {
                 log("skipping vote due to invalid number of ballots: "+encoded);
             }
         }catch(e){
+            console.error(e);
             log("skipping vote due to extraction error: "+e.message);
         }
     }
@@ -257,6 +344,9 @@ const initTally = (params) => {
     TieredPool.setProvider(provider);
     TieredBallot.setProvider(provider);
     TieredElection.setProvider(provider);
+    BasePool.setProvider(provider);
+    BaseBallot.setProvider(provider);
+    BaseElection.setProvider(provider);
     web3 = new Web3(provider);
 };
 
@@ -305,5 +395,6 @@ function decrypt(v, password){
 }
 
 module.exports = {
-    tallyElection
+    tallyElection,
+    tallyTxVote
 };
