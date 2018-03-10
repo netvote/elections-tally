@@ -155,12 +155,13 @@ const tallyTxVote = async (params) => {
         throw "Vote is encrypted until Election Close";
     }
 
+    let voteObj = await extractVoteFromTx(txId);
+
     let results = {
         election: params.electionAddress,
-        ballots: {}
+        ballots: {},
+        passphrase: voteObj.passphrase
     };
-
-    let voteObj = await extractVoteFromTx(txId);
 
     const pool = BasePool.at(voteObj.pool);
 
@@ -234,7 +235,6 @@ const tallyBasicElection = async (params) => {
             if (validateBallotCount(vote, 1)) {
                 let choices = vote.ballotVotes[0].choices;
                 if (validateChoices(choices, metadata.decisions)) {
-			        console.log("weight = "+vote.weight);
                     results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
                     params.resultsUpdateCallback({
                         status: "tallying",
