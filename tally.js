@@ -182,7 +182,7 @@ const tallyTxVote = async (params) => {
             let metadata = await getIpfsBallot(ballot);
 
             results.ballots[ballotAddress] = {
-                totalVotes: 0,
+                totalVotes: 1,
                 decisionMetadata: metadata.decisions,
                 ballotTitle: metadata.title,
                 results:{"ALL":[]}
