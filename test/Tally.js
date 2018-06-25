@@ -85,6 +85,7 @@ contract('Basic Tally', function (accounts) {
         let res = await tally.tallyElection({
             electionAddress: config.contract.address,
             provider: "http://localhost:8545",
+            version: 18,
             protoPath: "protocol/vote.proto",
             resultsUpdateCallback: (res) => {}
         });

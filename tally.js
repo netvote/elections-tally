@@ -1,29 +1,26 @@
-const contract = require("truffle-contract");
-const Web3 = require("web3");
 const protobuf = require("protobufjs");
 const crypto = require('crypto');
 const IPFS = require('ipfs-mini');
-const abiDecoder = require('abi-decoder');
 const ipfs = new IPFS({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' });
 
 Array.prototype.pushArray = function(arr) {
     this.push.apply(this, arr);
 };
 
+const nv = require('./netvote-eth');
 
 let web3;
-let protoPath = "./node_modules/@netvote/elections-solidity/protocol/vote.proto";
+let protoPath = "./vote.proto";
 
-let BasicElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BasicElection.json'));
-let TieredElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredElection.json'));
-let TieredBallot = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredBallot.json'));
-let TieredPool = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/TieredPool.json'));
-let BaseBallot = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BaseBallot.json'));
-let BasePool = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BasePool.json'));
-let BaseElection = contract(require('./node_modules/@netvote/elections-solidity/build/contracts/BaseElection.json'));
+// contract references
+let BasicElection;
+let TieredElection;
+let TieredBallot;
+let TieredPool;
+let BaseBallot;
+let BasePool;
+let BaseElection;
 
-const poolAbi = require('./node_modules/@netvote/elections-solidity/build/contracts/BasePool.json').abi
-abiDecoder.addABI(poolAbi);
 
 /**
  * Wrapper function that tallies results for a ballot
@@ -34,7 +31,7 @@ abiDecoder.addABI(poolAbi);
  * @returns {Promise}
  */
 const tallyElection = async (params) => {
-    initTally(params);
+    await initTally(params);
     let election = TieredElection.at(params.electionAddress);
     let electionType = await election.electionType();
     if(params.protoPath){
@@ -126,23 +123,6 @@ const tallyTieredElection = async (params) => {
     return results;
 };
 
-const extractVoteFromTx = (txId) => {
-    return new Promise(async (resolve, reject) => {
-
-        web3.eth.getTransaction(txId,
-            (err, res) => {
-                let txObj = abiDecoder.decodeMethod(res.input);
-                resolve( {
-                    pool: res.to,
-                    voteId: txObj.params[0].value,
-                    vote: txObj.params[1].value,
-                    passphrase: txObj.params[2].value
-                });
-            });
-    });
-}
-
-
 const tallyTxVote = async (params) => {
 
     initTally(params);
@@ -155,7 +135,7 @@ const tallyTxVote = async (params) => {
         throw "Vote is encrypted until Election Close";
     }
 
-    let voteObj = await extractVoteFromTx(txId);
+    let voteObj = await nv.extractVoteFromTx(txId, params.version);
 
     let results = {
         election: params.electionAddress,
@@ -199,9 +179,6 @@ const tallyTxVote = async (params) => {
     } else {
         throw "Expected "+ballotCount+" ballots but found "+vote.ballotVotes.length;
     }
-
-
-
 };
 
 const tallyBasicElection = async (params) => {
@@ -327,7 +304,7 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
     return result;
 };
 
-const initTally = (params) => {
+const initTally = async (params) => {
     if (!params.provider) {
         throw new Error("param.provider is required")
     }
@@ -339,15 +316,19 @@ const initTally = (params) => {
             log(JSON.stringify(obj));
         }
     }
-    let provider = new Web3.providers.HttpProvider(params.provider);
-    BasicElection.setProvider(provider);
-    TieredPool.setProvider(provider);
-    TieredBallot.setProvider(provider);
-    TieredElection.setProvider(provider);
-    BasePool.setProvider(provider);
-    BaseBallot.setProvider(provider);
-    BaseElection.setProvider(provider);
-    web3 = new Web3(provider);
+    if (!params.version) {
+        throw new Error("expected version parameter (e.g., 18)")
+    }
+
+    nv.Init(params.provider, params.version)
+    BasicElection = await nv.BasicElection(params.version);
+    TieredPool = await nv.TieredPool(params.version);
+    TieredBallot = await nv.TieredBallot(params.version);
+    TieredElection = await nv.TieredElection(params.version);
+    BasePool = await nv.BasePool(params.version);
+    BaseBallot = await nv.BaseBallot(params.version);
+    BaseElection = await nv.BaseElection(params.version);
+    web3 = nv.web3();
 };
 
 
