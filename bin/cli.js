@@ -28,6 +28,7 @@ if(!program.provider) {
 
 tally.tallyElection({
     electionAddress: election,
+    version: 15,
     provider: program.provider,
     resultsUpdateCallback: (res) => {}
 }).then((res) => {
