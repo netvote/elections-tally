@@ -54,8 +54,8 @@ const extractVoteFromTx = (txId, version) => {
     checkInit();
     return new Promise(async (resolve, reject) => {
         web3.eth.getTransaction(txId,
-            (err, res) => {
-                let decoder = getAbiDecoder("BasePool", version)
+            async (err, res) => {
+                let decoder = await getAbiDecoder("BasePool", version)
                 let txObj = decoder.decodeMethod(res.input);
                 resolve( {
                     pool: res.to,

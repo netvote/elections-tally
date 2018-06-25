@@ -123,7 +123,7 @@ const tallyTieredElection = async (params) => {
 };
 
 const tallyTxVote = async (params) => {
-    initTally(params);
+    await initTally(params);
     const Vote = await voteProto();
     const txId = params.txId;
     const election = await BaseElection.at(params.electionAddress);
