@@ -3,7 +3,7 @@ const crypto = require('crypto');
 const IPFS = require('ipfs-mini');
 const ipfs = new IPFS({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' });
 
-Array.prototype.pushArray = function(arr) {
+Array.prototype.pushArray = function (arr) {
     this.push.apply(this, arr);
 };
 
@@ -32,40 +32,39 @@ let BaseElection;
  */
 const tallyElection = async (params) => {
     await initTally(params);
-    let election = TieredElection.at(params.electionAddress);
+    let election = await TieredElection.at(params.electionAddress);
     let electionType = await election.electionType();
-    if(params.protoPath){
+    if (params.protoPath) {
         protoPath = params.protoPath
     }
-    switch(electionType){
+    switch (electionType) {
         case "TIERED":
             return tallyTieredElection(params);
         case "BASIC":
             return tallyBasicElection(params);
         default:
-            throw Error("invalid election type: "+electionType);
+            throw Error("invalid election type: " + electionType);
     }
 };
 
 const tallyTieredElection = async (params) => {
-    initTally(params);
     let Vote = await voteProto();
-    let election = TieredElection.at(params.electionAddress);
+    let election = await TieredElection.at(params.electionAddress);
     let key = await election.privateKey();
-    
+
     let results = {
         election: params.electionAddress,
         ballots: {}
     };
 
     let poolCount = await election.getPoolCount();
-    for(let p = 0; p < poolCount; p++){
+    for (let p = 0; p < poolCount; p++) {
         let poolAddress = await election.getPool(p);
-        let pool = TieredPool.at(poolAddress);
+        let pool = await TieredPool.at(poolAddress);
         let ballotCount = await pool.getBallotCount();
-        for(let b = 0; b<ballotCount; b++){
+        for (let b = 0; b < ballotCount; b++) {
             let ballotAddress = await pool.getBallot(b);
-            let ballot = TieredBallot.at(ballotAddress);
+            let ballot = await TieredBallot.at(ballotAddress);
             let poolGroups = await getGroupsForPool(ballot, poolAddress);
             let voteCount = await pool.getVoteCount();
             let metadata = await getIpfsBallot(ballot);
@@ -79,7 +78,7 @@ const tallyTieredElection = async (params) => {
                 };
             }
 
-            for(let i=0; i<voteCount; i++){
+            for (let i = 0; i < voteCount; i++) {
                 try {
                     let encrypted = await pool.getVoteAt(i);
                     let encoded = decrypt(encrypted, key);
@@ -107,14 +106,14 @@ const tallyTieredElection = async (params) => {
                                 results: results
                             });
                         } else {
-                            log("skipping vote due to invalid choices: "+encoded);
+                            log("skipping vote due to invalid choices: " + encoded);
                         }
                     } else {
-                        log("skipping vote due to invalid number of ballots: "+encoded);
+                        log("skipping vote due to invalid number of ballots: " + encoded);
                     }
-                }catch(e){
+                } catch (e) {
                     console.error(e);
-                    log("skipping vote due to extraction error: "+e.message);
+                    log("skipping vote due to extraction error: " + e.message);
                 }
             }
         }
@@ -124,14 +123,13 @@ const tallyTieredElection = async (params) => {
 };
 
 const tallyTxVote = async (params) => {
-
     initTally(params);
     const Vote = await voteProto();
     const txId = params.txId;
-    const election = BaseElection.at(params.electionAddress);
+    const election = await BaseElection.at(params.electionAddress);
     const key = await election.privateKey();
 
-    if(!key){
+    if (!key) {
         throw "Vote is encrypted until Election Close";
     }
 
@@ -143,7 +141,7 @@ const tallyTxVote = async (params) => {
         passphrase: voteObj.passphrase
     };
 
-    const pool = BasePool.at(voteObj.pool);
+    const pool = await BasePool.at(voteObj.pool);
 
     let encrypted = await pool.votes(voteObj.voteId);
     let encoded = decrypt(encrypted, key);
@@ -154,37 +152,36 @@ const tallyTxVote = async (params) => {
 
     if (validateBallotCount(vote, parseInt(ballotCount))) {
 
-        for(let i=0; i<ballotCount; i++){
+        for (let i = 0; i < ballotCount; i++) {
 
             let choices = vote.ballotVotes[i].choices;
             let ballotAddress = await pool.getBallot(i);
 
-            let ballot = BaseBallot.at(ballotAddress);
+            let ballot = await BaseBallot.at(ballotAddress);
             let metadata = await getIpfsBallot(ballot);
 
             results.ballots[ballotAddress] = {
                 totalVotes: 1,
                 decisionMetadata: metadata.decisions,
                 ballotTitle: metadata.title,
-                results:{"ALL":[]}
+                results: { "ALL": [] }
             };
 
             if (validateChoices(choices, metadata.decisions)) {
                 results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
             } else {
-                throw "Invalid vote structure for ballot: "+ballotAddress;
+                throw "Invalid vote structure for ballot: " + ballotAddress;
             }
         }
         return results;
     } else {
-        throw "Expected "+ballotCount+" ballots but found "+vote.ballotVotes.length;
+        throw "Expected " + ballotCount + " ballots but found " + vote.ballotVotes.length;
     }
 };
 
 const tallyBasicElection = async (params) => {
-    initTally(params);
     let Vote = await voteProto();
-    let election = BasicElection.at(params.electionAddress);
+    let election = await BasicElection.at(params.electionAddress);
     let key = await election.privateKey();
     let voteCount = await election.getVoteCount();
     let metadata = await getIpfsBallot(election);
@@ -198,15 +195,15 @@ const tallyBasicElection = async (params) => {
         totalVotes: 0,
         decisionMetadata: metadata.decisions,
         ballotTitle: metadata.title,
-        results:{"ALL":[]}
+        results: { "ALL": [] }
     };
-    log("vote count = "+voteCount);
-    for(let i=0; i<voteCount; i++){
+    log("vote count = " + voteCount);
+    for (let i = 0; i < voteCount; i++) {
         try {
             let encrypted = await election.getVoteAt(i);
             let encoded = decrypt(encrypted, key);
-            log("length="+encoded.length);
-            log("encoded="+encoded);
+            log("length=" + encoded.length);
+            log("encoded=" + encoded);
             let buff = Buffer.from(encoded, 'utf8');
             let vote = Vote.decode(buff);
             if (validateBallotCount(vote, 1)) {
@@ -226,14 +223,14 @@ const tallyBasicElection = async (params) => {
                         results: results
                     });
                 } else {
-                    log("skipping vote due to invalid choices: "+encoded);
+                    log("skipping vote due to invalid choices: " + encoded);
                 }
             } else {
-                log("skipping vote due to invalid number of ballots: "+encoded);
+                log("skipping vote due to invalid number of ballots: " + encoded);
             }
-        }catch(e){
+        } catch (e) {
             console.error(e);
-            log("skipping vote due to extraction error: "+e.message);
+            log("skipping vote due to extraction error: " + e.message);
         }
     }
     return results;
@@ -246,20 +243,20 @@ const validateBallotCount = (vote, count) => {
 };
 
 const validateChoices = (choices, decisionsMetadata) => {
-    if(choices.length !== decisionsMetadata.length){
+    if (choices.length !== decisionsMetadata.length) {
         return false;
     }
-    choices.forEach((c, idx)=>{
-       if(!c.writeIn){
-           if(c.selection < 0){
-               log("INVALID selection < 0: "+c.selection);
-               return false;
-           }
-           if(c.selection > (decisionsMetadata[idx].ballotItems.length-1)){
-               log("INVALID selection > array: "+c.selection);
-               return false;
-           }
-       }
+    choices.forEach((c, idx) => {
+        if (!c.writeIn) {
+            if (c.selection < 0) {
+                log("INVALID selection < 0: " + c.selection);
+                return false;
+            }
+            if (c.selection > (decisionsMetadata[idx].ballotItems.length - 1)) {
+                log("INVALID selection > array: " + c.selection);
+                return false;
+            }
+        }
     });
     return true;
 };
@@ -270,7 +267,7 @@ const log = (msg) => {
 
 const initDecisionResults = (decisionMeta) => {
     let decisionResults = {};
-    decisionMeta.ballotItems.forEach((d)=>{
+    decisionMeta.ballotItems.forEach((d) => {
         decisionResults[d.itemTitle] = 0;
     });
     return decisionResults;
@@ -282,18 +279,18 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
         let decisionKey = idx;
 
         // inititalize
-        if(!result.ballots[ballot].results[group][decisionKey]){
+        if (!result.ballots[ballot].results[group][decisionKey]) {
             result.ballots[ballot].results[group][decisionKey] = initDecisionResults(decisionMeta);
         }
 
         let decision = result.ballots[ballot].results[group][decisionKey];
-        if(choice.writeIn){
+        if (choice.writeIn) {
             let writeInVal = choice.writeIn.toUpperCase().trim();
-            if(!decision["WRITEIN-"+writeInVal]){
-                decision["WRITEIN-"+writeInVal] = 0;
+            if (!decision["WRITEIN-" + writeInVal]) {
+                decision["WRITEIN-" + writeInVal] = 0;
             }
-            decision["WRITEIN-"+writeInVal]++;
-        }else{
+            decision["WRITEIN-" + writeInVal]++;
+        } else {
             let selectionIndex = parseInt(choice.selection);
             let selectionTitle = decisionMeta["ballotItems"][selectionIndex]["itemTitle"];
             decision[selectionTitle]++;
@@ -311,7 +308,7 @@ const initTally = async (params) => {
     if (!params.electionAddress) {
         throw new Error("param.electionAddress is required")
     }
-    if (!params.resultsUpdateCallback){
+    if (!params.resultsUpdateCallback) {
         params.resultsUpdateCallback = (obj) => {
             log(JSON.stringify(obj));
         }
@@ -341,13 +338,13 @@ const getIpfsBallot = (ballot) => {
     return new Promise(async (resolve, reject) => {
         let location = await ballot.metadataLocation();
         ipfs.catJSON(location, (err, metadata) => {
-       	log(JSON.stringify(metadata));
-	if(err){
+            log(JSON.stringify(metadata));
+            if (err) {
                 console.error(err);
                 reject(err);
             }
             let decisions = [];
-            metadata.ballotGroups.forEach((bg)=>{
+            metadata.ballotGroups.forEach((bg) => {
                 decisions.pushArray(bg.ballotSections);
             });
             resolve({
@@ -358,19 +355,19 @@ const getIpfsBallot = (ballot) => {
     });
 };
 
-const getGroupsForPool = async(ballot, poolAddr) => {
+const getGroupsForPool = async (ballot, poolAddr) => {
     let pgCount = await ballot.getPoolGroupCount(poolAddr);
     let groups = [];
-    for(let i=0; i<pgCount; i++){
+    for (let i = 0; i < pgCount; i++) {
         let g = await ballot.getPoolGroupAt(poolAddr, i);
         groups.push(web3.toAscii(g).replace(/[\u0000]/g, '').trim());
     }
     return groups;
 };
 
-function decrypt(v, password){
+function decrypt(v, password) {
     let decipher = crypto.createDecipher("aes-256-cbc", new Buffer(password));
-    let dec = decipher.update(v, "base64","utf8");
+    let dec = decipher.update(v, "base64", "utf8");
     dec += decipher.final("utf8");
     return dec;
 }

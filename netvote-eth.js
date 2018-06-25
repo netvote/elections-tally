@@ -37,8 +37,15 @@ const getAbi = async (name, version) => {
         return contractCache[url]
     }
     const c = contract(await rp(url, { json: true }))
-    c.setProvider(web3Provider)
+    c.setProvider(web3.currentProvider)
     c.defaults(web3Defaults);
+    if (typeof c.currentProvider.sendAsync !== "function") {
+        c.currentProvider.sendAsync = function() {
+            return c.currentProvider.send.apply(
+                c.currentProvider, arguments
+            );
+        };
+    }
     contractCache[url] = c;
     return c;
 }
