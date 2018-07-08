@@ -247,7 +247,13 @@ const validateChoices = (choices, decisionsMetadata) => {
         return false;
     }
     choices.forEach((c, idx) => {
-        if (!c.writeIn) {
+        if(c.selections){
+            if (c.selections.points.length !== (decisionsMetadata[idx].ballotItems.length)) {
+                log("INVALID points must be allocated for each selection (or have 0 specified)");
+                return false;
+            }
+        }
+        else if (!c.writeIn && !c.selections) {
             if (c.selection < 0) {
                 log("INVALID selection < 0: " + c.selection);
                 return false;
@@ -290,6 +296,11 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
                 decision["WRITEIN-" + writeInVal] = 0;
             }
             decision["WRITEIN-" + writeInVal]++;
+        } else if(choice.selections) {
+            choice.selections.points.forEach((points, idx) => {
+                let selectionTitle = decisionMeta["ballotItems"][idx]["itemTitle"];
+                decision[selectionTitle]+=points;
+            })
         } else {
             let selectionIndex = parseInt(choice.selection);
             let selectionTitle = decisionMeta["ballotItems"][selectionIndex]["itemTitle"];

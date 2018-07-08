@@ -10,6 +10,118 @@ const assertResult = (actual, expected) => {
     assert.equal(actualStr, expectedStr)
 };
 
+contract('Points Tally', function (accounts) {
+    const election = require("../end-to-end/jslib/basic-election.js");
+
+    let config;
+
+    before(async ()=>{
+        let vote1Json = {
+            encryptionSeed: 12345,
+            ballotVotes: [
+                {
+                    choices: [
+                        {
+                            selections: {
+                                points: [5, 3, 1]
+                            }
+                        },
+                        {
+                            selections: {
+                                points: [3, 1]
+                            }
+                        },
+                        {
+                            selections: {
+                                points: [3, 1]
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+        let vote2Json = {
+            encryptionSeed: 54321,
+            ballotVotes: [
+                {
+                    choices: [
+                        {
+                            selections: {
+                                points: [1, 5, 3]
+                            }
+                        },
+                        {
+                            selections: {
+                                points: [1, 3]
+                            }
+                        },
+                        {
+                            selections: {
+                                points: [3, 1]
+                            }
+                        }
+                    ]
+                }
+            ]
+        };
+
+        let vote1 = await election.toEncryptedVote(vote1Json);
+        let vote2 = await election.toEncryptedVote(vote2Json);
+
+        config = await election.doEndToEndElectionAutoActivate({
+            account: {
+                allowance: 3,
+                owner: accounts[0]
+            },
+            netvote: accounts[1],
+            admin: accounts[2],
+            allowUpdates: false,
+            autoActivate: true,
+            skipGasMeasurment:  true,
+            gateway: accounts[3],
+            metadata: "Qmc9oXZnUtcHoa7GxE7Ujwq4zG9SqSqKk5w9Qjqbi1cEWB",
+            voters: {
+                voter1: {
+                    voteId: "vote-id-1",
+                    vote: vote1
+                },
+                voter2: {
+                    voteId: "vote-id-2",
+                    vote: vote2
+                }
+            }
+        });
+    });
+
+    it("should tally two votes", async function () {
+        let res = await tally.tallyElection({
+            electionAddress: config.contract.address,
+            provider: "http://localhost:8545",
+            version: 18,
+            protoPath: "protocol/vote.proto",
+            resultsUpdateCallback: (res) => {}
+        });
+
+        let ballotResults = res.ballots[config.contract.address];
+        assert.equal(ballotResults.totalVotes, 2);
+        assertResult(ballotResults.results["ALL"], [
+            {
+                "John Smith": 6,
+                "Sally Gutierrez": 8,
+                "Tyrone Williams": 4
+            },
+            {
+                "Yes": 4,
+                "No": 4
+            },
+            {
+                "Doug Hall": 6,
+                "Emily Washington": 2
+            }
+        ])
+    })
+})
+
 contract('Basic Tally', function (accounts) {
     const election = require("../end-to-end/jslib/basic-election.js");
 
