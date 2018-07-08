@@ -247,13 +247,25 @@ const validateChoices = (choices, decisionsMetadata) => {
         return false;
     }
     choices.forEach((c, idx) => {
-        if(c.selections){
+        if(decisionsMetadata[idx].type === "points"){
+            if(!c.selections || !c.selections.points ){
+                log("INVALID selections be specified for points type");
+                return false;
+            }
             if (c.selections.points.length !== (decisionsMetadata[idx].ballotItems.length)) {
                 log("INVALID points must be allocated for each selection (or have 0 specified)");
                 return false;
             }
+            let sum = 0;
+            c.selections.points.forEach((points) => {
+                sum += points;
+            })
+            if(sum !== decisionsMetadata[idx].totalPoints){
+                log("INVALID not all points allocated, requires total of "+decisionsMetadata[idx].totalPoints);
+                return false;
+            }
         }
-        else if (!c.writeIn && !c.selections) {
+        else if (!c.writeIn) {
             if (c.selection < 0) {
                 log("INVALID selection < 0: " + c.selection);
                 return false;

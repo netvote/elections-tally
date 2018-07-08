@@ -79,7 +79,7 @@ contract('Points Tally', function (accounts) {
             autoActivate: true,
             skipGasMeasurment:  true,
             gateway: accounts[3],
-            metadata: "Qmc9oXZnUtcHoa7GxE7Ujwq4zG9SqSqKk5w9Qjqbi1cEWB",
+            metadata: "QmVYnaUkLXsroJ2FjQFghjkRnm7SqgnRwTivUoabk7GTYH",
             voters: {
                 voter1: {
                     voteId: "vote-id-1",
