@@ -242,40 +242,92 @@ const validateBallotCount = (vote, count) => {
     return vote.ballotVotes.length === count;
 };
 
+// spend totalPoints amongst the choices, all points must be spent
+const validatePointsChoice = (choice, metadata) => {
+    const c = choice;
+    if (!c.selections || !c.selections.points ){
+        throw new Error("INVALID selections be specified for points type");
+    }
+    if (c.selections.points.length !== (metadata.ballotItems.length)) {
+        throw new Error("INVALID points must be allocated for each selection (or have 0 specified)");
+    }
+    let sum = 0;
+    c.selections.points.forEach((points) => {
+        sum += points;
+    })
+    if (sum !== metadata.totalPoints){
+        throw new Error("INVALID not all points allocated, requires total of "+metadata.totalPoints);
+    }
+}
+
+// strict numbering of 1-N for N choices
+const validateRankedChoice = (choice, metadata) => {
+    const c = choice;
+    if (!c.selections || !c.selections.points ) {
+        throw new Error("INVALID selections be specified for ranked type");
+    }
+    if (c.selections.points.length !== (metadata.ballotItems.length)) {
+        throw new Error("INVALID points must be allocated for each selection (or have 0 specified)");
+    }
+    //must contain all of 1,2,3,...N
+    for(let i=1; i<=c.selections.points.length; i++){
+        if(c.selections.points.indexOf(i) === -1){
+            throw new Error("INVALID ranked points must include every number from 1 to number of entries")
+        }
+    }
+}
+
+// each entry represents an index of a choice selected, numberToSelect must be selected
+const validateMultipleChoice = (choice, metadata) => {
+    const c = choice;
+    if (!c.selections || !c.selections.points ) {
+        throw new Error("INVALID selections be specified for ranked type");
+    }
+    if (c.selections.points.length !== metadata.numberToSelect) {
+        throw new Error("INVALID must select "+metadata.numberToSelect+" entries, found="+c.selections.points.length);
+    }
+    for(let i=1; i<=c.selections.points.length; i++){
+        if (c.selections.points[i] < 0) {
+            throw new Error("INVALID selection < 0: " + c.selections.points[i]);
+        }
+        if (c.selections.points[i] > (metadata.ballotItems.length - 1)) {
+            throw new Error("INVALID selection > array: " + c.selections.points[i]);
+        }
+    }
+}
+
+const validateSingleChoice = (choice, metadata) => {
+    const c = choice;
+    if(!c.writeIn){
+        if (c.selection < 0) {
+            throw new Error("INVALID selection < 0: " + c.selection);
+        }
+        if (c.selection > (metadata.ballotItems.length - 1)) {
+            throw new Error("INVALID selection > array: " + c.selection);
+        }
+    }
+}
+
 const validateChoices = (choices, decisionsMetadata) => {
     if (choices.length !== decisionsMetadata.length) {
         return false;
     }
-    choices.forEach((c, idx) => {
-        if(decisionsMetadata[idx].type === "points"){
-            if(!c.selections || !c.selections.points ){
-                log("INVALID selections be specified for points type");
-                return false;
-            }
-            if (c.selections.points.length !== (decisionsMetadata[idx].ballotItems.length)) {
-                log("INVALID points must be allocated for each selection (or have 0 specified)");
-                return false;
-            }
-            let sum = 0;
-            c.selections.points.forEach((points) => {
-                sum += points;
-            })
-            if(sum !== decisionsMetadata[idx].totalPoints){
-                log("INVALID not all points allocated, requires total of "+decisionsMetadata[idx].totalPoints);
-                return false;
-            }
-        }
-        else if (!c.writeIn) {
-            if (c.selection < 0) {
-                log("INVALID selection < 0: " + c.selection);
-                return false;
-            }
-            if (c.selection > (decisionsMetadata[idx].ballotItems.length - 1)) {
-                log("INVALID selection > array: " + c.selection);
-                return false;
-            }
-        }
-    });
+    const validations = {
+        "points": validatePointsChoice,
+        "ranked": validateRankedChoice,
+        "multiple": validateMultipleChoice,
+        "single": validateSingleChoice
+    }
+
+    try {
+        choices.forEach((c, idx) => {
+            let choiceType = decisionsMetadata[idx].type || "single"
+            validations[choiceType](c, decisionsMetadata[idx])
+        });
+    } catch(e) {
+        log(e.message)
+        return false;
+    }
     return true;
 };
 
@@ -291,6 +343,34 @@ const initDecisionResults = (decisionMeta) => {
     return decisionResults;
 };
 
+const tallySingleChoice = (choice, ballotItemsMetadata, decision) => {
+    if (choice.writeIn) {
+        let writeInVal = choice.writeIn.toUpperCase().trim();
+        if (!decision["WRITEIN-" + writeInVal]) {
+            decision["WRITEIN-" + writeInVal] = 0;
+        }
+        decision["WRITEIN-" + writeInVal]++;
+    } else {
+        let selectionIndex = parseInt(choice.selection);
+        let selectionTitle = ballotItemsMetadata[selectionIndex]["itemTitle"];
+        decision[selectionTitle]++;
+    }
+}
+
+const tallyMultipleChoice = (choice, ballotItemsMetadata, decision) => {
+    choice.selections.points.forEach((selectionIndex, idx) => {
+        let selectionTitle = ballotItemsMetadata[selectionIndex]["itemTitle"];
+        decision[selectionTitle]++;
+    })
+}
+
+const tallyPointsChoice = (choice, ballotItemsMetadata, decision) => {
+    choice.selections.points.forEach((points, idx) => {
+        let selectionTitle = ballotItemsMetadata[idx]["itemTitle"];
+        decision[selectionTitle]+=points;
+    })
+}
+
 const tallyVote = (choices, ballot, group, result, metadata) => {
     choices.forEach((choice, idx) => {
         let decisionMeta = metadata.decisions[idx];
@@ -302,21 +382,14 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
         }
 
         let decision = result.ballots[ballot].results[group][decisionKey];
-        if (choice.writeIn) {
-            let writeInVal = choice.writeIn.toUpperCase().trim();
-            if (!decision["WRITEIN-" + writeInVal]) {
-                decision["WRITEIN-" + writeInVal] = 0;
-            }
-            decision["WRITEIN-" + writeInVal]++;
-        } else if(choice.selections) {
-            choice.selections.points.forEach((points, idx) => {
-                let selectionTitle = decisionMeta["ballotItems"][idx]["itemTitle"];
-                decision[selectionTitle]+=points;
-            })
-        } else {
-            let selectionIndex = parseInt(choice.selection);
-            let selectionTitle = decisionMeta["ballotItems"][selectionIndex]["itemTitle"];
-            decision[selectionTitle]++;
+        let choiceType = decisionMeta.type || "single";
+
+        if(choiceType === "single"){
+            tallySingleChoice(choice, decisionMeta["ballotItems"], decision);
+        } else if(choiceType === "points" || choiceType === "ranked") {
+            tallyPointsChoice(choice, decisionMeta["ballotItems"], decision);
+        } else if(choiceType === "multiple") {
+            tallyMultipleChoice(choice, decisionMeta["ballotItems"], decision);
         }
         result.ballots[ballot].results[group][idx] = decision;
     });

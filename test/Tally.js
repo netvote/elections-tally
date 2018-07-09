@@ -10,7 +10,7 @@ const assertResult = (actual, expected) => {
     assert.equal(actualStr, expectedStr)
 };
 
-contract('Points Tally', function (accounts) {
+contract('Decision Types Tally', function (accounts) {
     const election = require("../end-to-end/jslib/basic-election.js");
 
     let config;
@@ -23,17 +23,20 @@ contract('Points Tally', function (accounts) {
                     choices: [
                         {
                             selections: {
-                                points: [5, 3, 1]
+                                points: [0, 1]
+                            }
+                        },
+                        {
+                            selection: 1
+                        },
+                        {
+                            selections: {
+                                points: [1,2,3]
                             }
                         },
                         {
                             selections: {
-                                points: [3, 1]
-                            }
-                        },
-                        {
-                            selections: {
-                                points: [3, 1]
+                                points: [3,6]
                             }
                         }
                     ]
@@ -47,17 +50,20 @@ contract('Points Tally', function (accounts) {
                     choices: [
                         {
                             selections: {
-                                points: [1, 5, 3]
+                                points: [1, 2]
+                            }
+                        },
+                        {
+                            selection: 1
+                        },
+                        {
+                            selections: {
+                                points: [2,1,3]
                             }
                         },
                         {
                             selections: {
-                                points: [1, 3]
-                            }
-                        },
-                        {
-                            selections: {
-                                points: [3, 1]
+                                points: [1,8]
                             }
                         }
                     ]
@@ -79,7 +85,7 @@ contract('Points Tally', function (accounts) {
             autoActivate: true,
             skipGasMeasurment:  true,
             gateway: accounts[3],
-            metadata: "QmVYnaUkLXsroJ2FjQFghjkRnm7SqgnRwTivUoabk7GTYH",
+            metadata: "QmZZHDHYAHJke9zBhHGHKNXYpkZGHqGwP7YK6mBBfWzabB",
             voters: {
                 voter1: {
                     voteId: "vote-id-1",
@@ -106,17 +112,22 @@ contract('Points Tally', function (accounts) {
         assert.equal(ballotResults.totalVotes, 2);
         assertResult(ballotResults.results["ALL"], [
             {
-                "John Smith": 6,
-                "Sally Gutierrez": 8,
-                "Tyrone Williams": 4
+                "John Smith": 1,
+                "Sally Gutierrez": 2,
+                "Tyrone Williams": 1
             },
             {
-                "Yes": 4,
-                "No": 4
+                "Yes": 0,
+                "No": 2
             },
             {
-                "Doug Hall": 6,
-                "Emily Washington": 2
+                "Red": 3,
+                "Green": 3,
+                "Blue": 6
+            },
+            {
+                "Doug Hall": 4,
+                "Emily Washington": 14
             }
         ])
     })
