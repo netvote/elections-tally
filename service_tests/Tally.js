@@ -10,6 +10,8 @@ const assertResult = (actual, expected) => {
     assert.equal(actualStr, expectedStr)
 };
 
+let TEST_METADATA = "QmNdYM85iDvXtyGGsPsE7n1kcy3A68YdsVV1eBAg33mraA"
+
 contract('Decision Types Tally', function (accounts) {
     const election = require("../end-to-end/jslib/basic-election.js");
 
@@ -22,20 +24,20 @@ contract('Decision Types Tally', function (accounts) {
                 {
                     choices: [
                         {
-                            selections: {
-                                points: [0, 1]
+                            indexSelections: {
+                                indexes: [0, 1]
                             }
                         },
                         {
                             selection: 1
                         },
                         {
-                            selections: {
+                            pointsAllocations: {
                                 points: [1,2,3]
                             }
                         },
                         {
-                            selections: {
+                            pointsAllocations: {
                                 points: [3,6]
                             }
                         }
@@ -49,20 +51,20 @@ contract('Decision Types Tally', function (accounts) {
                 {
                     choices: [
                         {
-                            selections: {
-                                points: [1, 2]
+                            indexSelections: {
+                                indexes: [1, 2]
                             }
                         },
                         {
                             selection: 1
                         },
                         {
-                            selections: {
+                            pointsAllocations: {
                                 points: [2,1,3]
                             }
                         },
                         {
-                            selections: {
+                            pointsAllocations: {
                                 points: [1,8]
                             }
                         }
@@ -71,8 +73,31 @@ contract('Decision Types Tally', function (accounts) {
             ]
         };
 
+        let abstainJson = {
+            encryptionSeed: 54321,
+            ballotVotes: [
+                {
+                    choices: [
+                        {
+                            abstain: true
+                        },
+                        {
+                            abstain: true
+                        },
+                        {
+                            abstain: true
+                        },
+                        {
+                            abstain: true
+                        }
+                    ]
+                }
+            ]
+        };
+
         let vote1 = await election.toEncryptedVote(vote1Json);
         let vote2 = await election.toEncryptedVote(vote2Json);
+        let abstainVote = await election.toEncryptedVote(abstainJson);
 
         config = await election.doEndToEndElectionAutoActivate({
             account: {
@@ -85,7 +110,7 @@ contract('Decision Types Tally', function (accounts) {
             autoActivate: true,
             skipGasMeasurment:  true,
             gateway: accounts[3],
-            metadata: "QmZZHDHYAHJke9zBhHGHKNXYpkZGHqGwP7YK6mBBfWzabB",
+            metadata: TEST_METADATA,
             voters: {
                 voter1: {
                     voteId: "vote-id-1",
@@ -94,6 +119,10 @@ contract('Decision Types Tally', function (accounts) {
                 voter2: {
                     voteId: "vote-id-2",
                     vote: vote2
+                },
+                voter3: {
+                    voteId: "vote-id-3",
+                    vote: abstainVote
                 }
             }
         });
@@ -109,25 +138,29 @@ contract('Decision Types Tally', function (accounts) {
         });
 
         let ballotResults = res.ballots[config.contract.address];
-        assert.equal(ballotResults.totalVotes, 2);
+        assert.equal(ballotResults.totalVotes, 3);
         assertResult(ballotResults.results["ALL"], [
             {
                 "John Smith": 1,
                 "Sally Gutierrez": 2,
-                "Tyrone Williams": 1
+                "Tyrone Williams": 1,
+                "ABSTAIN": 1
             },
             {
                 "Yes": 0,
-                "No": 2
+                "No": 2,
+                "ABSTAIN": 1
             },
             {
                 "Red": 3,
                 "Green": 3,
-                "Blue": 6
+                "Blue": 6,
+                "ABSTAIN": 1
             },
             {
                 "Doug Hall": 4,
-                "Emily Washington": 14
+                "Emily Washington": 14,
+                "ABSTAIN": 1
             }
         ])
     })
