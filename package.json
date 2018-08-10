@@ -1,6 +1,6 @@
 {
   "name": "@netvote/elections-tally",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Tally Netvote Elections",
   "main": "index.js",
   "scripts": {
@@ -27,7 +27,8 @@
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
     "request-promise-native": "^1.0.5",
-    "truffle-contract": "^3.0.1"
+    "truffle-contract": "^3.0.1",
+    "ursa": "^0.9.4"
   },
   "devDependencies": {
     "mocha": "^5.2.0",

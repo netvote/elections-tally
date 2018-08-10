@@ -1,6 +1,7 @@
 const protobuf = require("protobufjs");
 const crypto = require('crypto');
 const IPFS = require('ipfs-mini');
+const ursa = require('ursa');
 const ipfs = new IPFS({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' });
 
 Array.prototype.pushArray = function (arr) {
@@ -84,36 +85,44 @@ const tallyTieredElection = async (params) => {
                     let encoded = decrypt(encrypted, key);
                     let buff = Buffer.from(encoded, 'utf8');
                     let vote = Vote.decode(buff);
-                    if (validateBallotCount(vote, ballotCount)) {
-                        let choices = vote.ballotVotes[0].choices;
-                        if (validateChoices(choices, metadata.decisions)) {
-                            poolGroups.forEach((group, pgi) => {
-                                if (!results.ballots[ballotAddress].results[group]) {
-                                    results.ballots[ballotAddress].results[group] = []
-                                }
-                                results = tallyVote(choices, ballotAddress, group, results, metadata);
-                            });
-                            params.resultsUpdateCallback({
-                                status: "tallying",
-                                progress: {
-                                    poolIndex: p,
-                                    poolTotal: parseInt(poolCount),
-                                    poolBallotIndex: b,
-                                    poolBallotTotal: parseInt(ballotCount),
-                                    poolVoterIndex: i,
-                                    poolVoterTotal: parseInt(voteCount)
-                                },
-                                results: results
-                            });
-                        } else {
-                            log("skipping vote due to invalid choices: " + encoded);
-                        }
-                    } else {
-                        log("skipping vote due to invalid number of ballots: " + encoded);
+                    if(params.validateSignatures){
+                        let proof = await pool.getProofAt(i);
+                        await validateSignature(Vote, vote, proof)
                     }
+                    validateBallotCount(vote, ballotCount);
+
+                    let choices = vote.ballotVotes[0].choices;
+                    validateChoices(choices, metadata.decisions)
+
+                   
+                    poolGroups.forEach((group, pgi) => {
+                        if (!results.ballots[ballotAddress].results[group]) {
+                            results.ballots[ballotAddress].results[group] = []
+                        }
+                        results = tallyVote(choices, ballotAddress, group, results, metadata);
+                    });
+                    params.resultsUpdateCallback({
+                        status: "tallying",
+                        progress: {
+                            poolIndex: p,
+                            poolTotal: parseInt(poolCount),
+                            poolBallotIndex: b,
+                            poolBallotTotal: parseInt(ballotCount),
+                            poolVoterIndex: i,
+                            poolVoterTotal: parseInt(voteCount)
+                        },
+                        results: results
+                    });
+                
                 } catch (e) {
                     console.error(e);
-                    log("skipping vote due to extraction error: " + e.message);
+                    params.badVoteCallback({
+                        "pool": poolAddress,
+                        "reason": e.message,
+                        "index": i,
+                        "error": e,
+                        "vote": buff.toString("base64")
+                    })
                 }
             }
         }
@@ -150,33 +159,30 @@ const tallyTxVote = async (params) => {
 
     let ballotCount = await pool.getBallotCount();
 
-    if (validateBallotCount(vote, parseInt(ballotCount))) {
+    validateBallotCount(vote, parseInt(ballotCount))
 
-        for (let i = 0; i < ballotCount; i++) {
+    for (let i = 0; i < ballotCount; i++) {
 
-            let choices = vote.ballotVotes[i].choices;
-            let ballotAddress = await pool.getBallot(i);
+        let choices = vote.ballotVotes[i].choices;
+        let ballotAddress = await pool.getBallot(i);
 
-            let ballot = await BaseBallot.at(ballotAddress);
-            let metadata = await getIpfsBallot(ballot);
+        let ballot = await BaseBallot.at(ballotAddress);
+        let metadata = await getIpfsBallot(ballot);
 
-            results.ballots[ballotAddress] = {
-                totalVotes: 1,
-                decisionMetadata: metadata.decisions,
-                ballotTitle: metadata.title,
-                results: { "ALL": [] }
-            };
+        results.ballots[ballotAddress] = {
+            totalVotes: 1,
+            decisionMetadata: metadata.decisions,
+            ballotTitle: metadata.title,
+            results: { "ALL": [] }
+        };
 
-            if (validateChoices(choices, metadata.decisions)) {
-                results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
-            } else {
-                throw new Error("Invalid vote structure for ballot: " + ballotAddress);
-            }
+        if (validateChoices(choices, metadata.decisions)) {
+            results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
+        } else {
+            throw new Error("Invalid vote structure for ballot: " + ballotAddress);
         }
-        return results;
-    } else {
-        throw new Error("Expected " + ballotCount + " ballots but found " + vote.ballotVotes.length);
     }
+    return results;
 };
 
 const tallyBasicElection = async (params) => {
@@ -206,40 +212,102 @@ const tallyBasicElection = async (params) => {
             log("encoded=" + encoded);
             let buff = Buffer.from(encoded, 'utf8');
             let vote = Vote.decode(buff);
-            if (validateBallotCount(vote, 1)) {
-                let choices = vote.ballotVotes[0].choices;
-                if (validateChoices(choices, metadata.decisions)) {
-                    results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
-                    params.resultsUpdateCallback({
-                        status: "tallying",
-                        progress: {
-                            poolIndex: 0,
-                            poolTotal: 1,
-                            poolBallotIndex: 0,
-                            poolBallotTotal: 1,
-                            poolVoterIndex: i,
-                            poolVoterTotal: parseInt(voteCount)
-                        },
-                        results: results
-                    });
-                } else {
-                    log("skipping vote due to invalid choices: " + encoded);
-                }
-            } else {
-                log("skipping vote due to invalid number of ballots: " + encoded);
+            if(params.validateSignatures){
+                let proof = await election.getProofAt(i);
+                await validateSignature(Vote, vote, proof)
             }
+            validateBallotCount(vote, 1)
+            let choices = vote.ballotVotes[0].choices;
+
+            validateChoices(choices, metadata.decisions)
+            results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
+            params.resultsUpdateCallback({
+                status: "tallying",
+                progress: {
+                    poolIndex: 0,
+                    poolTotal: 1,
+                    poolBallotIndex: 0,
+                    poolBallotTotal: 1,
+                    poolVoterIndex: i,
+                    poolVoterTotal: parseInt(voteCount)
+                },
+                results: results
+            });
         } catch (e) {
             console.error(e);
-            log("skipping vote due to extraction error: " + e.message);
+            params.badVoteCallback({
+                "pool": params.electionAddress,
+                "reason": e.message,
+                "index": i,
+                "error": e
+            })
         }
     }
     return results;
 };
 
+let getFromIPFS = (location) => {
+    return new Promise((resolve, reject) => {
+        ipfs.catJSON(location, (err, obj) => {
+            if (err) {
+                console.error(err);
+                reject(err);
+            }
+            resolve(obj)
+        });
+    })
+}
+
+const toEncodedVote = async (VoteProto, payload) => {
+    let errMsg = VoteProto.verify(payload);
+    if (errMsg) {
+        console.error("invalid:"+errMsg);
+        throw Error(errMsg);
+    }
+
+    let vote = await VoteProto.create(payload);
+    return await VoteProto.encode(vote).finish();
+};
+
+const trimVote = async (VoteProto, voteObj) => {
+    let trimmedPayload = {
+        signatureSeed: voteObj.signatureSeed,
+        ballotVotes: voteObj.ballotVotes
+    };
+    let ev = await toEncodedVote(VoteProto, trimmedPayload)
+    return ev.toString("base64")
+}
+
 // INTERNAL METHODS
+const validateSignature = async (VoteProto, voteObj, proof) => {
+    if(!proof){
+        throw new Error("proof is required and is absent")
+    }
+    let proofObj;
+    try{
+        proofObj = await getFromIPFS(proof);
+    }catch(e){
+        throw new Error("Could not find IPFS reference: "+proof+", error="+e.message);
+    }
+    if(!proofObj.signature){
+        throw new Error("signature is not specified in IPFS proof: "+proof)
+    }
+    if(!proofObj.publicKey){
+        throw new Error("publicKey is not specified in IPFS proof: "+proof)
+    }
+
+    let trimmedVote64 = await trimVote(VoteProto, voteObj);
+    const pub = ursa.createPublicKey(proofObj.publicKey, 'base64');    
+    if(!pub.hashAndVerify('md5', new Buffer(trimmedVote64), proofObj.signature, "base64")){
+        throw new Error("signature is incorrect")
+    }
+    return true;
+}
 
 const validateBallotCount = (vote, count) => {
-    return vote.ballotVotes.length === count;
+    if(vote.ballotVotes.length !== count){
+        throw new Error("INVALID required ballot count="+count+", actual="+vote.ballotVotes.length);
+    }
 };
 
 // spend totalPoints amongst the choices, all points must be spent
@@ -329,25 +397,17 @@ const validations = {
 }
 
 const validateChoices = (choices, decisionsMetadata) => {
-    try {
-        if (choices.length !== decisionsMetadata.length) {
-            throw new Error(`INVALID not enough choices (${choices.length}) for number of decisions (${decisionsMetadata.length})`);
-        }
-
-        choices.forEach((c, idx) => {
-            let choiceType = decisionsMetadata[idx].type || "single"
-            if(!c.abstain) {
-                validations[choiceType](c, decisionsMetadata[idx])
-            }
-        });
-    } catch(e) {
-        console.log(JSON.stringify({
-            type: "VALIDATION",
-            error: e.message,
-            vote: choices
-        }))
-        return false;
+    if (choices.length !== decisionsMetadata.length) {
+        throw new Error(`INVALID not enough choices (${choices.length}) for number of decisions (${decisionsMetadata.length})`);
     }
+
+    choices.forEach((c, idx) => {
+        let choiceType = decisionsMetadata[idx].type || "single"
+        if(!c.abstain) {
+            validations[choiceType](c, decisionsMetadata[idx])
+        }
+    });
+
     return true;
 };
 
@@ -434,6 +494,11 @@ const initTally = async (params) => {
             log(JSON.stringify(obj));
         }
     }
+    if (!params.badVoteCallback) {
+        params.badVoteCallback = (obj) => {
+            log(JSON.stringify(obj));
+        }
+    }
     if (!params.version) {
         throw new Error("expected version parameter (e.g., 18)")
     }
@@ -493,8 +558,18 @@ function decrypt(v, password) {
     return dec;
 }
 
+let mockSignatureObj;
+
+const mockIpfsSignatures = (obj) =>{
+    mockSignatureObj = obj;
+    getFromIPFS = (location) => {
+        return mockSignatureObj[location];
+    }
+}
+
 module.exports = {
     tallyElection,
     tallyTxVote,
-    validateChoices
+    validateChoices,
+    mockIpfsSignatures
 };
