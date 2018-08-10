@@ -1,8 +1,15 @@
 const assert = require('assert');
 const tally = require("../tally")
 
-const expectError = (result) => {
-    assert.equal(result, false, "expected validation error but didn't get one")
+const expectError = (fn) => {
+    let thrown = false;
+    try{
+        fn()
+    }catch(e){
+        thrown=true;
+    }finally{
+        assert.equal(true, thrown, "expected error");
+    }
 }
 
 describe("Single Choice Validation", function () {
@@ -46,17 +53,17 @@ describe("Single Choice Validation", function () {
     describe("invalid", ()=>{
         it("should reject out-of-range choice", () => {
             let choices = [{selection: 5}]
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
 
         it("should reject blank choice", () => {
             let choices = [{}]
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
 
         it("should reject multiple choice", () => {
             let choices = [{indexSelections: {indexes:[0,1]}}]
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
         
     })
@@ -107,7 +114,7 @@ describe("Multiple Choice Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
     
         it("should reject more than maxVotes", () => {
@@ -117,7 +124,7 @@ describe("Multiple Choice Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
     })
     
@@ -168,7 +175,7 @@ describe("Points Allocation Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
     
         it("should reject too many items", () => {
@@ -178,7 +185,7 @@ describe("Points Allocation Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
 
         it("should reject too many points", () => {
@@ -188,7 +195,7 @@ describe("Points Allocation Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
 
         it("should reject too few points", () => {
@@ -198,7 +205,7 @@ describe("Points Allocation Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
     })
     
@@ -248,7 +255,7 @@ describe("Ranked Choice Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
     
         it("should reject too many items", () => {
@@ -258,7 +265,7 @@ describe("Ranked Choice Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
 
         it("should reject non-consecutive values", () => {
@@ -268,7 +275,7 @@ describe("Ranked Choice Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
 
         it("should reject zero", () => {
@@ -278,7 +285,7 @@ describe("Ranked Choice Validation", function () {
                 }
             }]
     
-            expectError(tally.validateChoices(choices, metadata));
+            expectError(()=>{tally.validateChoices(choices, metadata)});
         })
     })
     
