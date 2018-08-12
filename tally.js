@@ -63,6 +63,9 @@ const tallyTieredElection = async (params) => {
         let poolAddress = await election.getPool(p);
         let pool = await TieredPool.at(poolAddress);
         let ballotCount = await pool.getBallotCount();
+
+        
+
         for (let b = 0; b < ballotCount; b++) {
             let ballotAddress = await pool.getBallot(b);
             let ballot = await TieredBallot.at(ballotAddress);
@@ -119,9 +122,7 @@ const tallyTieredElection = async (params) => {
                     params.badVoteCallback({
                         "pool": poolAddress,
                         "reason": e.message,
-                        "index": i,
-                        "error": e,
-                        "vote": buff.toString("base64")
+                        "index": i
                     })
                 }
             }
@@ -238,8 +239,7 @@ const tallyBasicElection = async (params) => {
             params.badVoteCallback({
                 "pool": params.electionAddress,
                 "reason": e.message,
-                "index": i,
-                "error": e
+                "index": i
             })
         }
     }
@@ -352,7 +352,7 @@ const validateMultipleChoice = (choice, metadata) => {
     const c = choice;
     const selections = c.indexSelections;
     if (!selections || !selections.indexes ) {
-        throw new Error("INVALID selections be specified for ranked type");
+        throw new Error("INVALID indexSelections be specified for multiple choice type");
     }
     // cannot select more than allowed (default max is number of choices)
     let maxSelect = metadata.maxSelect || metadata.ballotItems.length; 
