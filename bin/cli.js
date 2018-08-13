@@ -5,6 +5,9 @@ let tally = require('../tally');
 
 let election="";
 
+//EXAMPLE
+//node bin/cli.js --signatures --provider https://eth.netvote.io 0x451f1bab405add84bb2263cdfbdf218fbf611282
+
 program
     .version('0.0.1')
     .usage('[options] <electionAddress>')
@@ -12,6 +15,7 @@ program
         election = electionAddress;
     })
     .option("-p, --provider [provider]", "Use specified endpoint")
+    .option("-s, --signatures", "Validate signatures")
     .parse(process.argv);
 
 if(!election) {
@@ -26,10 +30,13 @@ if(!program.provider) {
     process.exit(1);
 }
 
+let validateSignatures = (program.signatures) ? true : false;
+
 tally.tallyElection({
     electionAddress: election,
-    version: 15,
+    version: 22,
     provider: program.provider,
+    validateSignatures: validateSignatures,
     resultsUpdateCallback: (res) => {}
 }).then((res) => {
     console.log(JSON.stringify(res, null, "\t"));
