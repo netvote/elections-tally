@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+var fs = require('fs');
 let program = require('commander');
 let tally = require('../tally');
 
@@ -16,6 +17,7 @@ program
     })
     .option("-p, --provider [provider]", "Use specified endpoint")
     .option("-s, --signatures", "Validate signatures")
+    .option("-e, --export [export]", "Validate signatures")
     .parse(process.argv);
 
 if(!election) {
@@ -32,12 +34,36 @@ if(!program.provider) {
 
 let validateSignatures = (program.signatures) ? true : false;
 
+let voteCounter = 0;
+
+if (!fs.existsSync(program.export)){
+    fs.mkdirSync(program.export);
+}
+
+const writeVote = async(path, vote)=>{
+    return new Promise((resolve, reject)=>{
+        fs.writeFile(path, JSON.stringify(vote), function(err) {
+            if(err){
+                reject(err);
+            } else {
+                resolve(true);
+            }
+        });
+    })
+}
+
 tally.tallyElection({
     electionAddress: election,
     version: 22,
+    export: program.export,
     provider: program.provider,
     validateSignatures: validateSignatures,
-    resultsUpdateCallback: (res) => {}
+    resultsUpdateCallback: async (res) => {
+        if(program.export){
+            voteCounter++;
+            await writeVote(program.export+"/vote"+voteCounter+".json", res.vote)
+        }
+    }
 }).then((res) => {
     console.log(JSON.stringify(res, null, "\t"));
 }).catch((err) => {

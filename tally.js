@@ -97,17 +97,37 @@ const tallyTieredElection = async (params) => {
                     let choices = vote.ballotVotes[0].choices;
                     validateChoices(choices, metadata.decisions)
 
-                   
+                    let thisVoteResult = {}
+ 
+                    thisVoteResult = {
+                        election: params.electionAddress,
+                        ballots: {}
+                    };
+                    thisVoteResult.ballots[params.electionAddress] = {
+                        totalVotes: 1,
+                        decisionMetadata: metadata.decisions,
+                        ballotTitle: metadata.title,
+                        results: { "ALL": [] }
+                    };
+                    
                     poolGroups.forEach((group, pgi) => {
                         if (!results.ballots[ballotAddress].results[group]) {
                             results.ballots[ballotAddress].results[group] = []
                         }
                         results = tallyVote(choices, ballotAddress, group, results, metadata);
+                        if(params.export){
+                            thisVoteResult.ballots[ballotAddress].results[group] = []
+                            thisVoteResult = tallyVote(choices, ballotAddress, group, thisVoteResult, metadata);
+                        }
                     });
+
+                    delete thisVoteResult.ballots[params.electionAddress].decisionMetadata;
+                    delete thisVoteResult.ballots[params.electionAddress].ballotTitle;
                     params.resultsUpdateCallback({
                         status: "tallying",
                         progress: {
                             poolIndex: p,
+                            vote: thisVoteResult,
                             poolTotal: parseInt(poolCount),
                             poolBallotIndex: b,
                             poolBallotTotal: parseInt(ballotCount),
@@ -222,8 +242,25 @@ const tallyBasicElection = async (params) => {
 
             validateChoices(choices, metadata.decisions)
             results = tallyVote(choices, params.electionAddress, "ALL", results, metadata);
+            let thisVoteResult = {}
+            if(params.export) {
+                thisVoteResult = {
+                    election: params.electionAddress,
+                    ballots: {}
+                };
+                thisVoteResult.ballots[params.electionAddress] = {
+                    totalVotes: 1,
+                    decisionMetadata: metadata.decisions,
+                    ballotTitle: metadata.title,
+                    results: { "ALL": [] }
+                };
+                thisVoteResult = tallyVote(choices, params.electionAddress, "ALL", thisVoteResult, metadata);
+                delete thisVoteResult.ballots[params.electionAddress].decisionMetadata;
+                delete thisVoteResult.ballots[params.electionAddress].ballotTitle;
+            }
             params.resultsUpdateCallback({
                 status: "tallying",
+                vote: thisVoteResult,
                 progress: {
                     poolIndex: 0,
                     poolTotal: 1,
