@@ -2,7 +2,12 @@ const protobuf = require("protobufjs");
 const crypto = require('crypto');
 const IPFS = require('ipfs-mini');
 const ursa = require('ursa');
-const ipfs = new IPFS({ host: 'gateway.ipfs.io', port: 443, protocol: 'https' });
+
+const IPFS_HOST = process.env.IPFS_HOST || "ipfs.netvote.io";
+const IPFS_PORT = process.env.IPFS_PORT ? parseInt(process.env.IPFS_PORT) : 443;
+const IPFS_PROTOCOL = process.env.IPFS_PORT || "HTTPS";
+
+const ipfs = new IPFS({ host: IPFS_HOST, port: IPFS_PORT, protocol: IPFS_PROTOCOL });
 
 Array.prototype.pushArray = function (arr) {
     this.push.apply(this, arr);
@@ -233,8 +238,9 @@ const tallyBasicElection = async (params) => {
             log("encoded=" + encoded);
             let buff = Buffer.from(encoded, 'utf8');
             let vote = Vote.decode(buff);
+            let proof = "";
             if(params.validateSignatures){
-                let proof = await election.getProofAt(i);
+                proof = await election.getProofAt(i);
                 await validateSignature(Vote, vote, proof)
             }
             validateBallotCount(vote, 1)
@@ -252,6 +258,8 @@ const tallyBasicElection = async (params) => {
                     totalVotes: 1,
                     decisionMetadata: metadata.decisions,
                     ballotTitle: metadata.title,
+                    proof: proof,
+                    signatureSeed: vote.signatureSeed,
                     results: { "ALL": [] }
                 };
                 thisVoteResult = tallyVote(choices, params.electionAddress, "ALL", thisVoteResult, metadata);
