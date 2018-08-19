@@ -1,6 +1,6 @@
 {
   "name": "@netvote/elections-tally",
-  "version": "0.2.9",
+  "version": "0.2.10",
   "description": "Tally Netvote Elections",
   "main": "index.js",
   "scripts": {
