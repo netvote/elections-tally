@@ -52,12 +52,21 @@ const writeVote = async(path, vote)=>{
     })
 }
 
+let badVoteCounter = 0;
+
 tally.tallyElection({
     electionAddress: election,
     version: 22,
     export: program.export,
     provider: program.provider,
     validateSignatures: validateSignatures,
+    badVoteCallback: async(obj)=>{
+        console.log("BAD VOTE:"+ JSON.stringify(obj))
+        if(program.export){
+            badVoteCounter++;
+            await writeVote(program.export+"/BADVOTE"+badVoteCounter+".json", obj)
+        }
+    },
     resultsUpdateCallback: async (res) => {
         if(program.export){
             voteCounter++;
