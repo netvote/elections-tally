@@ -36,8 +36,10 @@ let validateSignatures = (program.signatures) ? true : false;
 
 let voteCounter = 0;
 
-if (!fs.existsSync(program.export)){
-    fs.mkdirSync(program.export);
+if(program.export){
+    if (!fs.existsSync(program.export)){
+        fs.mkdirSync(program.export);
+    }
 }
 
 const writeVote = async(path, vote)=>{

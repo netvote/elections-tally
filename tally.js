@@ -109,7 +109,7 @@ const tallyTieredElection = async (params) => {
                         ballots: {}
                     };
                     thisVoteResult.ballots[params.electionAddress] = {
-                        totalVotes: 1,
+                        totalVotes: 0,
                         decisionMetadata: metadata.decisions,
                         ballotTitle: metadata.title,
                         results: { "ALL": [] }
@@ -125,7 +125,7 @@ const tallyTieredElection = async (params) => {
                             thisVoteResult = tallyVote(choices, ballotAddress, group, thisVoteResult, metadata);
                         }
                     });
-
+                    thisVoteResult.ballots[params.electionAddress].payload = buff.toString("base64")
                     delete thisVoteResult.ballots[params.electionAddress].decisionMetadata;
                     delete thisVoteResult.ballots[params.electionAddress].ballotTitle;
                     params.resultsUpdateCallback({
@@ -255,7 +255,7 @@ const tallyBasicElection = async (params) => {
                     ballots: {}
                 };
                 thisVoteResult.ballots[params.electionAddress] = {
-                    totalVotes: 1,
+                    totalVotes: 0,
                     decisionMetadata: metadata.decisions,
                     ballotTitle: metadata.title,
                     proof: proof,
@@ -263,6 +263,7 @@ const tallyBasicElection = async (params) => {
                     results: { "ALL": [] }
                 };
                 thisVoteResult = tallyVote(choices, params.electionAddress, "ALL", thisVoteResult, metadata);
+                thisVoteResult.ballots[params.electionAddress].payload = buff.toString("base64")
                 delete thisVoteResult.ballots[params.electionAddress].decisionMetadata;
                 delete thisVoteResult.ballots[params.electionAddress].ballotTitle;
             }
