@@ -292,18 +292,6 @@ const tallyBasicElection = async (params) => {
     return results;
 };
 
-let getFromIPFS = (location) => {
-    return new Promise((resolve, reject) => {
-        ipfs.catJSON(location, (err, obj) => {
-            if (err) {
-                console.error(err);
-                reject(err);
-            }
-            resolve(obj)
-        });
-    })
-}
-
 const toEncodedVote = async (VoteProto, payload) => {
     let errMsg = VoteProto.verify(payload);
     if (errMsg) {
@@ -490,6 +478,7 @@ const tallyMultipleChoice = (choice, ballotItemsMetadata, decision) => {
     })
 }
 
+
 const tallyPointsChoice = (choice, ballotItemsMetadata, decision) => {
     choice.pointsAllocations.points.forEach((points, idx) => {
         let selectionTitle = ballotItemsMetadata[idx]["itemTitle"];
@@ -497,7 +486,19 @@ const tallyPointsChoice = (choice, ballotItemsMetadata, decision) => {
     })
 }
 
+const tallyRankedChoice = (choice, ballotItemsMetadata, decision, totalVotes) => {
+    choice.pointsAllocations.points.forEach((points, idx) => {
+        let selectionTitle = ballotItemsMetadata[idx]["itemTitle"];
+        let abstainCount = decision["ABSTAIN"]  || 0;
+        let totalVotesToAvg = totalVotes - abstainCount - 1; //prior count
+        let cumulativePts = totalVotesToAvg * decision[selectionTitle];
+        cumulativePts += points;
+        decision[selectionTitle] = (cumulativePts / (totalVotesToAvg + 1));
+    })
+}
+
 const tallyVote = (choices, ballot, group, result, metadata) => {
+    result.ballots[ballot].totalVotes++;
     choices.forEach((choice, idx) => {
         let decisionMeta = metadata.decisions[idx];
         let decisionKey = idx;
@@ -517,14 +518,16 @@ const tallyVote = (choices, ballot, group, result, metadata) => {
             decision["ABSTAIN"]++;
         } else if(choiceType === "single"){
             tallySingleChoice(choice, decisionMeta["ballotItems"], decision);
-        } else if(choiceType === "points" || choiceType === "ranked") {
+        } else if (choiceType === "ranked") {
+            tallyRankedChoice(choice, decisionMeta["ballotItems"], decision, result.ballots[ballot].totalVotes);
+        } else if(choiceType === "points") {
             tallyPointsChoice(choice, decisionMeta["ballotItems"], decision);
         } else if(choiceType === "multiple") {
             tallyMultipleChoice(choice, decisionMeta["ballotItems"], decision);
         }
         result.ballots[ballot].results[group][idx] = decision;
     });
-    result.ballots[ballot].totalVotes++;
+    
     return result;
 };
 
@@ -566,25 +569,61 @@ const voteProto = async () => {
     return root.lookupType("netvote.Vote");
 };
 
-const getIpfsBallot = (ballot) => {
-    return new Promise(async (resolve, reject) => {
-        let location = await ballot.metadataLocation();
-        ipfs.catJSON(location, (err, metadata) => {
-            log(JSON.stringify(metadata));
+const getIpfsClient = (ipfsUrl) => {
+    return  new IPFS({ host: ipfsUrl, port: 443, protocol: 'https' });
+}
+
+let IPFS_URL_LIST = ["ipfs.netvote.io", "ipfs.infura.io"];
+
+let getObjFromIPFS = async (location) => {
+    console.log("NOT MOCK")
+    let retries = 2;
+    for(let i=0; i<retries; i++){
+        for(let u = 0; u<IPFS_URL_LIST.length; u++){
+            try{
+                let ipfs = getIpfsClient(IPFS_URL_LIST[u])
+                return await getFromIPFSUnsafe(ipfs, location);
+            } catch (e) {
+                //already logged, try again
+            }
+        }
+    }
+    throw new Error("Error trying to access ipfs: "+location)
+}
+
+let getFromIPFS = getObjFromIPFS;
+
+const getFromIPFSUnsafe = (ipfsObj, location) => {
+    return new Promise((resolve, reject) => {
+        let completed = false;
+        setTimeout(function(){
+            if(!completed){
+                reject(new Error("IPFS timeout"));
+            }
+        }, 5000);
+        ipfsObj.catJSON(location, (err, obj) => {
+            completed = true;
             if (err) {
                 console.error(err);
                 reject(err);
             }
-            let decisions = [];
-            metadata.ballotGroups.forEach((bg) => {
-                decisions.pushArray(bg.ballotSections);
-            });
-            resolve({
-                title: metadata.ballotTitle,
-                decisions: decisions
-            });
+            resolve(obj)
         });
+    })
+}
+
+const getIpfsBallot = async (ballot) => {
+    let location = await ballot.metadataLocation();
+    let metadata = await getObjFromIPFS(location);
+    log("BALLOT:"+JSON.stringify(metadata));
+    let decisions = [];
+    metadata.ballotGroups.forEach((bg) => {
+        decisions.pushArray(bg.ballotSections);
     });
+    return {
+        title: metadata.ballotTitle,
+        decisions: decisions
+    };
 };
 
 const getGroupsForPool = async (ballot, poolAddr) => {
@@ -608,7 +647,8 @@ let mockSignatureObj;
 
 const mockIpfsSignatures = (obj) =>{
     mockSignatureObj = obj;
-    getFromIPFS = (location) => {
+    getFromIPFS = async (location) => {
+        console.log("MOCK")
         return mockSignatureObj[location];
     }
 }

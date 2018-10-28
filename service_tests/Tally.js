@@ -153,9 +153,9 @@ contract('Decision Types Tally', function (accounts) {
                 "ABSTAIN": 1
             },
             {
-                "Red": 3,
-                "Green": 3,
-                "Blue": 6,
+                "Red": 1.5,
+                "Green": 1.5,
+                "Blue": 3,
                 "ABSTAIN": 1
             },
             {
