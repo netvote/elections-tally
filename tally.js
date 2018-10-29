@@ -1,13 +1,7 @@
 const protobuf = require("protobufjs");
 const crypto = require('crypto');
-const IPFS = require('ipfs-mini');
 const ursa = require('ursa');
-
-const IPFS_HOST = process.env.IPFS_HOST || "ipfs.netvote.io";
-const IPFS_PORT = process.env.IPFS_PORT ? parseInt(process.env.IPFS_PORT) : 443;
-const IPFS_PROTOCOL = process.env.IPFS_PORT || "HTTPS";
-
-const ipfs = new IPFS({ host: IPFS_HOST, port: IPFS_PORT, protocol: IPFS_PROTOCOL });
+const netvoteApi = require("@netvote/netvote-api-sdk")
 
 Array.prototype.pushArray = function (arr) {
     this.push.apply(this, arr);
@@ -15,6 +9,7 @@ Array.prototype.pushArray = function (arr) {
 
 const nv = require('./netvote-eth');
 
+let nvApiClient;
 let web3;
 let protoPath = "./vote.proto";
 
@@ -349,7 +344,7 @@ const validatePointsChoice = (choice, metadata) => {
     const c = choice;
     const selections = c.pointsAllocations;
     if (!selections || !selections.points ){
-        throw new Error("INVALID selections be specified for points type");
+        throw new Error("INVALID pointsAllocations be specified for points type");
     }
     if (selections.points.length !== (metadata.ballotItems.length)) {
         throw new Error("INVALID points must be allocated for each selection (or have 0 specified)");
@@ -368,7 +363,7 @@ const validateRankedChoice = (choice, metadata) => {
     const c = choice;
     const selections = c.pointsAllocations;
     if (!selections || !selections.points ) {
-        throw new Error("INVALID selections be specified for ranked type");
+        throw new Error("INVALID pointsAllocations be specified for ranked type");
     }
     if (selections.points.length !== (metadata.ballotItems.length)) {
         throw new Error("INVALID points must be allocated for each selection (or have 0 specified)");
@@ -552,6 +547,13 @@ const initTally = async (params) => {
         throw new Error("expected version parameter (e.g., 18)")
     }
 
+    let apiKey = params.apiKey || process.env.NETVOTE_API_KEY;
+    if(!apiKey){
+        throw new Error("apiKey is required");
+    }
+
+    nvApiClient = netvoteApi.initVoterClient(apiKey);
+
     nv.Init(params.provider, params.version)
     BasicElection = await nv.BasicElection(params.version);
     TieredPool = await nv.TieredPool(params.version);
@@ -569,48 +571,11 @@ const voteProto = async () => {
     return root.lookupType("netvote.Vote");
 };
 
-const getIpfsClient = (ipfsUrl) => {
-    return  new IPFS({ host: ipfsUrl, port: 443, protocol: 'https' });
-}
-
-let IPFS_URL_LIST = ["ipfs.netvote.io", "ipfs.infura.io"];
-
 let getObjFromIPFS = async (location) => {
-    console.log("NOT MOCK")
-    let retries = 2;
-    for(let i=0; i<retries; i++){
-        for(let u = 0; u<IPFS_URL_LIST.length; u++){
-            try{
-                let ipfs = getIpfsClient(IPFS_URL_LIST[u])
-                return await getFromIPFSUnsafe(ipfs, location);
-            } catch (e) {
-                //already logged, try again
-            }
-        }
-    }
-    throw new Error("Error trying to access ipfs: "+location)
+    return await nvApiClient.GetFromIPFS(location);
 }
 
 let getFromIPFS = getObjFromIPFS;
-
-const getFromIPFSUnsafe = (ipfsObj, location) => {
-    return new Promise((resolve, reject) => {
-        let completed = false;
-        setTimeout(function(){
-            if(!completed){
-                reject(new Error("IPFS timeout"));
-            }
-        }, 5000);
-        ipfsObj.catJSON(location, (err, obj) => {
-            completed = true;
-            if (err) {
-                console.error(err);
-                reject(err);
-            }
-            resolve(obj)
-        });
-    })
-}
 
 const getIpfsBallot = async (ballot) => {
     let location = await ballot.metadataLocation();
@@ -648,7 +613,6 @@ let mockSignatureObj;
 const mockIpfsSignatures = (obj) =>{
     mockSignatureObj = obj;
     getFromIPFS = async (location) => {
-        console.log("MOCK")
         return mockSignatureObj[location];
     }
 }

@@ -1,6 +1,6 @@
 {
   "name": "@netvote/elections-tally",
-  "version": "0.2.12",
+  "version": "0.2.13",
   "description": "Tally Netvote Elections",
   "main": "index.js",
   "scripts": {
@@ -19,10 +19,10 @@
   },
   "homepage": "https://github.com/netvote/elections-tally#readme",
   "dependencies": {
+    "@netvote/netvote-api-sdk": "^1.0.2",
     "abi-decoder": "^1.0.9",
     "commander": "^2.12.1",
     "crypto": "^1.0.1",
-    "ipfs-mini": "^1.1.2",
     "protobufjs": "^6.8.8",
     "request": "^2.85.0",
     "request-promise": "^4.2.2",
